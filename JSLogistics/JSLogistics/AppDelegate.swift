@@ -36,7 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }else{
 //            window?.rootViewController = GYZBaseNavigationVC(rootViewController: HOOPRegisterFirstVC())
 //        }
-        window?.rootViewController = GYZBaseNavigationVC(rootViewController: GYZMainTabBarVC())
+        window?.rootViewController = GYZMainTabBarVC()
         window?.makeKeyAndVisible()
         
         return true

@@ -12,7 +12,7 @@ class JSLHomeVC: GYZBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.title = "即时美食"
     }
 }

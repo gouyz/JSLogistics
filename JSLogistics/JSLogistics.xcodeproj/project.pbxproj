@@ -122,6 +122,7 @@
 		0A5093DF22FACA36002535FF /* JSLMessageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5093DE22FACA36002535FF /* JSLMessageVC.swift */; };
 		0A5093E122FACA62002535FF /* JSLMineVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5093E022FACA62002535FF /* JSLMineVC.swift */; };
 		0A5093E322FACA99002535FF /* JSLPublishVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5093E222FACA99002535FF /* JSLPublishVC.swift */; };
+		0A9758CA22FC152D00CC071D /* JSLHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */; };
 		2D2DA590E3ED61BA468271D8 /* Pods_JSLogistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1785B1AF973FD205C96C69B /* Pods_JSLogistics.framework */; };
 /* End PBXBuildFile section */
 
@@ -277,6 +278,7 @@
 		0A5093E022FACA62002535FF /* JSLMineVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineVC.swift; sourceTree = "<group>"; };
 		0A5093E222FACA99002535FF /* JSLPublishVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLPublishVC.swift; sourceTree = "<group>"; };
 		0A5093E422FAD115002535FF /* JSLogistics-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JSLogistics-Bridging-Header.h"; sourceTree = "<group>"; };
+		0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeHeaderView.swift; sourceTree = "<group>"; };
 		674F552A2F5BAB6F140C2D27 /* Pods-JSLogistics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.release.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.release.xcconfig"; sourceTree = "<group>"; };
 		BACD1EAE9FBABD9951B21737 /* Pods-JSLogistics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.debug.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.debug.xcconfig"; sourceTree = "<group>"; };
 		D1785B1AF973FD205C96C69B /* Pods_JSLogistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSLogistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -742,6 +744,7 @@
 		0A5093CD22FAC932002535FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1068,6 +1071,7 @@
 				0A50938D22FAC675002535FF /* ETNavBarTransparent.swift in Sources */,
 				0A5093B122FAC675002535FF /* GYZSheetCell.swift in Sources */,
 				0A5093E122FACA62002535FF /* JSLMineVC.swift in Sources */,
+				0A9758CA22FC152D00CC071D /* JSLHomeHeaderView.swift in Sources */,
 				0A50939522FAC675002535FF /* GYZUIViewController+Loading.swift in Sources */,
 				0A5093A322FAC675002535FF /* ToolBarView.swift in Sources */,
 				0A5093BD22FAC675002535FF /* GYZUpdateVersionTool.swift in Sources */,

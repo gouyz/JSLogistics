@@ -39,9 +39,9 @@ class GYZBaseNavigationVC: UINavigationController ,UIGestureRecognizerDelegate {
     private func _init() {
         /// 设置导航栏标题
         let navBar = UINavigationBar.appearance()
-        navBar.tintColor = kBlackColor
-        navBar.barTintColor = kNavBarColor
-        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: kBlackColor, NSAttributedString.Key.font: k18Font]
+        navBar.tintColor = kBlackFontColor
+        navBar.barTintColor = kWhiteColor
+        navBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: kBlackFontColor, NSAttributedString.Key.font: k18Font]
 
         // 右滑返回代理
         self.interactivePopGestureRecognizer?.delegate = self

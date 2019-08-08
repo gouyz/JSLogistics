@@ -36,15 +36,15 @@ class GYZSearchBtnView: UIView {
             make.height.equalTo(30)
         }
         
-        searchBtn.set(image: UIImage.init(named: "app_icon_seach"), title: "城市名/拼音", titlePosition: .right, additionalSpacing: kMargin, state: .normal)
+        searchBtn.set(image: UIImage.init(named: "app_icon_seach"), title: "搜索你喜爱的美食", titlePosition: .right, additionalSpacing: kMargin, state: .normal)
     }
     /// 搜索
     lazy var searchBtn : UIButton = {
         let btn = UIButton.init(type: .custom)
         btn.titleLabel?.font = k15Font
         btn.setTitleColor(kHeightGaryFontColor, for: .normal)
-        btn.backgroundColor = kGrayBackGroundColor
-        btn.cornerRadius = 12
+        btn.backgroundColor = kBtnNoClickBGColor
+        btn.cornerRadius = 15
         return btn
     }()
     

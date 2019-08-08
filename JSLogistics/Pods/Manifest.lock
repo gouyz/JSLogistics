@@ -53,6 +53,8 @@ PODS:
     - SDWebImageFLPlugin
   - FLAnimatedImage (1.0.12)
   - IQKeyboardManagerSwift (6.4.0)
+  - JXPagingView/Paging (1.1.15)
+  - JXSegmentedView (0.0.19)
   - Kingfisher (4.10.1)
   - MBProgressHUD (1.1.0)
   - MJRefresh (3.2.0)
@@ -72,6 +74,8 @@ DEPENDENCIES:
   - Cosmos (~> 19.0.3)
   - DKImagePickerController
   - IQKeyboardManagerSwift
+  - JXPagingView/Paging
+  - JXSegmentedView
   - Kingfisher (~> 4.10.0)
   - MBProgressHUD (~> 1.1.0)
   - MJRefresh
@@ -90,6 +94,8 @@ SPEC REPOS:
     - DKPhotoGallery
     - FLAnimatedImage
     - IQKeyboardManagerSwift
+    - JXPagingView
+    - JXSegmentedView
     - Kingfisher
     - MBProgressHUD
     - MJRefresh
@@ -109,6 +115,8 @@ SPEC CHECKSUMS:
   DKPhotoGallery: ce7c1f629450dd07048aa30310319953785857a7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
+  JXPagingView: a3cb69033e892fc69a3299a4ec5dd9c069aa7ef2
+  JXSegmentedView: 6e22381bd1e6f0767fc078bef1947b13b2d337a1
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
@@ -119,6 +127,6 @@ SPEC CHECKSUMS:
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: 569e0b9b500206197e1e99b5257f64a8d53e470b
+PODFILE CHECKSUM: c6573e92bfab5a169c4ac7c9bf86bb1c4fd53c2d
 
 COCOAPODS: 1.7.4

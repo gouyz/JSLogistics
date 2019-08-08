@@ -17,7 +17,7 @@ class GYZMainTabBarVC: UITabBarController {
     }
     
     func setUp(){
-        tabBar.tintColor = kBlueFontColor
+        tabBar.tintColor = kBlackFontColor
         /// 解决iOS12.1 子页面返回时底部tabbar出现了错位
         tabBar.isTranslucent = false
         

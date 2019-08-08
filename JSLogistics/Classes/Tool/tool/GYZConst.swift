@@ -148,13 +148,13 @@ let kRedFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xfb0d1b)
 /// 蓝色字体颜色
 let kBlueFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x39befc)
 /// 绿色字体颜色
-let kGreenFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x2dae99)
+let kGreenFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x6fdcdc)
 /// 灰色线的颜色
 let kGrayLineColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xe4e4e4)
 /// 灰色背景的颜色
-let kGrayBackGroundColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf4f4f4)
+let kGrayBackGroundColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf5f5f5)
 /// btn不可点击背景色
-let kBtnNoClickBGColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xd8d8d8)
+let kBtnNoClickBGColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf5f5f5)
 /// btn可点击背景色
 let kBtnClickBGColor : UIColor = kYellowFontColor
 /// btn可点击浅绿色背景色

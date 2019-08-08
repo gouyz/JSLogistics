@@ -20,7 +20,6 @@ import MBProgressHUD
 class GYZBaseVC: UIViewController {
     
     var hud : MBProgressHUD?
-//    var statusBarShouldLight = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,34 +32,6 @@ class GYZBaseVC: UIViewController {
         }
         
     }
-    
-    /// 重载设置状态栏样式
-//    override var preferredStatusBarStyle: UIStatusBarStyle {
-//        if statusBarShouldLight {
-//
-//            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: kWhiteColor, NSAttributedString.Key.font: k18Font]
-//
-//            navigationController?.navigationBar.barTintColor = kNavBarColor
-//            navigationController?.navigationBar.tintColor = kWhiteColor
-//
-//            return .lightContent
-//        } else {
-//
-//            navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: kBlackColor, NSAttributedString.Key.font: k18Font]
-//
-//            navigationController?.navigationBar.barTintColor = kWhiteColor
-//            navigationController?.navigationBar.tintColor = kBlackColor
-//
-//            return .default
-//        }
-//    }
-
-    /// 设置状态栏样式为default
-//    func setStatusBarStyle(){
-//
-//        statusBarShouldLight = false
-//        setNeedsStatusBarAppearanceUpdate()
-//    }
     /// 返回
     @objc func clickedBackBtn() {
         _ = navigationController?.popViewController(animated: true)
