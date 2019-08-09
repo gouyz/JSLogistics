@@ -14,6 +14,11 @@
 		0A417B1222F9115100BF9614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A417B1022F9115100BF9614 /* LaunchScreen.storyboard */; };
 		0A417B1D22F9115100BF9614 /* JSLogisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B1C22F9115100BF9614 /* JSLogisticsTests.swift */; };
 		0A417B2822F9115100BF9614 /* JSLogisticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */; };
+		0A45C2B522FD1BD40034BCCD /* JSLHomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */; };
+		0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */; };
+		0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */; };
+		0A45C2BB22FD5A770034BCCD /* JSLShopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */; };
+		0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */; };
 		0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D422FAC673002535FF /* LHSBaseModel.swift */; };
 		0A50935F22FAC675002535FF /* FSCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D522FAC673002535FF /* FSCityModel.swift */; };
 		0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D722FAC673002535FF /* FSSelectCityVC.swift */; };
@@ -34,7 +39,6 @@
 		0A50936F22FAC675002535FF /* GYZStepProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092E722FAC673002535FF /* GYZStepProgressView.swift */; };
 		0A50937022FAC675002535FF /* GYZLabArrowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092E822FAC673002535FF /* GYZLabArrowCell.swift */; };
 		0A50937122FAC675002535FF /* FSCitySelectedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092E922FAC673002535FF /* FSCitySelectedHeaderView.swift */; };
-		0A50937222FAC675002535FF /* HOOPLabAndLabCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092EA22FAC673002535FF /* HOOPLabAndLabCell.swift */; };
 		0A50937322FAC675002535FF /* GYZMyProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092EB22FAC673002535FF /* GYZMyProfileCell.swift */; };
 		0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092EC22FAC673002535FF /* LHSSelectPayMethodView.swift */; };
 		0A50937522FAC675002535FF /* GYZLabAndLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092ED22FAC673002535FF /* GYZLabAndLabView.swift */; };
@@ -157,6 +161,11 @@
 		0A417B2322F9115100BF9614 /* JSLogisticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSLogisticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLogisticsUITests.swift; sourceTree = "<group>"; };
 		0A417B2922F9115100BF9614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeListVC.swift; sourceTree = "<group>"; };
+		0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeShopCell.swift; sourceTree = "<group>"; };
+		0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCommonNavVC.swift; sourceTree = "<group>"; };
+		0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListVC.swift; sourceTree = "<group>"; };
+		0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListCell.swift; sourceTree = "<group>"; };
 		0A5092D422FAC673002535FF /* LHSBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSBaseModel.swift; sourceTree = "<group>"; };
 		0A5092D522FAC673002535FF /* FSCityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSCityModel.swift; sourceTree = "<group>"; };
 		0A5092D722FAC673002535FF /* FSSelectCityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSSelectCityVC.swift; sourceTree = "<group>"; };
@@ -177,7 +186,6 @@
 		0A5092E722FAC673002535FF /* GYZStepProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZStepProgressView.swift; sourceTree = "<group>"; };
 		0A5092E822FAC673002535FF /* GYZLabArrowCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZLabArrowCell.swift; sourceTree = "<group>"; };
 		0A5092E922FAC673002535FF /* FSCitySelectedHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSCitySelectedHeaderView.swift; sourceTree = "<group>"; };
-		0A5092EA22FAC673002535FF /* HOOPLabAndLabCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HOOPLabAndLabCell.swift; sourceTree = "<group>"; };
 		0A5092EB22FAC673002535FF /* GYZMyProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZMyProfileCell.swift; sourceTree = "<group>"; };
 		0A5092EC22FAC673002535FF /* LHSSelectPayMethodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSSelectPayMethodView.swift; sourceTree = "<group>"; };
 		0A5092ED22FAC673002535FF /* GYZLabAndLabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GYZLabAndLabView.swift; sourceTree = "<group>"; };
@@ -407,6 +415,7 @@
 				0A5092D722FAC673002535FF /* FSSelectCityVC.swift */,
 				0A5092D822FAC673002535FF /* JSMWebViewVC.swift */,
 				0A5092D922FAC673002535FF /* FSSearchCityVC.swift */,
+				0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -429,7 +438,6 @@
 				0A5092E722FAC673002535FF /* GYZStepProgressView.swift */,
 				0A5092E822FAC673002535FF /* GYZLabArrowCell.swift */,
 				0A5092E922FAC673002535FF /* FSCitySelectedHeaderView.swift */,
-				0A5092EA22FAC673002535FF /* HOOPLabAndLabCell.swift */,
 				0A5092EB22FAC673002535FF /* GYZMyProfileCell.swift */,
 				0A5092EC22FAC673002535FF /* LHSSelectPayMethodView.swift */,
 				0A5092ED22FAC673002535FF /* GYZLabAndLabView.swift */,
@@ -737,6 +745,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5093DA22FAC98C002535FF /* JSLHomeVC.swift */,
+				0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -745,6 +754,7 @@
 			isa = PBXGroup;
 			children = (
 				0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */,
+				0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -834,6 +844,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5093DC22FAC9E6002535FF /* JSLShopVC.swift */,
+				0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -841,6 +852,7 @@
 		0A5093D922FAC932002535FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1047,6 +1059,7 @@
 				0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */,
 				0A5093B722FAC675002535FF /* SYProgressView.m in Sources */,
 				0A5093B422FAC675002535FF /* ScrollSegmentView.swift in Sources */,
+				0A45C2B522FD1BD40034BCCD /* JSLHomeListVC.swift in Sources */,
 				0A5093B522FAC675002535FF /* ContentView.swift in Sources */,
 				0A50938722FAC675002535FF /* FSResetPwdVC.swift in Sources */,
 				0A50938922FAC675002535FF /* FSSexInfoVC.swift in Sources */,
@@ -1066,6 +1079,7 @@
 				0A50938822FAC675002535FF /* FSForgetPwdCodeVC.swift in Sources */,
 				0A5093AA22FAC675002535FF /* ZPageControl.swift in Sources */,
 				0A50937622FAC675002535FF /* FSCityAreaCell.swift in Sources */,
+				0A45C2BB22FD5A770034BCCD /* JSLShopListVC.swift in Sources */,
 				0A50938E22FAC675002535FF /* GYZUIButton+Extension.swift in Sources */,
 				0A5093B322FAC675002535FF /* ScrollPageView.swift in Sources */,
 				0A50938D22FAC675002535FF /* ETNavBarTransparent.swift in Sources */,
@@ -1075,6 +1089,7 @@
 				0A50939522FAC675002535FF /* GYZUIViewController+Loading.swift in Sources */,
 				0A5093A322FAC675002535FF /* ToolBarView.swift in Sources */,
 				0A5093BD22FAC675002535FF /* GYZUpdateVersionTool.swift in Sources */,
+				0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */,
 				0A5093B922FAC675002535FF /* SYAnimationLabel.m in Sources */,
 				0A50938522FAC675002535FF /* FSLoginVC.swift in Sources */,
 				0A5093BB22FAC675002535FF /* SYWaveProgressView.m in Sources */,
@@ -1092,7 +1107,6 @@
 				0A50936322FAC675002535FF /* GYZCommonArrowCell.swift in Sources */,
 				0A50938F22FAC675002535FF /* GYZUIImage+Extension.swift in Sources */,
 				0A5093AF22FAC675002535FF /* GYZSheetView.swift in Sources */,
-				0A50937222FAC675002535FF /* HOOPLabAndLabCell.swift in Sources */,
 				0A50936422FAC675002535FF /* LHSAddPhotoView.swift in Sources */,
 				0A5093C422FAC676002535FF /* GYZCheckTool.m in Sources */,
 				0A50939D22FAC675002535FF /* HXTagAttribute.m in Sources */,
@@ -1121,6 +1135,7 @@
 				0A50937522FAC675002535FF /* GYZLabAndLabView.swift in Sources */,
 				0A50937D22FAC675002535FF /* GYZMainTabBarVC.swift in Sources */,
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
+				0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */,
 				0A50939722FAC675002535FF /* AXBadgeView.swift in Sources */,
 				0A5093C522FAC676002535FF /* GYZConst.swift in Sources */,
 				0A5093A822FAC675002535FF /* ZCycleViewCell.swift in Sources */,
@@ -1131,6 +1146,7 @@
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
 				0A50938222FAC675002535FF /* FSRegisterCodeVC.swift in Sources */,
+				0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */,
 				0A50937A22FAC675002535FF /* GYZSearchBtnView.swift in Sources */,
 				0A5093BF22FAC675002535FF /* GYZLunarFormatter.swift in Sources */,
 				0A417B0822F9114F00BF9614 /* AppDelegate.swift in Sources */,

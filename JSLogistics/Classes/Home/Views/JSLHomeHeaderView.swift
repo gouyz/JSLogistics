@@ -9,8 +9,6 @@
 import UIKit
 
 class JSLHomeHeaderView: UIView {
-    
-    var imageViewFrame: CGRect = .zero
 
     // MARK: 生命周期方法
     public override init(frame: CGRect) {
@@ -40,7 +38,6 @@ class JSLHomeHeaderView: UIView {
             make.bottom.equalTo(self)
         }
     }
-    
     /// 广告轮播图
     lazy var adsImgView: ZCycleView = {
         let adsView = ZCycleView()
@@ -55,17 +52,4 @@ class JSLHomeHeaderView: UIView {
     }()
     /// 搜索
     lazy var searchView: GYZSearchBtnView = GYZSearchBtnView()
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        imageViewFrame = bounds
-    }
-    
-    func scrollViewDidScroll(contentOffsetY: CGFloat) {
-        var frame = imageViewFrame
-        frame.size.height -= contentOffsetY
-        frame.origin.y = contentOffsetY
-        self.frame = frame
-    }
 }
