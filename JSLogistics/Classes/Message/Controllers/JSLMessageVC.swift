@@ -34,6 +34,22 @@ class JSLMessageVC: GYZBaseVC {
         
         return table
     }()
+    
+    func goOperatorVC(tag: Int){
+        switch tag {
+        case 1://  赞和收藏
+            let vc = JSLFavouriteMsgVC()
+            navigationController?.pushViewController(vc, animated: true)
+        case 2://  评论
+            let vc = JSLFavouriteMsgVC()
+            navigationController?.pushViewController(vc, animated: true)
+        case 3://  粉丝
+            let vc = JSLFavouriteMsgVC()
+            navigationController?.pushViewController(vc, animated: true)
+        default:
+            break
+        }
+    }
 }
 extension JSLMessageVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -66,6 +82,9 @@ extension JSLMessageVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: messageHeader) as! JSLMessageHeaderView
+        headerView.operatorBlock = {[weak self] (tag) in
+            self?.goOperatorVC(tag: tag)
+        }
         
         return headerView
     }

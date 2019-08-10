@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981822FE54050002586E /* JSLMessageCell.swift */; };
 		0A3C981B22FE586B0002586E /* JSLMessageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */; };
+		0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */; };
+		0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */; };
 		0A417B0822F9114F00BF9614 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B0722F9114F00BF9614 /* AppDelegate.swift */; };
 		0A417B0A22F9114F00BF9614 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B0922F9114F00BF9614 /* ViewController.swift */; };
 		0A417B0D22F9114F00BF9614 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A417B0B22F9114F00BF9614 /* Main.storyboard */; };
@@ -152,6 +154,8 @@
 /* Begin PBXFileReference section */
 		0A3C981822FE54050002586E /* JSLMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageCell.swift; sourceTree = "<group>"; };
 		0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHeaderView.swift; sourceTree = "<group>"; };
+		0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgVC.swift; sourceTree = "<group>"; };
+		0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgCell.swift; sourceTree = "<group>"; };
 		0A417B0422F9114F00BF9614 /* JSLogistics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSLogistics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A417B0722F9114F00BF9614 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A417B0922F9114F00BF9614 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -784,6 +788,7 @@
 			isa = PBXGroup;
 			children = (
 				0A5093DE22FACA36002535FF /* JSLMessageVC.swift */,
+				0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -793,6 +798,7 @@
 			children = (
 				0A3C981822FE54050002586E /* JSLMessageCell.swift */,
 				0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */,
+				0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1142,11 +1148,13 @@
 				0A50937522FAC675002535FF /* GYZLabAndLabView.swift in Sources */,
 				0A50937D22FAC675002535FF /* GYZMainTabBarVC.swift in Sources */,
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
+				0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */,
 				0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */,
 				0A50939722FAC675002535FF /* AXBadgeView.swift in Sources */,
 				0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */,
 				0A5093C522FAC676002535FF /* GYZConst.swift in Sources */,
 				0A5093A822FAC675002535FF /* ZCycleViewCell.swift in Sources */,
+				0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */,
 				0A50938122FAC675002535FF /* LHSUserInfoModel.swift in Sources */,
 				0A50938322FAC675002535FF /* FSBindPhoneVC.swift in Sources */,
 				0A417B0A22F9114F00BF9614 /* ViewController.swift in Sources */,

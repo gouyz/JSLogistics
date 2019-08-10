@@ -9,6 +9,9 @@
 import UIKit
 
 class JSLMessageHeaderView: UITableViewHeaderFooterView {
+    
+    /// 闭包回调
+    public var operatorBlock: ((_ tag: Int) ->())?
 
     override init(reuseIdentifier: String?){
         
@@ -64,6 +67,7 @@ class JSLMessageHeaderView: UITableViewHeaderFooterView {
         btnView.menuTitle.text = "赞和收藏"
         btnView.menuTitle.font = k12Font
         btnView.tag = 101
+        btnView.addOnClickListener(target: self, action:  #selector(clickedOperateBtn(sender:)))
         
         return btnView
     }()
@@ -75,6 +79,7 @@ class JSLMessageHeaderView: UITableViewHeaderFooterView {
         btnView.menuTitle.text = "评论"
         btnView.menuTitle.font = k13Font
         btnView.tag = 102
+        btnView.addOnClickListener(target: self, action:  #selector(clickedOperateBtn(sender:)))
         
         return btnView
     }()
@@ -86,7 +91,15 @@ class JSLMessageHeaderView: UITableViewHeaderFooterView {
         btnView.menuTitle.text = "粉丝"
         btnView.menuTitle.font = k13Font
         btnView.tag = 103
+        btnView.addOnClickListener(target: self, action:  #selector(clickedOperateBtn(sender:)))
         
         return btnView
     }()
+    
+    @objc func clickedOperateBtn(sender: UITapGestureRecognizer){
+        let tag = sender.view!.tag - 100
+        if operatorBlock != nil {
+            operatorBlock!(tag)
+        }
+    }
 }
