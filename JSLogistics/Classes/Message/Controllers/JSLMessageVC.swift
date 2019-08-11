@@ -44,11 +44,22 @@ class JSLMessageVC: GYZBaseVC {
             let vc = JSLFavouriteMsgVC()
             navigationController?.pushViewController(vc, animated: true)
         case 3://  粉丝
-            let vc = JSLFavouriteMsgVC()
+            let vc = JSLFenSiMsgListVC()
             navigationController?.pushViewController(vc, animated: true)
         default:
             break
         }
+    }
+    
+    /// 通知消息
+    func goNotificateVC(){
+        let vc = JSLNotificateMsgVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    /// 关注消息
+    func goFollowMsgVC(){
+        let vc = JSLFollowMsgVC()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 extension JSLMessageVC: UITableViewDelegate,UITableViewDataSource{
@@ -94,6 +105,11 @@ extension JSLMessageVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.row == 0 {// 通知消息
+            goNotificateVC()
+        }else{ // 关注消息
+            goFollowMsgVC()
+        }
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

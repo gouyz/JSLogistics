@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A0F8F63230054F800827699 /* JSLFenSiMsgListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F8F62230054F800827699 /* JSLFenSiMsgListVC.swift */; };
+		0A0F8F65230056A800827699 /* JSLFenSiMsgListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F8F64230056A800827699 /* JSLFenSiMsgListCell.swift */; };
+		0A0F8F672300631900827699 /* JSLNotificateMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F8F662300631900827699 /* JSLNotificateMsgVC.swift */; };
+		0A0F8F692300674C00827699 /* JSLFollowMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F8F682300674C00827699 /* JSLFollowMsgVC.swift */; };
+		0A0F8F6B23006B6C00827699 /* JSLFollowMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F8F6A23006B6C00827699 /* JSLFollowMsgCell.swift */; };
 		0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981822FE54050002586E /* JSLMessageCell.swift */; };
 		0A3C981B22FE586B0002586E /* JSLMessageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */; };
 		0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */; };
@@ -152,6 +157,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0A0F8F62230054F800827699 /* JSLFenSiMsgListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFenSiMsgListVC.swift; sourceTree = "<group>"; };
+		0A0F8F64230056A800827699 /* JSLFenSiMsgListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFenSiMsgListCell.swift; sourceTree = "<group>"; };
+		0A0F8F662300631900827699 /* JSLNotificateMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNotificateMsgVC.swift; sourceTree = "<group>"; };
+		0A0F8F682300674C00827699 /* JSLFollowMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFollowMsgVC.swift; sourceTree = "<group>"; };
+		0A0F8F6A23006B6C00827699 /* JSLFollowMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFollowMsgCell.swift; sourceTree = "<group>"; };
 		0A3C981822FE54050002586E /* JSLMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageCell.swift; sourceTree = "<group>"; };
 		0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHeaderView.swift; sourceTree = "<group>"; };
 		0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgVC.swift; sourceTree = "<group>"; };
@@ -789,6 +799,9 @@
 			children = (
 				0A5093DE22FACA36002535FF /* JSLMessageVC.swift */,
 				0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */,
+				0A0F8F62230054F800827699 /* JSLFenSiMsgListVC.swift */,
+				0A0F8F662300631900827699 /* JSLNotificateMsgVC.swift */,
+				0A0F8F682300674C00827699 /* JSLFollowMsgVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -799,6 +812,8 @@
 				0A3C981822FE54050002586E /* JSLMessageCell.swift */,
 				0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */,
 				0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */,
+				0A0F8F64230056A800827699 /* JSLFenSiMsgListCell.swift */,
+				0A0F8F6A23006B6C00827699 /* JSLFollowMsgCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1076,6 +1091,7 @@
 				0A50938722FAC675002535FF /* FSResetPwdVC.swift in Sources */,
 				0A50938922FAC675002535FF /* FSSexInfoVC.swift in Sources */,
 				0A50937922FAC675002535FF /* GYZCommonSwitchCell.swift in Sources */,
+				0A0F8F6B23006B6C00827699 /* JSLFollowMsgCell.swift in Sources */,
 				0A5093BE22FAC675002535FF /* GYZAddressBookManager.swift in Sources */,
 				0A50937022FAC675002535FF /* GYZLabArrowCell.swift in Sources */,
 				0A50939022FAC675002535FF /* MBProgressHUD+Extension.swift in Sources */,
@@ -1102,6 +1118,7 @@
 				0A5093A322FAC675002535FF /* ToolBarView.swift in Sources */,
 				0A5093BD22FAC675002535FF /* GYZUpdateVersionTool.swift in Sources */,
 				0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */,
+				0A0F8F692300674C00827699 /* JSLFollowMsgVC.swift in Sources */,
 				0A5093B922FAC675002535FF /* SYAnimationLabel.m in Sources */,
 				0A50938522FAC675002535FF /* FSLoginVC.swift in Sources */,
 				0A5093BB22FAC675002535FF /* SYWaveProgressView.m in Sources */,
@@ -1110,8 +1127,10 @@
 				0A50936822FAC675002535FF /* GYZCustomWaitAlert.swift in Sources */,
 				0A5093B022FAC675002535FF /* GYZActionSheet.swift in Sources */,
 				0A50937722FAC675002535FF /* GYZImgAndTxtBtnView.swift in Sources */,
+				0A0F8F672300631900827699 /* JSLNotificateMsgVC.swift in Sources */,
 				0A50939E22FAC675002535FF /* HXTagCollectionViewFlowLayout.m in Sources */,
 				0A50937E22FAC675002535FF /* GYZBaseNavigationVC.swift in Sources */,
+				0A0F8F63230054F800827699 /* JSLFenSiMsgListVC.swift in Sources */,
 				0A50936722FAC675002535FF /* GYZCommonInfoCell.swift in Sources */,
 				0A50939222FAC675002535FF /* GYZUIColor+Extension.swift in Sources */,
 				0A5093A922FAC675002535FF /* ZCycleLayout.swift in Sources */,
@@ -1123,6 +1142,7 @@
 				0A5093C422FAC676002535FF /* GYZCheckTool.m in Sources */,
 				0A50939D22FAC675002535FF /* HXTagAttribute.m in Sources */,
 				0A5093C122FAC675002535FF /* GYZAlertViewTools.swift in Sources */,
+				0A0F8F65230056A800827699 /* JSLFenSiMsgListCell.swift in Sources */,
 				0A50936122FAC675002535FF /* JSMWebViewVC.swift in Sources */,
 				0A50939822FAC675002535FF /* LHSCustomAlertView.swift in Sources */,
 				0A5093AB22FAC675002535FF /* MMShareSheet.swift in Sources */,
