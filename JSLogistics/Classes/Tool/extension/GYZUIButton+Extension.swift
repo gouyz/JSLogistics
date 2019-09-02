@@ -40,13 +40,13 @@ extension UIButton {
         
         switch (position){
         case .top:
-            titleInsets = UIEdgeInsets(top: -(imageSize.height + titleSize.height + spacing),
+            titleInsets = UIEdgeInsets(top: -(imageSize.height + spacing),
                                        left: -(imageSize.width), bottom: 0, right: 0)
-            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -titleSize.width)
+            imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: -(titleSize.height + spacing), right: -titleSize.width)
         case .bottom:
-            titleInsets = UIEdgeInsets(top: (imageSize.height + titleSize.height ),
+            titleInsets = UIEdgeInsets(top: (imageSize.height + spacing ),
                                        left: -(imageSize.width), bottom: 0, right: 0)
-            imageInsets = UIEdgeInsets(top: -spacing, left: 0, bottom: 0, right: -titleSize.width)
+            imageInsets = UIEdgeInsets(top: -(titleSize.height + spacing), left: 0, bottom: 0, right: -titleSize.width)
         case .left:
             titleInsets = UIEdgeInsets(top: 0, left: -(imageSize.width * 2), bottom: 0, right: 0)
             imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0,

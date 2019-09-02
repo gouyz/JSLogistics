@@ -47,7 +47,7 @@ class JSLFenSiMsgListCell: UITableViewCell {
         operatorBtn.snp.makeConstraints { (make) in
             make.right.equalTo(-kMargin)
             make.centerY.equalTo(userHeaderImgView)
-            make.size.equalTo(CGSize.init(width: 60, height: 34))
+            make.size.equalTo(CGSize.init(width: 60, height: 30))
         }
     }
     ///tag图片
