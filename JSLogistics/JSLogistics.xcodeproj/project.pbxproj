@@ -14,6 +14,9 @@
 		0A0F8F6B23006B6C00827699 /* JSLFollowMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A0F8F6A23006B6C00827699 /* JSLFollowMsgCell.swift */; };
 		0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */; };
 		0A234024231D609100D21C11 /* GYZLabAndLabBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */; };
+		0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D813223575DB300A3E024 /* JSLSettingVC.swift */; };
+		0A2D8135235767BA00A3E024 /* JSLLoginOutFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D8134235767BA00A3E024 /* JSLLoginOutFooterView.swift */; };
+		0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A2D813623576C9F00A3E024 /* JSLAboutVC.swift */; };
 		0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981822FE54050002586E /* JSLMessageCell.swift */; };
 		0A3C981B22FE586B0002586E /* JSLMessageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */; };
 		0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */; };
@@ -166,6 +169,9 @@
 		0A0F8F6A23006B6C00827699 /* JSLFollowMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFollowMsgCell.swift; sourceTree = "<group>"; };
 		0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineHeaderView.swift; sourceTree = "<group>"; };
 		0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYZLabAndLabBtnView.swift; sourceTree = "<group>"; };
+		0A2D813223575DB300A3E024 /* JSLSettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSettingVC.swift; sourceTree = "<group>"; };
+		0A2D8134235767BA00A3E024 /* JSLLoginOutFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLLoginOutFooterView.swift; sourceTree = "<group>"; };
+		0A2D813623576C9F00A3E024 /* JSLAboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutVC.swift; sourceTree = "<group>"; };
 		0A3C981822FE54050002586E /* JSLMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageCell.swift; sourceTree = "<group>"; };
 		0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHeaderView.swift; sourceTree = "<group>"; };
 		0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgVC.swift; sourceTree = "<group>"; };
@@ -736,6 +742,8 @@
 			isa = PBXGroup;
 			children = (
 				0A5093E022FACA62002535FF /* JSLMineVC.swift */,
+				0A2D813223575DB300A3E024 /* JSLSettingVC.swift */,
+				0A2D813623576C9F00A3E024 /* JSLAboutVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -744,6 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */,
+				0A2D8134235767BA00A3E024 /* JSLLoginOutFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1109,6 +1118,7 @@
 				0A50937822FAC675002535FF /* GYZBottomSendView.swift in Sources */,
 				0A5093BA22FAC675002535FF /* SYRingProgressView.m in Sources */,
 				0A5093B222FAC675002535FF /* SegmentStyle.swift in Sources */,
+				0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */,
 				0A50938A22FAC675002535FF /* GYZLoginInputView.swift in Sources */,
 				0A5093C222FAC675002535FF /* GYZThrowLineTool.swift in Sources */,
 				0A50938822FAC675002535FF /* FSForgetPwdCodeVC.swift in Sources */,
@@ -1150,6 +1160,7 @@
 				0A50939D22FAC675002535FF /* HXTagAttribute.m in Sources */,
 				0A5093C122FAC675002535FF /* GYZAlertViewTools.swift in Sources */,
 				0A0F8F65230056A800827699 /* JSLFenSiMsgListCell.swift in Sources */,
+				0A2D8135235767BA00A3E024 /* JSLLoginOutFooterView.swift in Sources */,
 				0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */,
 				0A50936122FAC675002535FF /* JSMWebViewVC.swift in Sources */,
 				0A50939822FAC675002535FF /* LHSCustomAlertView.swift in Sources */,
@@ -1190,6 +1201,7 @@
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
 				0A50938222FAC675002535FF /* FSRegisterCodeVC.swift in Sources */,
+				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,
 				0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */,
 				0A50937A22FAC675002535FF /* GYZSearchBtnView.swift in Sources */,
 				0A5093BF22FAC675002535FF /* GYZLunarFormatter.swift in Sources */,

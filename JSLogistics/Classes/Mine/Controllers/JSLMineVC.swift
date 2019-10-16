@@ -70,7 +70,8 @@ class JSLMineVC: GYZBaseVC {
     }
     /// 设置
     @objc func clickedSettingBtn(){
-        
+        let vc = JSLSettingVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

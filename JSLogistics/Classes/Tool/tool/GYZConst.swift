@@ -57,7 +57,7 @@ let kDismissTime = 0.3
 /// 显示动画时间
 let kPushTime = 0.3
 /// 右侧箭头大小
-let rightArrowSize: CGSize = CGSize.init(width: 8, height: 13)
+let rightArrowSize: CGSize = CGSize.init(width: 8, height: 14)
 
 /// alertViewController 取消的回调返回的索引
 let cancelIndex = -1
@@ -144,7 +144,7 @@ let kOrangeFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf38053)
 /// 浅灰色字体颜色
 let kLightGaryFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xdcdcdc)
 /// 红色字体颜色
-let kRedFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xfb0d1b)
+let kRedFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xe65146)
 /// 蓝色字体颜色
 let kBlueFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x39befc)
 /// 绿色字体颜色
