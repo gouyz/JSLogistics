@@ -9,7 +9,7 @@
 import UIKit
 
 private let aboutCell = "aboutCell"
-private let settingLoginOutFooter = "settingLoginOutFooter"
+private let aboutHeader = "aboutHeader"
 
 class JSLAboutVC: GYZBaseVC {
     
@@ -34,6 +34,7 @@ class JSLAboutVC: GYZBaseVC {
         table.backgroundColor = kWhiteColor
         
         table.register(GYZMyProfileCell.self, forCellReuseIdentifier: aboutCell)
+        table.register(JSLAboutHeaderView.classForCoder(), forHeaderFooterViewReuseIdentifier: aboutHeader)
         
         return table
     }()
@@ -76,8 +77,10 @@ extension JSLAboutVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: aboutHeader) as! JSLAboutHeaderView
         
-        return UIView()
+        
+        return headerView
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         
@@ -92,7 +95,7 @@ extension JSLAboutVC: UITableViewDelegate,UITableViewDataSource{
         return 60
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.00001
+        return 170
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.00001

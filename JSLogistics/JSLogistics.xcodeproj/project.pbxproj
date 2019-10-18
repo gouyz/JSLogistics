@@ -33,6 +33,8 @@
 		0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */; };
 		0A45C2BB22FD5A770034BCCD /* JSLShopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */; };
 		0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */; };
+		0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */; };
+		0A4C7D5B235808A80082C926 /* JSLMyFenSiListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */; };
 		0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D422FAC673002535FF /* LHSBaseModel.swift */; };
 		0A50935F22FAC675002535FF /* FSCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D522FAC673002535FF /* FSCityModel.swift */; };
 		0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D722FAC673002535FF /* FSSelectCityVC.swift */; };
@@ -194,6 +196,8 @@
 		0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCommonNavVC.swift; sourceTree = "<group>"; };
 		0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListVC.swift; sourceTree = "<group>"; };
 		0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListCell.swift; sourceTree = "<group>"; };
+		0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutHeaderView.swift; sourceTree = "<group>"; };
+		0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiListVC.swift; sourceTree = "<group>"; };
 		0A5092D422FAC673002535FF /* LHSBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSBaseModel.swift; sourceTree = "<group>"; };
 		0A5092D522FAC673002535FF /* FSCityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSCityModel.swift; sourceTree = "<group>"; };
 		0A5092D722FAC673002535FF /* FSSelectCityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSSelectCityVC.swift; sourceTree = "<group>"; };
@@ -744,6 +748,7 @@
 				0A5093E022FACA62002535FF /* JSLMineVC.swift */,
 				0A2D813223575DB300A3E024 /* JSLSettingVC.swift */,
 				0A2D813623576C9F00A3E024 /* JSLAboutVC.swift */,
+				0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -753,6 +758,7 @@
 			children = (
 				0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */,
 				0A2D8134235767BA00A3E024 /* JSLLoginOutFooterView.swift */,
+				0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1157,6 +1163,7 @@
 				0A5093AF22FAC675002535FF /* GYZSheetView.swift in Sources */,
 				0A50936422FAC675002535FF /* LHSAddPhotoView.swift in Sources */,
 				0A5093C422FAC676002535FF /* GYZCheckTool.m in Sources */,
+				0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */,
 				0A50939D22FAC675002535FF /* HXTagAttribute.m in Sources */,
 				0A5093C122FAC675002535FF /* GYZAlertViewTools.swift in Sources */,
 				0A0F8F65230056A800827699 /* JSLFenSiMsgListCell.swift in Sources */,
@@ -1196,6 +1203,7 @@
 				0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */,
 				0A50938122FAC675002535FF /* LHSUserInfoModel.swift in Sources */,
 				0A50938322FAC675002535FF /* FSBindPhoneVC.swift in Sources */,
+				0A4C7D5B235808A80082C926 /* JSLMyFenSiListVC.swift in Sources */,
 				0A417B0A22F9114F00BF9614 /* ViewController.swift in Sources */,
 				0A50936922FAC675002535FF /* FSHotCityCell.swift in Sources */,
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,

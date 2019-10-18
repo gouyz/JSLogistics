@@ -36,6 +36,12 @@ class JSLSettingVC: GYZBaseVC {
         
         return table
     }()
+    
+    /// 关于我们
+    func goAboutVC(){
+        let vc = JSLAboutVC()
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLSettingVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,6 +74,9 @@ extension JSLSettingVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        if indexPath.row == 0 {
+            goAboutVC()
+        }
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

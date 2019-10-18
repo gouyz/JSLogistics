@@ -33,6 +33,9 @@ class JSLMineVC: GYZBaseVC {
         
         segmentedView.contentScrollView = pagingView.listContainerView.collectionView
         
+        headerView.didSelectItemBlock = {[unowned self](index) in
+            self.clickedOperator(index: index)
+        }
         
     }
     lazy var pagingView: JXPagingView = {
@@ -72,6 +75,10 @@ class JSLMineVC: GYZBaseVC {
     @objc func clickedSettingBtn(){
         let vc = JSLSettingVC()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    /// 操作
+    func clickedOperator(index:Int){
+        
     }
     
 }

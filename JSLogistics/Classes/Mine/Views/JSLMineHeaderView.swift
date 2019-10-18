@@ -9,6 +9,8 @@
 import UIKit
 
 class JSLMineHeaderView: UIView {
+    
+    var didSelectItemBlock:((_ index: Int) -> Void)?
 
     // MARK: 生命周期方法
     public override init(frame: CGRect) {
@@ -157,6 +159,9 @@ class JSLMineHeaderView: UIView {
         btnView.countLab.text = "600"
         btnView.desLab.text = "粉丝"
         
+        btnView.tag = 101
+        btnView.addOnClickListener(target: self, action: #selector(onClickedList(sender:)))
+        
         return btnView
     }()
     /// 关注
@@ -164,6 +169,8 @@ class JSLMineHeaderView: UIView {
         let btnView = GYZLabAndLabBtnView()
         btnView.countLab.text = "600"
         btnView.desLab.text = "关注"
+        btnView.tag = 102
+        btnView.addOnClickListener(target: self, action: #selector(onClickedList(sender:)))
         
         return btnView
     }()
@@ -172,6 +179,8 @@ class JSLMineHeaderView: UIView {
         let btnView = GYZLabAndLabBtnView()
         btnView.countLab.text = "600"
         btnView.desLab.text = "赞"
+        btnView.tag = 103
+        btnView.addOnClickListener(target: self, action: #selector(onClickedList(sender:)))
         
         return btnView
     }()
@@ -180,6 +189,8 @@ class JSLMineHeaderView: UIView {
         let btnView = GYZLabAndLabBtnView()
         btnView.countLab.text = "600"
         btnView.desLab.text = "收藏"
+        btnView.tag = 104
+        btnView.addOnClickListener(target: self, action: #selector(onClickedList(sender:)))
         
         return btnView
     }()
@@ -201,6 +212,8 @@ class JSLMineHeaderView: UIView {
         let btn = UIButton.init(type: .custom)
         btn.titleLabel?.font = k13Font
         btn.setTitleColor(kBlackFontColor, for: .normal)
+        btn.tag = 105
+        btn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
         return btn
     }()
     /// 我的评论
@@ -208,6 +221,8 @@ class JSLMineHeaderView: UIView {
         let btn = UIButton.init(type: .custom)
         btn.titleLabel?.font = k13Font
         btn.setTitleColor(kBlackFontColor, for: .normal)
+        btn.tag = 106
+        btn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
         return btn
     }()
     /// 我的订单
@@ -215,6 +230,21 @@ class JSLMineHeaderView: UIView {
         let btn = UIButton.init(type: .custom)
         btn.titleLabel?.font = k13Font
         btn.setTitleColor(kBlackFontColor, for: .normal)
+        btn.tag = 107
+        btn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
         return btn
     }()
+    
+    @objc func onClickedList(sender:UITapGestureRecognizer){
+        onClickedSelect(index: (sender.view?.tag)!)
+    }
+    @objc func onClickedOperator(sender:UIButton){
+        onClickedSelect(index: sender.tag)
+    }
+    
+    func onClickedSelect(index: Int){
+        if didSelectItemBlock != nil {
+            didSelectItemBlock!(index)
+        }
+    }
 }
