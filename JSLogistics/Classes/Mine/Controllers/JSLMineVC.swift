@@ -78,7 +78,29 @@ class JSLMineVC: GYZBaseVC {
     }
     /// 操作
     func clickedOperator(index:Int){
-        
+        switch index {
+        case 101:
+            break
+        case 102:
+            break
+        case 103:
+            break
+        case 104:
+            break
+        case 105:
+            break
+        case 107:/// 我的订单
+            showOrderView()
+        case 106:
+            break
+        default:
+            break
+        }
+    }
+    /// 我的订单
+    func showOrderView(){
+        let alertView = JSLCustomOrderView()
+        alertView.show()
     }
     
 }
