@@ -100,7 +100,19 @@ class JSLMineVC: GYZBaseVC {
     /// 我的订单
     func showOrderView(){
         let alertView = JSLCustomOrderView()
+        alertView.action = {[unowned self] (alert,index) in
+            self.gotoDeal(index: index)
+        }
         alertView.show()
+    }
+    
+    func gotoDeal(index: Int){
+        if index == 101 {// 购物订单
+            let vc = JSLCartOrderVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            
+        }
     }
     
 }

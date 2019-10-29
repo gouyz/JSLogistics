@@ -136,7 +136,7 @@ let kBlackFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x333333)
 /// 深灰色字体颜色
 let kHeightGaryFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x999999)
 /// 灰色字体颜色
-let kGaryFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xaeaeae)
+let kGaryFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x666666)
 /// 黄色字体颜色
 let kYellowFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf7a870)
 /// 橙色字体颜色
