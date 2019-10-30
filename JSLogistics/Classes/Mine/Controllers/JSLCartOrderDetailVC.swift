@@ -1,7 +1,7 @@
 //
 //  JSLCartOrderDetailVC.swift
 //  JSLogistics
-//  购物订单详情
+//  购物订单、即时出行详情
 //  Created by gouyz on 2019/10/29.
 //  Copyright © 2019 gouyz. All rights reserved.
 //
@@ -10,10 +10,14 @@ import UIKit
 import MBProgressHUD
 
 private let cartOrderDetailCell = "cartOrderDetailCell"
+private let cartOrderDetailTripCell = "cartOrderDetailTripCell"
 private let cartOrderDetailHeaderCell = "cartOrderDetailHeaderCell"
 private let cartOrderDetailInfoCell = "cartOrderDetailInfoCell"
 
 class JSLCartOrderDetailVC: GYZBaseVC {
+    
+    /// 1购物订单、2即时出行
+    var orderType: String = "1"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +38,7 @@ class JSLCartOrderDetailVC: GYZBaseVC {
         
         
         table.register(JSLCartOrderListCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailCell)
+        table.register(JSLRunOrderListCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailTripCell)
         table.register(JSLCartOrderDetailHeaderCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailHeaderCell)
         table.register(JSLCartOrderInfoCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailInfoCell)
         
@@ -58,10 +63,18 @@ extension JSLCartOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
             cell.selectionStyle = .none
             return cell
         }else if indexPath.section == 1{
-            let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailCell) as! JSLCartOrderListCell
             
-            cell.selectionStyle = .none
-            return cell
+            if orderType == "1" {
+                let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailCell) as! JSLCartOrderListCell
+                
+                cell.selectionStyle = .none
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailTripCell) as! JSLRunOrderListCell
+                
+                cell.selectionStyle = .none
+                return cell
+            }
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailInfoCell) as! JSLCartOrderInfoCell
             

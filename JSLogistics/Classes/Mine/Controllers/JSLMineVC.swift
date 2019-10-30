@@ -115,8 +115,9 @@ class JSLMineVC: GYZBaseVC {
         if index == 101 {// 购物订单
             let vc = JSLCartOrderVC()
             self.navigationController?.pushViewController(vc, animated: true)
-        }else{
-            
+        }else{// 出行订单
+            let vc = JSLTripOrderVC()
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

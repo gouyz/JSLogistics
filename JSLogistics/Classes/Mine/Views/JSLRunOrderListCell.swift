@@ -137,7 +137,7 @@ class JSLRunOrderListCell: UITableViewCell {
     /// 日期
     lazy var dateLab : UILabel = {
         let lab = UILabel()
-        lab.textColor = kBlackFontColor
+        lab.textColor = kGaryFontColor
         lab.font = k13Font
         lab.text = "2019年06月08日 14:20"
         

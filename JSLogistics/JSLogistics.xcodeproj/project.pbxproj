@@ -152,6 +152,9 @@
 		0A6677B223687CC90044A978 /* JSLCartOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6677B123687CC90044A978 /* JSLCartOrderVC.swift */; };
 		0A6677B423687DAB0044A978 /* JSLCartOrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6677B323687DAB0044A978 /* JSLCartOrderListVC.swift */; };
 		0A6677B6236880400044A978 /* JSLCartOrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6677B5236880400044A978 /* JSLCartOrderListCell.swift */; };
+		0A6915F32369D54800999206 /* JSLTripOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F22369D54800999206 /* JSLTripOrderVC.swift */; };
+		0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */; };
+		0A6915F72369D8D500999206 /* JSLTripOrderConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */; };
 		0A6C388523673A9000B348C3 /* JSLCustomOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C388423673A9000B348C3 /* JSLCustomOrderView.swift */; };
 		0A9758CA22FC152D00CC071D /* JSLHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */; };
 		2D2DA590E3ED61BA468271D8 /* Pods_JSLogistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1785B1AF973FD205C96C69B /* Pods_JSLogistics.framework */; };
@@ -339,6 +342,9 @@
 		0A6677B123687CC90044A978 /* JSLCartOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderVC.swift; sourceTree = "<group>"; };
 		0A6677B323687DAB0044A978 /* JSLCartOrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderListVC.swift; sourceTree = "<group>"; };
 		0A6677B5236880400044A978 /* JSLCartOrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderListCell.swift; sourceTree = "<group>"; };
+		0A6915F22369D54800999206 /* JSLTripOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderVC.swift; sourceTree = "<group>"; };
+		0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderListVC.swift; sourceTree = "<group>"; };
+		0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderConmentVC.swift; sourceTree = "<group>"; };
 		0A6C388423673A9000B348C3 /* JSLCustomOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCustomOrderView.swift; sourceTree = "<group>"; };
 		0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeHeaderView.swift; sourceTree = "<group>"; };
 		674F552A2F5BAB6F140C2D27 /* Pods-JSLogistics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.release.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.release.xcconfig"; sourceTree = "<group>"; };
@@ -777,6 +783,9 @@
 				0A1D867E2369694800DA4CB8 /* JSLOrderConmentVC.swift */,
 				0A1D86802369769D00DA4CB8 /* JSLMyConmentVC.swift */,
 				0A1D8682236977E700DA4CB8 /* JSLMyConmentListVC.swift */,
+				0A6915F22369D54800999206 /* JSLTripOrderVC.swift */,
+				0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */,
+				0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1153,6 +1162,7 @@
 				0A50937022FAC675002535FF /* GYZLabArrowCell.swift in Sources */,
 				0A50939022FAC675002535FF /* MBProgressHUD+Extension.swift in Sources */,
 				0A50939C22FAC675002535FF /* HXTagsCell.m in Sources */,
+				0A6915F32369D54800999206 /* JSLTripOrderVC.swift in Sources */,
 				0A5093A722FAC675002535FF /* ZCycleView.swift in Sources */,
 				0A5093AD22FAC675002535FF /* GYZScanQrcodeVC.swift in Sources */,
 				0A5093B822FAC675002535FF /* SYLineProgressView.m in Sources */,
@@ -1170,6 +1180,7 @@
 				0A50938E22FAC675002535FF /* GYZUIButton+Extension.swift in Sources */,
 				0A5093B322FAC675002535FF /* ScrollPageView.swift in Sources */,
 				0A50938D22FAC675002535FF /* ETNavBarTransparent.swift in Sources */,
+				0A6915F72369D8D500999206 /* JSLTripOrderConmentVC.swift in Sources */,
 				0A5093B122FAC675002535FF /* GYZSheetCell.swift in Sources */,
 				0A5093E122FACA62002535FF /* JSLMineVC.swift in Sources */,
 				0A9758CA22FC152D00CC071D /* JSLHomeHeaderView.swift in Sources */,
@@ -1250,6 +1261,7 @@
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
 				0A50938222FAC675002535FF /* FSRegisterCodeVC.swift in Sources */,
+				0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */,
 				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,
 				0A3645CA236896210080B872 /* JSLCartOrderDetailVC.swift in Sources */,
 				0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */,

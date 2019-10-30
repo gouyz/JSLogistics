@@ -1,8 +1,8 @@
 //
-//  JSLCartOrderListVC.swift
+//  JSLTripOrderListVC.swift
 //  JSLogistics
-//
-//  Created by gouyz on 2019/10/29.
+//  出行订单
+//  Created by gouyz on 2019/10/30.
 //  Copyright © 2019 gouyz. All rights reserved.
 //
 
@@ -10,9 +10,9 @@ import UIKit
 import JXSegmentedView
 import MBProgressHUD
 
-private let cartOrderListCell = "cartOrderListCell"
+private let tripOrderListCell = "tripOrderListCell"
 
-class JSLCartOrderListVC: GYZBaseVC {
+class JSLTripOrderListVC: GYZBaseVC {
     
     weak var naviController: UINavigationController?
     
@@ -32,28 +32,28 @@ class JSLCartOrderListVC: GYZBaseVC {
         table.backgroundColor = kBackgroundColor
         
         
-        table.register(JSLCartOrderListCell.classForCoder(), forCellReuseIdentifier: cartOrderListCell)
+        table.register(JSLRunOrderListCell.classForCoder(), forCellReuseIdentifier: tripOrderListCell)
         
         
         return table
     }()
-    /// 订单详情
-    func goDetailVC(){
-        let vc = JSLCartOrderDetailVC()
-        vc.orderType = "1"
-        self.naviController?.pushViewController(vc, animated: true)
-    }
     /// 操作
     @objc func onClickedOperator(sender:UIButton){
         goConmentVC()
     }
+    /// 订单详情
+    func goDetailVC(){
+        let vc = JSLCartOrderDetailVC()
+        vc.orderType = "2"
+        self.naviController?.pushViewController(vc, animated: true)
+    }
     // 立即评价
     func goConmentVC(){
-        let vc = JSLOrderConmentVC()
+        let vc = JSLTripOrderConmentVC()
         self.naviController?.pushViewController(vc, animated: true)
     }
 }
-extension JSLCartOrderListVC: UITableViewDelegate,UITableViewDataSource{
+extension JSLTripOrderListVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -64,7 +64,7 @@ extension JSLCartOrderListVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderListCell) as! JSLCartOrderListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: tripOrderListCell) as! JSLRunOrderListCell
         
         cell.operatorBtn.tag = indexPath.row
         cell.operatorBtn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
@@ -95,7 +95,7 @@ extension JSLCartOrderListVC: UITableViewDelegate,UITableViewDataSource{
         return 0.00001
     }
 }
-extension JSLCartOrderListVC: JXSegmentedListContainerViewListDelegate {
+extension JSLTripOrderListVC: JXSegmentedListContainerViewListDelegate {
     func listView() -> UIView {
         return self.view
     }
