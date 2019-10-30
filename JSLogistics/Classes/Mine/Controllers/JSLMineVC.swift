@@ -91,11 +91,16 @@ class JSLMineVC: GYZBaseVC {
             break
         case 107:/// 我的订单
             showOrderView()
-        case 106:
-            break
+        case 106:/// 我的评论
+            goMyConment()
         default:
             break
         }
+    }
+    /// 评论
+    func goMyConment(){
+        let vc = JSLMyConmentVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 我的订单
     func showOrderView(){

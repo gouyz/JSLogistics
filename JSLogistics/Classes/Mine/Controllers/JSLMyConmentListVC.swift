@@ -1,8 +1,8 @@
 //
-//  JSLCartOrderListVC.swift
+//  JSLMyConmentListVC.swift
 //  JSLogistics
-//
-//  Created by gouyz on 2019/10/29.
+//  我的评价列表
+//  Created by gouyz on 2019/10/30.
 //  Copyright © 2019 gouyz. All rights reserved.
 //
 
@@ -10,9 +10,10 @@ import UIKit
 import JXSegmentedView
 import MBProgressHUD
 
-private let cartOrderListCell = "cartOrderListCell"
+private let myConmentListCartCell = "myConmentListCartCell"
+private let myConmentListRunCell = "myConmentListRunCell"
 
-class JSLCartOrderListVC: GYZBaseVC {
+class JSLMyConmentListVC: GYZBaseVC {
     
     weak var naviController: UINavigationController?
     
@@ -32,8 +33,8 @@ class JSLCartOrderListVC: GYZBaseVC {
         table.backgroundColor = kBackgroundColor
         
         
-        table.register(JSLCartOrderListCell.classForCoder(), forCellReuseIdentifier: cartOrderListCell)
-        
+        table.register(JSLCartOrderListCell.classForCoder(), forCellReuseIdentifier: myConmentListCartCell)
+        table.register(JSLRunOrderListCell.classForCoder(), forCellReuseIdentifier: myConmentListRunCell)
         
         return table
     }()
@@ -52,7 +53,7 @@ class JSLCartOrderListVC: GYZBaseVC {
         self.naviController?.pushViewController(vc, animated: true)
     }
 }
-extension JSLCartOrderListVC: UITableViewDelegate,UITableViewDataSource{
+extension JSLMyConmentListVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -63,13 +64,23 @@ extension JSLCartOrderListVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderListCell) as! JSLCartOrderListCell
-        
-        cell.operatorBtn.tag = indexPath.row
-        cell.operatorBtn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
-        
-        cell.selectionStyle = .none
-        return cell
+        if indexPath.row % 2 == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: myConmentListCartCell) as! JSLCartOrderListCell
+            
+            cell.operatorBtn.tag = indexPath.row
+            cell.operatorBtn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
+            
+            cell.selectionStyle = .none
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: myConmentListRunCell) as! JSLRunOrderListCell
+            
+            cell.operatorBtn.tag = indexPath.row
+            cell.operatorBtn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
+            
+            cell.selectionStyle = .none
+            return cell
+        }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -94,7 +105,7 @@ extension JSLCartOrderListVC: UITableViewDelegate,UITableViewDataSource{
         return 0.00001
     }
 }
-extension JSLCartOrderListVC: JXSegmentedListContainerViewListDelegate {
+extension JSLMyConmentListVC: JXSegmentedListContainerViewListDelegate {
     func listView() -> UIView {
         return self.view
     }

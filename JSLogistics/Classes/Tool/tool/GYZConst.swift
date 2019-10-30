@@ -140,7 +140,9 @@ let kGaryFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x666666)
 /// 黄色字体颜色
 let kYellowFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf7a870)
 /// 橙色字体颜色
-let kOrangeFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf38053)
+let kOrangeFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xf86537)
+/// 紫色字体颜色
+let kZiSeFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0x686de4)
 /// 浅灰色字体颜色
 let kLightGaryFontColor : UIColor = UIColor.UIColorFromRGB(valueRGB: 0xdcdcdc)
 /// 红色字体颜色

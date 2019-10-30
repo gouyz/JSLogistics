@@ -10,11 +10,15 @@ import UIKit
 import MBProgressHUD
 
 private let cartOrderDetailCell = "cartOrderDetailCell"
+private let cartOrderDetailHeaderCell = "cartOrderDetailHeaderCell"
+private let cartOrderDetailInfoCell = "cartOrderDetailInfoCell"
 
 class JSLCartOrderDetailVC: GYZBaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "订单详情"
         
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
@@ -29,8 +33,9 @@ class JSLCartOrderDetailVC: GYZBaseVC {
         table.backgroundColor = kBackgroundColor
         
         
-        table.register(JSLCartOrderListCell.classForCoder(), forCellReuseIdentifier: cartOrderListCell)
-        
+        table.register(JSLCartOrderListCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailCell)
+        table.register(JSLCartOrderDetailHeaderCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailHeaderCell)
+        table.register(JSLCartOrderInfoCell.classForCoder(), forCellReuseIdentifier: cartOrderDetailInfoCell)
         
         return table
     }()
@@ -38,19 +43,31 @@ class JSLCartOrderDetailVC: GYZBaseVC {
 }
 extension JSLCartOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 3
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 12
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderListCell) as! JSLCartOrderListCell
-        
-        cell.selectionStyle = .none
-        return cell
+        if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailHeaderCell) as! JSLCartOrderDetailHeaderCell
+            
+            cell.selectionStyle = .none
+            return cell
+        }else if indexPath.section == 1{
+            let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailCell) as! JSLCartOrderListCell
+            
+            cell.selectionStyle = .none
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailInfoCell) as! JSLCartOrderInfoCell
+            
+            cell.selectionStyle = .none
+            return cell
+        }
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
@@ -65,9 +82,15 @@ extension JSLCartOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.section == 2 {
+//            return 170
+//        }
         return 190
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 2 {
+            return kMargin
+        }
         return 0.00001
     }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
