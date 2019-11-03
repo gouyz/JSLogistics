@@ -32,6 +32,7 @@ extension DispatchQueue {
         block()
     }
 }
+
 extension UINavigationController {
     
     override open var preferredStatusBarStyle: UIStatusBarStyle {

@@ -292,7 +292,9 @@ extension UILabel {
     @objc fileprivate func yb_tapEffectWithStatus(_ status : Bool) -> Void {
         if isTapEffect {
             let attStr = NSMutableAttributedString.init(attributedString: self.attributedText!)
-            
+            if effectDic?.count < 0{
+                return
+            }
             let subAtt = NSMutableAttributedString.init(attributedString: (effectDic?.values.first)!)
             
             let range = NSRangeFromString(effectDic!.keys.first!)

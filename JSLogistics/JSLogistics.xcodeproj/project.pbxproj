@@ -153,6 +153,7 @@
 		0A6677B223687CC90044A978 /* JSLCartOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6677B123687CC90044A978 /* JSLCartOrderVC.swift */; };
 		0A6677B423687DAB0044A978 /* JSLCartOrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6677B323687DAB0044A978 /* JSLCartOrderListVC.swift */; };
 		0A6677B6236880400044A978 /* JSLCartOrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6677B5236880400044A978 /* JSLCartOrderListCell.swift */; };
+		0A66A0E2236C7CDD00A00541 /* JSLLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A66A0E1236C7CDD00A00541 /* JSLLoginVC.swift */; };
 		0A6915F32369D54800999206 /* JSLTripOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F22369D54800999206 /* JSLTripOrderVC.swift */; };
 		0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */; };
 		0A6915F72369D8D500999206 /* JSLTripOrderConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */; };
@@ -344,6 +345,7 @@
 		0A6677B123687CC90044A978 /* JSLCartOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderVC.swift; sourceTree = "<group>"; };
 		0A6677B323687DAB0044A978 /* JSLCartOrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderListVC.swift; sourceTree = "<group>"; };
 		0A6677B5236880400044A978 /* JSLCartOrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderListCell.swift; sourceTree = "<group>"; };
+		0A66A0E1236C7CDD00A00541 /* JSLLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLLoginVC.swift; sourceTree = "<group>"; };
 		0A6915F22369D54800999206 /* JSLTripOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderVC.swift; sourceTree = "<group>"; };
 		0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderListVC.swift; sourceTree = "<group>"; };
 		0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderConmentVC.swift; sourceTree = "<group>"; };
@@ -789,6 +791,7 @@
 				0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */,
 				0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */,
 				0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */,
+				0A66A0E1236C7CDD00A00541 /* JSLLoginVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1194,6 +1197,7 @@
 				0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */,
 				0A0F8F692300674C00827699 /* JSLFollowMsgVC.swift in Sources */,
 				0A5093B922FAC675002535FF /* SYAnimationLabel.m in Sources */,
+				0A66A0E2236C7CDD00A00541 /* JSLLoginVC.swift in Sources */,
 				0A50938522FAC675002535FF /* FSLoginVC.swift in Sources */,
 				0A5093BB22FAC675002535FF /* SYWaveProgressView.m in Sources */,
 				0A50937322FAC675002535FF /* GYZMyProfileCell.swift in Sources */,

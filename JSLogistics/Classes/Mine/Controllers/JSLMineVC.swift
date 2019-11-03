@@ -80,7 +80,7 @@ class JSLMineVC: GYZBaseVC {
     func clickedOperator(index:Int){
         switch index {
         case 101:
-            break
+            goLogin()
         case 102:
             break
         case 103:
@@ -96,6 +96,12 @@ class JSLMineVC: GYZBaseVC {
         default:
             break
         }
+    }
+    
+    func goLogin(){
+        let navVC = GYZBaseNavigationVC(rootViewController:JSLLoginVC())
+        
+        self.present(navVC, animated: true, completion: nil)
     }
     /// 评论
     func goMyConment(){

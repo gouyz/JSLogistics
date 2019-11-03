@@ -45,6 +45,8 @@ class GYZBaseNavigationVC: UINavigationController ,UIGestureRecognizerDelegate {
 
         // 右滑返回代理
         self.interactivePopGestureRecognizer?.delegate = self
+        /// ios13 present跳转设置为全屏
+        self.modalPresentationStyle = .fullScreen
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
