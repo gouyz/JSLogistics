@@ -23,24 +23,24 @@ class GYZMyProfileCell: UITableViewCell {
     
     func setupUI(){
         contentView.addSubview(userImgView)
-        contentView.addSubview(desLab)
+        contentView.addSubview(textFiled)
         contentView.addSubview(nameLab)
         contentView.addSubview(rightIconView)
         
         nameLab.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(contentView)
             make.left.equalTo(contentView).offset(kMargin)
-            make.right.equalTo(desLab.snp.left).offset(-kMargin)
+            make.right.equalTo(textFiled.snp.left).offset(-kMargin)
         }
         userImgView.snp.makeConstraints { (make) in
             make.centerY.equalTo(contentView)
             make.right.equalTo(rightIconView.snp.left).offset(-kMargin)
             make.size.equalTo(CGSize.init(width: 50, height: 50))
         }
-        desLab.snp.makeConstraints { (make) in
+        textFiled.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(contentView)
             make.right.equalTo(rightIconView.snp.left).offset(-5)
-            make.width.equalTo(kScreenWidth * 0.5)
+            make.width.equalTo(kScreenWidth * 0.6)
         }
         rightIconView.snp.makeConstraints { (make) in
             make.centerY.equalTo(contentView)
@@ -66,13 +66,15 @@ class GYZMyProfileCell: UITableViewCell {
         
         return lab
     }()
-    lazy var desLab : UILabel = {
-        let lab = UILabel()
-        lab.font = k13Font
-        lab.textColor = kGaryFontColor
-        lab.textAlignment = .right
+    /// 输入框
+    lazy var textFiled : UITextField = {
         
-        return lab
+        let textFiled = UITextField()
+        textFiled.font = k15Font
+        textFiled.textColor = kBlackFontColor
+        textFiled.clearButtonMode = .whileEditing
+        textFiled.textAlignment = .right
+        return textFiled
     }()
     /// 右侧箭头图标
     lazy var rightIconView: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_right_arrow"))

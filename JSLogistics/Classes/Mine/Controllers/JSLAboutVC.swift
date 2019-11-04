@@ -54,10 +54,11 @@ extension JSLAboutVC: UITableViewDelegate,UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: aboutCell) as! GYZMyProfileCell
         
-        cell.desLab.textColor = kGaryFontColor
+        cell.textFiled.textColor = kGaryFontColor
         cell.userImgView.isHidden = true
-        cell.desLab.isHidden = true
-        cell.desLab.textColor = kGaryFontColor
+        cell.textFiled.isHidden = true
+        cell.textFiled.isEnabled = false
+        cell.textFiled.textColor = kGaryFontColor
         cell.rightIconView.isHidden = false
         cell.nameLab.text = titleArray[indexPath.row]
         
@@ -67,9 +68,9 @@ extension JSLAboutVC: UITableViewDelegate,UITableViewDataSource{
             cell.rightIconView.isHidden = true
             cell.userImgView.image = UIImage.init(named: "icon_qrcode_default")
         }else if indexPath.row == 3{
-            cell.desLab.isHidden = false
-            cell.desLab.text = "400-2587-1256"
-            cell.desLab.textColor = kGreenFontColor
+            cell.textFiled.isHidden = false
+            cell.textFiled.text = "400-2587-1256"
+            cell.textFiled.textColor = kGreenFontColor
         }
         
         cell.selectionStyle = .none

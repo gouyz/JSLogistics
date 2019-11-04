@@ -121,6 +121,8 @@ class JSLMineHeaderView: UIView {
         let imgView = UIImageView()
         imgView.backgroundColor = kBackgroundColor
         imgView.cornerRadius = 30
+        imgView.tag = 108
+        imgView.addOnClickListener(target: self, action: #selector(onClickedList(sender:)))
         
         return imgView
     }()

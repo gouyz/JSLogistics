@@ -93,6 +93,8 @@ class JSLMineVC: GYZBaseVC {
             showOrderView()
         case 106:/// 我的评论
             goMyConment()
+        case 108:/// 我的资料
+            goMyProfile()
         default:
             break
         }
@@ -106,6 +108,11 @@ class JSLMineVC: GYZBaseVC {
     /// 评论
     func goMyConment(){
         let vc = JSLMyConmentVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    /// 评论
+    func goMyProfile(){
+        let vc = JSLMyProfileVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 我的订单

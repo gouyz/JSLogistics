@@ -34,6 +34,11 @@
 		0A417B1222F9115100BF9614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A417B1022F9115100BF9614 /* LaunchScreen.storyboard */; };
 		0A417B1D22F9115100BF9614 /* JSLogisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B1C22F9115100BF9614 /* JSLogisticsTests.swift */; };
 		0A417B2822F9115100BF9614 /* JSLogisticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */; };
+		0A434B6F236FCFC8005B2BD4 /* JSLMyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B6E236FCFC8005B2BD4 /* JSLMyProfileVC.swift */; };
+		0A434B71236FD1DF005B2BD4 /* JSLMyProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B70236FD1DF005B2BD4 /* JSLMyProfileHeaderView.swift */; };
+		0A434B73236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B72236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift */; };
+		0A434B75237006BF005B2BD4 /* JSLEditMyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B74237006BF005B2BD4 /* JSLEditMyProfileVC.swift */; };
+		0A434B7723700CE9005B2BD4 /* JSLUploadPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B7623700CE9005B2BD4 /* JSLUploadPhotoCell.swift */; };
 		0A45C2B522FD1BD40034BCCD /* JSLHomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */; };
 		0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */; };
 		0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */; };
@@ -213,6 +218,11 @@
 		0A417B2322F9115100BF9614 /* JSLogisticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSLogisticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLogisticsUITests.swift; sourceTree = "<group>"; };
 		0A417B2922F9115100BF9614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A434B6E236FCFC8005B2BD4 /* JSLMyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyProfileVC.swift; sourceTree = "<group>"; };
+		0A434B70236FD1DF005B2BD4 /* JSLMyProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyProfileHeaderView.swift; sourceTree = "<group>"; };
+		0A434B72236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyProfilePhotoCell.swift; sourceTree = "<group>"; };
+		0A434B74237006BF005B2BD4 /* JSLEditMyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLEditMyProfileVC.swift; sourceTree = "<group>"; };
+		0A434B7623700CE9005B2BD4 /* JSLUploadPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLUploadPhotoCell.swift; sourceTree = "<group>"; };
 		0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeListVC.swift; sourceTree = "<group>"; };
 		0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeShopCell.swift; sourceTree = "<group>"; };
 		0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCommonNavVC.swift; sourceTree = "<group>"; };
@@ -792,6 +802,8 @@
 				0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */,
 				0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */,
 				0A66A0E1236C7CDD00A00541 /* JSLLoginVC.swift */,
+				0A434B6E236FCFC8005B2BD4 /* JSLMyProfileVC.swift */,
+				0A434B74237006BF005B2BD4 /* JSLEditMyProfileVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -807,6 +819,9 @@
 				0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */,
 				0A1D867C236933A500DA4CB8 /* JSLCartOrderInfoCell.swift */,
 				0A1D868423697B4500DA4CB8 /* JSLRunOrderListCell.swift */,
+				0A434B70236FD1DF005B2BD4 /* JSLMyProfileHeaderView.swift */,
+				0A434B72236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift */,
+				0A434B7623700CE9005B2BD4 /* JSLUploadPhotoCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1155,6 +1170,7 @@
 				0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */,
 				0A5093B722FAC675002535FF /* SYProgressView.m in Sources */,
 				0A5093B422FAC675002535FF /* ScrollSegmentView.swift in Sources */,
+				0A434B7723700CE9005B2BD4 /* JSLUploadPhotoCell.swift in Sources */,
 				0A45C2B522FD1BD40034BCCD /* JSLHomeListVC.swift in Sources */,
 				0A1D867D236933A500DA4CB8 /* JSLCartOrderInfoCell.swift in Sources */,
 				0A5093B522FAC675002535FF /* ContentView.swift in Sources */,
@@ -1163,6 +1179,7 @@
 				0A50938922FAC675002535FF /* FSSexInfoVC.swift in Sources */,
 				0A6C388523673A9000B348C3 /* JSLCustomOrderView.swift in Sources */,
 				0A50937922FAC675002535FF /* GYZCommonSwitchCell.swift in Sources */,
+				0A434B75237006BF005B2BD4 /* JSLEditMyProfileVC.swift in Sources */,
 				0A0F8F6B23006B6C00827699 /* JSLFollowMsgCell.swift in Sources */,
 				0A5093BE22FAC675002535FF /* GYZAddressBookManager.swift in Sources */,
 				0A50937022FAC675002535FF /* GYZLabArrowCell.swift in Sources */,
@@ -1180,9 +1197,11 @@
 				0A6677B423687DAB0044A978 /* JSLCartOrderListVC.swift in Sources */,
 				0A5093C222FAC675002535FF /* GYZThrowLineTool.swift in Sources */,
 				0A50938822FAC675002535FF /* FSForgetPwdCodeVC.swift in Sources */,
+				0A434B6F236FCFC8005B2BD4 /* JSLMyProfileVC.swift in Sources */,
 				0A5093AA22FAC675002535FF /* ZPageControl.swift in Sources */,
 				0A50937622FAC675002535FF /* FSCityAreaCell.swift in Sources */,
 				0A45C2BB22FD5A770034BCCD /* JSLShopListVC.swift in Sources */,
+				0A434B73236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift in Sources */,
 				0A50938E22FAC675002535FF /* GYZUIButton+Extension.swift in Sources */,
 				0A5093B322FAC675002535FF /* ScrollPageView.swift in Sources */,
 				0A50938D22FAC675002535FF /* ETNavBarTransparent.swift in Sources */,
@@ -1226,6 +1245,7 @@
 				0A0F8F65230056A800827699 /* JSLFenSiMsgListCell.swift in Sources */,
 				0A2D8135235767BA00A3E024 /* JSLLoginOutFooterView.swift in Sources */,
 				0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */,
+				0A434B71236FD1DF005B2BD4 /* JSLMyProfileHeaderView.swift in Sources */,
 				0A50936122FAC675002535FF /* JSMWebViewVC.swift in Sources */,
 				0A50939822FAC675002535FF /* LHSCustomAlertView.swift in Sources */,
 				0A5093AB22FAC675002535FF /* MMShareSheet.swift in Sources */,

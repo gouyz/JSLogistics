@@ -45,11 +45,16 @@ class JSLMyConmentListVC: GYZBaseVC {
     }
     /// 操作
     @objc func onClickedOperator(sender:UIButton){
-        goConmentVC()
+        goSeeConmentVC()
     }
     // 立即评价
     func goConmentVC(){
         let vc = JSLOrderConmentVC()
+        self.naviController?.pushViewController(vc, animated: true)
+    }
+    // 查看评价
+    func goSeeConmentVC(){
+        let vc = JSLConmentDetailVC()
         self.naviController?.pushViewController(vc, animated: true)
     }
 }
