@@ -61,6 +61,9 @@ class JSLPublishVC: GYZBaseVC {
         contentView.addSubview(zuoBiaoView)
         contentView.addSubview(rightIconView1)
         contentView.addSubview(lineView4)
+        contentView.addSubview(categoryView)
+        contentView.addSubview(rightIconView2)
+        contentView.addSubview(lineView6)
         contentView.addSubview(tuijianLab)
         contentView.addSubview(tuijianRatingView)
         contentView.addSubview(lineView5)
@@ -137,9 +140,23 @@ class JSLPublishVC: GYZBaseVC {
             make.left.right.height.equalTo(lineView)
             make.top.equalTo(zuoBiaoView.snp.bottom)
         }
+        categoryView.snp.makeConstraints { (make) in
+            make.left.height.equalTo(tagView)
+            make.top.equalTo(lineView4.snp.bottom)
+            make.right.equalTo(rightIconView2.snp.left)
+        }
+        rightIconView2.snp.makeConstraints { (make) in
+            make.centerY.equalTo(categoryView)
+            make.right.equalTo(-kMargin)
+            make.size.equalTo(rightArrowSize)
+        }
+        lineView6.snp.makeConstraints { (make) in
+            make.left.right.height.equalTo(lineView)
+            make.top.equalTo(categoryView.snp.bottom)
+        }
         tuijianLab.snp.makeConstraints { (make) in
             make.left.equalTo(kMargin)
-            make.top.equalTo(lineView4.snp.bottom)
+            make.top.equalTo(lineView6.snp.bottom)
             make.width.equalTo(100)
             make.height.equalTo(titleTextFiled)
         }
@@ -229,11 +246,11 @@ class JSLPublishVC: GYZBaseVC {
     /// 选择美食坐标
     lazy var zuoBiaoView: GYZLabAndFieldView = {
         let selectView = GYZLabAndFieldView()
-        selectView.desLab.text = "美食坐标"
+        selectView.desLab.text = "添加套餐"
         selectView.textFiled.isEnabled = false
         selectView.textFiled.textColor = kGreenFontColor
         selectView.textFiled.textAlignment = .right
-        selectView.tag = 101
+        selectView.tag = 102
         selectView.addOnClickListener(target: self, action: #selector(onClickedOperator(sender:)))
         
         return selectView
@@ -241,6 +258,26 @@ class JSLPublishVC: GYZBaseVC {
     /// 右侧箭头图标
     lazy var rightIconView1: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_right_arrow"))
     lazy var lineView4: UIView = {
+        let view = UIView()
+        view.backgroundColor = kGrayLineColor
+        
+        return view
+    }()
+    /// 选择笔记分类
+    lazy var categoryView: GYZLabAndFieldView = {
+        let selectView = GYZLabAndFieldView()
+        selectView.desLab.text = "笔记分类"
+        selectView.textFiled.isEnabled = false
+        selectView.textFiled.textColor = kGreenFontColor
+        selectView.textFiled.textAlignment = .right
+        selectView.tag = 103
+        selectView.addOnClickListener(target: self, action: #selector(onClickedOperator(sender:)))
+        
+        return selectView
+    }()
+    /// 右侧箭头图标
+    lazy var rightIconView2: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_right_arrow"))
+    lazy var lineView6: UIView = {
         let view = UIView()
         view.backgroundColor = kGrayLineColor
         
@@ -398,13 +435,19 @@ class JSLPublishVC: GYZBaseVC {
     //
     @objc func onClickedOperator(sender: UITapGestureRecognizer){
         let tag = sender.view?.tag
-        if tag == 101 { //选择话题
-//            goSelectTopicVC()
+        if tag == 101 { //选择标签
+            goSelectTag()
         }else if tag == 102 { //谁可以看
 //            goSeePower()
         }else if tag == 103 { //选择地点
 //            goSelectAddressVC()
         }
+    }
+    func goSelectTag(){
+        let vc = JSLSelectedFoodTagVC()
+        let navVC = GYZBaseNavigationVC(rootViewController:vc)
+        
+        self.present(navVC, animated: true, completion: nil)
     }
     ///打开相机
     func openCamera(){

@@ -144,7 +144,7 @@ class GYZTool: NSObject {
     /// 退出登录时，移除用户信息
     class func removeUserInfo(){
         userDefaults.removeObject(forKey: kIsLoginTagKey)
-        userDefaults.removeObject(forKey: "token")//用户token
+        userDefaults.removeObject(forKey: "userId")//用户id
 //        userDefaults.removeObject(forKey: "phone")//用户电话
 //        userDefaults.removeObject(forKey: "head")//用户ID
 //        userDefaults.removeObject(forKey: "realName")//用户电话
@@ -342,11 +342,11 @@ class GYZTool: NSObject {
     }
     
     ///保存用户信息
-    static func saveUserInfo(userModel: LHSUserInfoModel){
-        ///保存用户信息
-        let model = NSKeyedArchiver.archivedData(withRootObject: userModel)
-        userDefaults.set(model, forKey: USERINFO)
-    }
+//    static func saveUserInfo(userModel: LHSUserInfoModel){
+//        ///保存用户信息
+//        let model = NSKeyedArchiver.archivedData(withRootObject: userModel)
+//        userDefaults.set(model, forKey: USERINFO)
+//    }
     /**
      字典转换为JSONString
      

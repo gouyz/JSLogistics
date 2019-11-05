@@ -29,7 +29,7 @@ class LHSGeneralHeaderView: UITableViewHeaderFooterView {
         
         nameLab.snp.makeConstraints { (make) in
             make.left.equalTo(kMargin)
-            make.width.equalTo(80)
+            make.right.equalTo(-kMargin)
             make.top.equalTo(kMargin)
             make.bottom.equalTo(lineView.snp.top).offset(-kMargin)
         }

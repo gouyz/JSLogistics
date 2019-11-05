@@ -16,7 +16,7 @@ import UIKit
 /// class Test {
 ///
 /// }
-
+@objcMembers
 class LHSBaseModel: NSObject {
 
     override init() {

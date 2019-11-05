@@ -13,10 +13,9 @@ import MBProgressHUD
 
 /// 网络请求基地址
 #if DEBUG
-//let BaseRequestURL = "http://192.168.1.132:80/app/"
-let BaseRequestURL = "http://api.fitsky.lijiayin.com/v2.0.0/"
+let BaseRequestURL = "http://xmjs.0519app.com/index.php/WXAPI/"
 #else
-let BaseRequestURL = "http://api.fitsky.lijiayin.com/v2.0.0/"
+let BaseRequestURL = "http://xmjs.0519app.com/index.php/WXAPI/"
 #endif
 
 class GYZNetWork: NSObject {

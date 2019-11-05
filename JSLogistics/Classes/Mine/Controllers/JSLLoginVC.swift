@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class JSLLoginVC: GYZBaseVC {
+    
+    /// 选择结果回调
+    var resultBlock:(() -> Void)?
     
     let ruleContent: String = "已阅读并同意《用户协议》和《隐私政策》"
 
@@ -237,6 +241,9 @@ class JSLLoginVC: GYZBaseVC {
         btn.setTitleColor(kGaryFontColor, for: .disabled)
         btn.setTitleColor(kWhiteColor, for: .normal)
         btn.cornerRadius = kCornerRadius
+        btn.isEnabled = false
+        
+        btn.addTarget(self, action: #selector(clickedLoginBtn), for: .touchUpInside)
         
         return btn
     }()
@@ -249,23 +256,114 @@ class JSLLoginVC: GYZBaseVC {
     }()
     /// 关闭
     @objc func clickedRightBtn(){
+        closedVC()
+    }
+    
+    func closedVC(){
         self.dismiss(animated: true) {
             
         }
     }
     /// 获取验证码
     @objc func clickedGetCodeBtn(){
-//        if phoneInputView.textFiled.text!.isEmpty {
-//            MBProgressHUD.showAutoDismissHUD(message: "请输入手机号")
-//            return
-//        }else if !phoneInputView.textFiled.text!.isMobileNumber(){
-//            MBProgressHUD.showAutoDismissHUD(message: "请输入正确的手机号")
-//            return
-//        }
-//
-//        requestCode()
+        if validPhoneNO() {
+            requestCode()
+        }
+    }
+    /// 判断手机号是否有效
+    ///
+    /// - Returns:
+    func validPhoneNO() -> Bool{
+        
+        if phoneTextFiled.text!.isEmpty {
+            MBProgressHUD.showAutoDismissHUD(message: "请输入手机号")
+            return false
+        }
+        if phoneTextFiled.text!.isMobileNumber(){
+            return true
+        }else{
+            MBProgressHUD.showAutoDismissHUD(message: "请输入正确的手机号")
+            return false
+        }
+        
+    }
+    ///获取验证码
+    func requestCode(){
+        hiddenKeyBoard()
+        weak var weakSelf = self
+        createHUD(message: "获取中...")
+        
+        GYZNetWork.requestNetwork("aliyundysms/sendSms", parameters: ["phone":phoneTextFiled.text!],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.codeBtn.startSMSWithDuration(duration: 60)
+                
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
     }
     
+    /// 登录
+    @objc func clickedLoginBtn(){
+        hiddenKeyBoard()
+        
+        if !validPhoneNO() {
+            return
+        }
+        if codeTextFiled.text!.isEmpty {
+            MBProgressHUD.showAutoDismissHUD(message: "请输入验证码")
+            return
+        }
+        requestLogin()
+    }
+    /// 隐藏键盘
+    func hiddenKeyBoard(){
+        phoneTextFiled.resignFirstResponder()
+        codeTextFiled.resignFirstResponder()
+    }
+    /// 用户登录
+    func requestLogin(){
+        
+        weak var weakSelf = self
+        createHUD(message: "登录中...")
+        
+        GYZNetWork.requestNetwork("user/login", parameters: ["phone":phoneTextFiled.text!,"code": codeTextFiled.text!],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                
+                let data = response["result"]
+                
+                userDefaults.set(true, forKey: kIsLoginTagKey)//是否登录标识
+                userDefaults.set(data.stringValue, forKey: "userId")//用户ID
+//                JPUSHService.setAlias(data["jg_id"].stringValue, completion: { (iResCode, iAlias, seq) in
+//
+//                }, seq: 0)
+//                KeyWindow.rootViewController = GYZMainTabBarVC()
+                
+                weakSelf?.dealLoginSuccess()
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
+    func dealLoginSuccess(){
+        if resultBlock != nil {
+            resultBlock!()
+        }
+        closedVC()
+    }
     /// 第三方登录
     @objc func clickedThirdLoginBtn(sender: UIButton){
         
@@ -274,6 +372,8 @@ class JSLLoginVC: GYZBaseVC {
     /// 同意协议按钮
     @objc func clickedCheckRule(){
         checkImgView.isHighlighted = !checkImgView.isHighlighted
+        loginBtn.isEnabled = checkImgView.isHighlighted
+        loginBtn.backgroundColor = checkImgView.isHighlighted ? kGreenFontColor : kBtnNoClickBGColor
     }
 
 }

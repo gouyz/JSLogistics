@@ -42,6 +42,11 @@ class JSLSettingVC: GYZBaseVC {
         let vc = JSLAboutVC()
         navigationController?.pushViewController(vc, animated: true)
     }
+    /// 退出登录
+    @objc func onClickedLoginOut(){
+        GYZTool.removeUserInfo()
+        KeyWindow.rootViewController = GYZMainTabBarVC()
+    }
 }
 extension JSLSettingVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -69,6 +74,7 @@ extension JSLSettingVC: UITableViewDelegate,UITableViewDataSource{
         
         let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: settingLoginOutFooter) as! JSLLoginOutFooterView
         
+        headerView.loginOutBtn.addTarget(self, action: #selector(onClickedLoginOut), for: .touchUpInside)
         
         return headerView
     }

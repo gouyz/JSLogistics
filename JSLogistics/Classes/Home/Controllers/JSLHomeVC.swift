@@ -9,23 +9,33 @@
 import UIKit
 import JXSegmentedView
 import JXPagingView
+import MBProgressHUD
 
 class JSLHomeVC: JSLCommonNavVC {
     
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
     let JXTableHeaderViewHeight: Int = Int(kScreenWidth * 0.35 + kTitleHeight)
-    let titles = ["TOP推荐", "网红", "中餐", "西餐", "下午茶", "火锅", "龙虾", "糕点", "麻辣烫"]
+    //    let titles = ["TOP推荐", "网红", "中餐", "西餐", "下午茶", "火锅", "龙虾", "糕点", "麻辣烫"]
+    /// 分类
+    var catrgoryList: [JSLPublishCategoryModel] = [JSLPublishCategoryModel]()
+    var catrgoryNameList: [String] = [String]()
+    /// 轮播图
+    var adsList:[JSLHomeAdsModel] = [JSLHomeAdsModel]()
+    var adsImgUrlList: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.view.addSubview(pagingView)
         pagingView.snp.makeConstraints { (make) in
-//            make.top.equalTo(kTitleAndStateHeight)
+            //            make.top.equalTo(kTitleAndStateHeight)
             make.top.left.right.bottom.equalTo(self.view)
         }
         
         segmentedView.contentScrollView = pagingView.listContainerView.collectionView
+        
+        requestAdsList()
+        requestCategoryList()
     }
     
     lazy var pagingView: JXPagingView = {
@@ -40,7 +50,7 @@ class JSLHomeVC: JSLCommonNavVC {
         segmentedViewDataSource.isTitleMaskEnabled = true
         segmentedViewDataSource.titleNormalColor = kGaryFontColor
         segmentedViewDataSource.titleSelectedColor = kBlackFontColor
-        segmentedViewDataSource.titles = titles
+        segmentedViewDataSource.titles = catrgoryNameList
         //reloadData(selectedIndex:)一定要调用
         segmentedViewDataSource.reloadData(selectedIndex: 0)
         //配置指示器
@@ -59,6 +69,91 @@ class JSLHomeVC: JSLCommonNavVC {
     }()
     lazy var headerView: JSLHomeHeaderView = JSLHomeHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: CGFloat(JXTableHeaderViewHeight)))
     
+    ///获取轮播广告数据
+    func requestAdsList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("index/ad",parameters: nil,method :.get,  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].array else { return }
+                for item in data{
+                    guard let itemInfo = item.dictionaryObject else { return }
+                    let model = JSLHomeAdsModel.init(dict: itemInfo)
+                    
+                    weakSelf?.adsList.append(model)
+                    weakSelf?.adsImgUrlList.append(model.ad_code!)
+                }
+                weakSelf?.headerView.adsImgView.setUrlsGroup((weakSelf?.adsImgUrlList)!)
+                
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
+    }
+    ///获取发布分类数据
+    func requestCategoryList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("publish/getPublishType",parameters: nil,method :.get,  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].array else { return }
+                for item in data{
+                    guard let itemInfo = item.dictionaryObject else { return }
+                    let model = JSLPublishCategoryModel.init(dict: itemInfo)
+                    
+                    weakSelf?.catrgoryList.append(model)
+                    weakSelf?.catrgoryNameList.append(model.name!)
+                }
+                weakSelf?.reloadData()
+                
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
+    }
+    
+    func reloadData() {
+        if catrgoryNameList.count > 0 {
+            //一定要统一segmentedDataSource、segmentedView、listContainerView的defaultSelectedIndex
+            segmentedViewDataSource.titles = catrgoryNameList
+            //reloadData(selectedIndex:)一定要调用
+            segmentedViewDataSource.reloadData(selectedIndex: 0)
+            
+            segmentedView.defaultSelectedIndex = 0
+            segmentedView.reloadData()
+            
+            pagingView.defaultSelectedIndex = 0
+            pagingView.reloadData()
+        }
+    }
 }
 extension JSLHomeVC: JXPagingViewDelegate {
     
@@ -79,7 +174,7 @@ extension JSLHomeVC: JXPagingViewDelegate {
     }
     
     func numberOfLists(in pagingView: JXPagingView) -> Int {
-        return titles.count
+        return catrgoryNameList.count
     }
     
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
@@ -93,10 +188,10 @@ extension JSLHomeVC: JXPagingViewDelegate {
 }
 
 extension JSLHomeVC: JXSegmentedViewDelegate {
-//    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
-//
-//        navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
-//    }
+    //    func segmentedView(_ segmentedView: JXSegmentedView, didSelectedItemAt index: Int) {
+    //
+    //        navigationController?.interactivePopGestureRecognizer?.isEnabled = (segmentedView.selectedIndex == 0)
+    //    }
     
     func segmentedView(_ segmentedView: JXSegmentedView, didClickSelectedItemAt index: Int) {
         self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
