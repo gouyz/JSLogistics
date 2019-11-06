@@ -43,22 +43,18 @@ class GYZNetWork: NSObject {
         let requestUrl = baseUrl + url
         
 //        var header : HTTPHeaders?
-        var paramDic:Parameters = parameters == nil ? [String: Any]() : parameters!
+//        var paramDic:Parameters = parameters == nil ? [String: Any]() : parameters!
         
-        if isToken {//统一传值，用户id
-            if let token = userDefaults.string(forKey: "token") {
-//                header = ["Authorization":token]
-                paramDic["token"] = token
-            }else{
-                paramDic["token"] = ""
-            }
-        }
-        paramDic["app_id"] = API_APPID
-        paramDic["app_key"] = API_APPKEY
-        paramDic["time"] = Int(Date().timeIntervalSince1970)
-        paramDic["sign"] = ""
+//        if isToken {//统一传值，用户id
+//            if let token = userDefaults.string(forKey: "token") {
+////                header = ["Authorization":token]
+//                paramDic["token"] = token
+//            }else{
+//                paramDic["token"] = ""
+//            }
+//        }
         
-        Alamofire.request(requestUrl, method: method, parameters: paramDic,encoding:encoding,headers: nil).responseJSON(completionHandler: { (response) in
+        Alamofire.request(requestUrl, method: method, parameters: parameters,encoding:encoding,headers: nil).responseJSON(completionHandler: { (response) in
             
             if response.result.isSuccess{
                 if let value = response.result.value {

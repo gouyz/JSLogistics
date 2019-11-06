@@ -10,6 +10,31 @@ import UIKit
 
 class JSLHomeShopCell: UICollectionViewCell {
     
+    /// 填充数据
+    var dataModel : JSLPublishNotesModel?{
+        didSet{
+            if let model = dataModel {
+                
+                tagImgView.kf.setImage(with: URL.init(string: model.img!), placeholder: UIImage.init(named: ""))
+                
+                
+                userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!), placeholder: UIImage.init(named: ""))
+                nameLab.text = model.userInfoModel?.nickname
+                contentLab.text = model.content
+                
+                var zanCount: String = model.point_count!
+                if zanCount.isEmpty || zanCount == "0"{
+                    zanCount = ""
+                }
+                if model.is_point == "1"{// 已点赞
+                    zanBtn.set(image: UIImage.init(named: "icon_home_heart_selected"), title: zanCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                }else{
+                    zanBtn.set(image: UIImage.init(named: "icon_home_heart"), title: zanCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                }
+            }
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -45,9 +70,9 @@ class JSLHomeShopCell: UICollectionViewCell {
             make.height.equalTo(30)
         }
         zanBtn.snp.makeConstraints { (make) in
-            make.right.equalTo(-kMargin)
+            make.right.equalTo(-5)
             make.bottom.equalTo(bgView)
-            make.size.equalTo(CGSize.init(width: 80, height: 30))
+            make.size.equalTo(CGSize.init(width: 60, height: 30))
         }
         
         zanBtn.set(image: UIImage.init(named: "icon_home_heart"), title: "2019", titlePosition: .right, additionalSpacing: 5, state: .normal)
@@ -69,6 +94,8 @@ class JSLHomeShopCell: UICollectionViewCell {
     lazy var tagImgView: UIImageView = {
         let imgView = UIImageView()
         imgView.backgroundColor = kBackgroundColor
+        imgView.contentMode = .scaleAspectFill
+        imgView.clipsToBounds = true
         imgView.image = UIImage.init(named: "icon_home_food_default")
 
         return imgView
@@ -95,7 +122,7 @@ class JSLHomeShopCell: UICollectionViewCell {
     lazy var contentLab: UILabel = {
         let lab = UILabel()
         lab.font = k12Font
-        lab.textColor = kHeightGaryFontColor
+        lab.textColor = kGaryFontColor
         lab.numberOfLines = 2
         lab.text = "想吃火锅却害怕起痘痘上火？来这里，总有一款满足你的味蕾...来这里，总有一款满足你的味蕾..."
         
@@ -106,7 +133,7 @@ class JSLHomeShopCell: UICollectionViewCell {
         let btn = UIButton.init(type: .custom)
         btn.titleLabel?.font = k13Font
         btn.titleLabel?.textAlignment = .right
-        btn.setTitleColor(kHeightGaryFontColor, for: .normal)
+        btn.setTitleColor(kGaryFontColor, for: .normal)
         return btn
     }()
 }

@@ -9,6 +9,33 @@
 import UIKit
 
 class JSLShopListCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLGoodsModel?{
+        didSet{
+            if let model = dataModel {
+                
+                tagImgView.kf.setImage(with: URL.init(string: model.original_img!), placeholder: UIImage.init(named: ""))
+                
+                let priceStr = String(format:"%.2f",model.shop_price!)
+                let marketPrice = String(format:"%.2f",model.market_price!)
+                let str = "￥\(priceStr)"  + "  \(marketPrice)"
+                let priceAtt : NSMutableAttributedString = NSMutableAttributedString(string: str)
+                priceAtt.addAttribute(NSAttributedString.Key.foregroundColor, value: kRedFontColor, range: NSMakeRange(0, priceStr.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.font, value: k18Font, range: NSMakeRange(0, priceStr.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.baselineOffset, value: 0, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
+                
+                priceLab.attributedText = priceAtt
+                
+                nameLab.text = model.goods_name
+                desLab.text = model.address
+                distanceLab.text = model.distance
+                
+                operatorBtn.isHidden = true
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -16,16 +43,6 @@ class JSLShopListCell: UITableViewCell {
         contentView.backgroundColor = kBackgroundColor
         setupUI()
         
-        let priceStr = String(format:"%.2f",88.00)
-        let marketPrice = String(format:"%.2f",118.00)
-        let str = "￥\(priceStr)"  + "  \(marketPrice)"
-        let priceAtt : NSMutableAttributedString = NSMutableAttributedString(string: str)
-        priceAtt.addAttribute(NSAttributedString.Key.foregroundColor, value: kRedFontColor, range: NSMakeRange(0, priceStr.count + 1))
-        priceAtt.addAttribute(NSAttributedString.Key.font, value: k18Font, range: NSMakeRange(0, priceStr.count + 1))
-        priceAtt.addAttribute(NSAttributedString.Key.baselineOffset, value: 0, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
-        priceAtt.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
-        
-        priceLab.attributedText = priceAtt
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,7 +82,7 @@ class JSLShopListCell: UITableViewCell {
         distanceLab.snp.makeConstraints { (make) in
             make.top.bottom.equalTo(desLab)
             make.right.equalTo(-kMargin)
-            make.width.equalTo(60)
+            make.width.equalTo(80)
         }
         priceLab.snp.makeConstraints { (make) in
             make.bottom.equalTo(tagImgView)
@@ -90,6 +107,8 @@ class JSLShopListCell: UITableViewCell {
     lazy var tagImgView : UIImageView = {
         let img = UIImageView()
         img.cornerRadius = kCornerRadius
+        img.contentMode = .scaleAspectFill
+        img.clipsToBounds = true
         img.backgroundColor = kBackgroundColor
         
         return img

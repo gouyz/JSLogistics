@@ -52,6 +52,11 @@
 		0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */; };
 		0A4C7D5B235808A80082C926 /* JSLMyFenSiListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */; };
 		0A4F0C5823692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */; };
+		0A4F235B23725AF7009DEB30 /* JSLPublishNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */; };
+		0A4F235D23725BF6009DEB30 /* JSLUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */; };
+		0A4F236023726850009DEB30 /* CHTCollectionViewWaterfallLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235F23726850009DEB30 /* CHTCollectionViewWaterfallLayout.swift */; };
+		0A4F23622372AEE8009DEB30 /* JSLGoodsCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F23612372AEE8009DEB30 /* JSLGoodsCategoryModel.swift */; };
+		0A4F23642372B5A5009DEB30 /* JSLGoodsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F23632372B5A5009DEB30 /* JSLGoodsModel.swift */; };
 		0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D422FAC673002535FF /* LHSBaseModel.swift */; };
 		0A50935F22FAC675002535FF /* FSCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D522FAC673002535FF /* FSCityModel.swift */; };
 		0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5092D722FAC673002535FF /* FSSelectCityVC.swift */; };
@@ -230,6 +235,11 @@
 		0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutHeaderView.swift; sourceTree = "<group>"; };
 		0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiListVC.swift; sourceTree = "<group>"; };
 		0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderDetailHeaderCell.swift; sourceTree = "<group>"; };
+		0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLPublishNotesModel.swift; sourceTree = "<group>"; };
+		0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLUserInfoModel.swift; sourceTree = "<group>"; };
+		0A4F235F23726850009DEB30 /* CHTCollectionViewWaterfallLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CHTCollectionViewWaterfallLayout.swift; sourceTree = "<group>"; };
+		0A4F23612372AEE8009DEB30 /* JSLGoodsCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsCategoryModel.swift; sourceTree = "<group>"; };
+		0A4F23632372B5A5009DEB30 /* JSLGoodsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsModel.swift; sourceTree = "<group>"; };
 		0A5092D422FAC673002535FF /* LHSBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LHSBaseModel.swift; sourceTree = "<group>"; };
 		0A5092D522FAC673002535FF /* FSCityModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSCityModel.swift; sourceTree = "<group>"; };
 		0A5092D722FAC673002535FF /* FSSelectCityVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FSSelectCityVC.swift; sourceTree = "<group>"; };
@@ -435,6 +445,14 @@
 			path = JSLogisticsUITests;
 			sourceTree = "<group>";
 		};
+		0A4F235E23726850009DEB30 /* WaterFallLayout */ = {
+			isa = PBXGroup;
+			children = (
+				0A4F235F23726850009DEB30 /* CHTCollectionViewWaterfallLayout.swift */,
+			);
+			path = WaterFallLayout;
+			sourceTree = "<group>";
+		};
 		0A5092D122FAC673002535FF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +593,7 @@
 		0A50931B22FAC674002535FF /* 3rdLib */ = {
 			isa = PBXGroup;
 			children = (
+				0A4F235E23726850009DEB30 /* WaterFallLayout */,
 				0A50931C22FAC674002535FF /* TagsView */,
 				0A50932722FAC674002535FF /* PickerView */,
 				0A50933022FAC674002535FF /* ZCycleView */,
@@ -726,6 +745,7 @@
 		0A5093C722FAC932002535FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -787,6 +807,7 @@
 			children = (
 				0A4339C723716479001A6B38 /* JSLHomeAdsModel.swift */,
 				0A2A334C2371656A006028DC /* JSLPublishCategoryModel.swift */,
+				0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -897,6 +918,8 @@
 		0A5093D722FAC932002535FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A4F23612372AEE8009DEB30 /* JSLGoodsCategoryModel.swift */,
+				0A4F23632372B5A5009DEB30 /* JSLGoodsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1118,6 +1141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */,
+				0A4F236023726850009DEB30 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 				0A5093B722FAC675002535FF /* SYProgressView.m in Sources */,
 				0A5093B422FAC675002535FF /* ScrollSegmentView.swift in Sources */,
 				0A434B7723700CE9005B2BD4 /* JSLUploadPhotoCell.swift in Sources */,
@@ -1164,6 +1188,7 @@
 				0A5093BD22FAC675002535FF /* GYZUpdateVersionTool.swift in Sources */,
 				0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */,
 				0A0F8F692300674C00827699 /* JSLFollowMsgVC.swift in Sources */,
+				0A4F235B23725AF7009DEB30 /* JSLPublishNotesModel.swift in Sources */,
 				0A5093B922FAC675002535FF /* SYAnimationLabel.m in Sources */,
 				0A66A0E2236C7CDD00A00541 /* JSLLoginVC.swift in Sources */,
 				0A5093BB22FAC675002535FF /* SYWaveProgressView.m in Sources */,
@@ -1180,6 +1205,7 @@
 				0A50939222FAC675002535FF /* GYZUIColor+Extension.swift in Sources */,
 				0A5093A922FAC675002535FF /* ZCycleLayout.swift in Sources */,
 				0A50937F22FAC675002535FF /* GYZBaseVC.swift in Sources */,
+				0A4F235D23725BF6009DEB30 /* JSLUserInfoModel.swift in Sources */,
 				0A50936322FAC675002535FF /* GYZCommonArrowCell.swift in Sources */,
 				0A50938F22FAC675002535FF /* GYZUIImage+Extension.swift in Sources */,
 				0A5093AF22FAC675002535FF /* GYZSheetView.swift in Sources */,
@@ -1188,6 +1214,7 @@
 				0A5093C422FAC676002535FF /* GYZCheckTool.m in Sources */,
 				0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */,
 				0A50939D22FAC675002535FF /* HXTagAttribute.m in Sources */,
+				0A4F23622372AEE8009DEB30 /* JSLGoodsCategoryModel.swift in Sources */,
 				0A5093C122FAC675002535FF /* GYZAlertViewTools.swift in Sources */,
 				0A0F8F65230056A800827699 /* JSLFenSiMsgListCell.swift in Sources */,
 				0A2D8135235767BA00A3E024 /* JSLLoginOutFooterView.swift in Sources */,
@@ -1232,6 +1259,7 @@
 				0A50936922FAC675002535FF /* FSHotCityCell.swift in Sources */,
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
+				0A4F23642372B5A5009DEB30 /* JSLGoodsModel.swift in Sources */,
 				0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */,
 				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,
 				0A3645CA236896210080B872 /* JSLCartOrderDetailVC.swift in Sources */,
