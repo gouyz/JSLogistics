@@ -154,8 +154,8 @@ class JSLHomeListVC: GYZBaseVC {
             MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
             if response["status"].intValue == kQuestSuccessTag{//请求成功
                 let data = response["result"]
-                weakSelf?.dataList[index].is_point = response["result"].stringValue
-                weakSelf?.dataList[index].point_count = data["status"].stringValue
+                weakSelf?.dataList[index].is_point = data["status"].stringValue
+                weakSelf?.dataList[index].point_count = data["count"].stringValue
                 weakSelf?.collectionView.reloadData()
             }
             
