@@ -20,6 +20,12 @@
 #import "SYLineProgressView.h"
 #import "SYRingProgressView.h"
 
+/// 高德地图
+#import <AMapFoundationKit/AMapFoundationKit.h>
+#import <AMapSearchKit/AMapSearchKit.h>
+#import <MAMapKit/MAMapKit.h>
+#import <AMapLocationKit/AMapLocationKit.h>
+
 
 /// 极光推送相关头文件
 // 引入JPush功能所需头文件

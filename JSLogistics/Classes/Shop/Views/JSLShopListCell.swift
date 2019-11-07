@@ -17,8 +17,8 @@ class JSLShopListCell: UITableViewCell {
                 
                 tagImgView.kf.setImage(with: URL.init(string: model.original_img!), placeholder: UIImage.init(named: ""))
                 
-                let priceStr = String(format:"%.2f",model.shop_price!)
-                let marketPrice = String(format:"%.2f",model.market_price!)
+                let priceStr = String(format:"%.2f",Float((model.shop_price)!)!)
+                let marketPrice = String(format:"%.2f",Float((model.market_price)!)!)
                 let str = "￥\(priceStr)"  + "  \(marketPrice)"
                 let priceAtt : NSMutableAttributedString = NSMutableAttributedString(string: str)
                 priceAtt.addAttribute(NSAttributedString.Key.foregroundColor, value: kRedFontColor, range: NSMakeRange(0, priceStr.count + 1))
@@ -143,7 +143,7 @@ class JSLShopListCell: UITableViewCell {
     /// 原价
     lazy var priceLab : UILabel = {
         let lab = UILabel()
-        lab.font = k13Font
+        lab.font = k12Font
         lab.textColor = kHeightGaryFontColor
         
         return lab

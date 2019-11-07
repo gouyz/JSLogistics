@@ -92,17 +92,17 @@ let ALLCITYINFO = "allCityInfo"
 let CURRCITYINFO = "currCityInfo"
 /// 存储当前城市当前区县信息的key
 let CURRCITYAREAINFO = "currCityAreaInfo"
-//API APPID
-let API_APPID = "16"
-//API API_APPKEY
-let API_APPKEY = "afc9991110766bd842da8380112bb086"
-//API SECRET_KEY
-let API_SECRET_KEY = "fee3700210e291eafea794a26a486db9"
+/// 存储当前定位经度的key
+let CURRlongitude = "currlongitude"
+/// 存储当前定位纬度的key
+let CURRlatitude = "currlatitude"
 
 //APPID，应用提交时候替换
 let APPID = "1441962604"
 /// 极光推送AppKey
 let kJPushAppKey = "62ef6e1984206705e1aca538"
+/// 高德地图AppKey
+let kLBSMapAppKey = "b95e00230361ffef1a74d15f3b29a605"
 
 /// 无网络提示
 let kNoNetWork = "当前网络不可用，请检查网络情况"

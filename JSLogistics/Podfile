@@ -27,4 +27,9 @@ pod 'TTGTagCollectionView' #标签流显示控件，同时支持文字或自定�
 
 #pod 'JMessage' #极光IM
 
+### 高德地图API
+pod 'AMap3DMap-NO-IDFA'#3D地图 SDK
+pod 'AMapLocation-NO-IDFA'#地图定位 SDK
+pod 'AMapSearch-NO-IDFA' #地图 SDK搜索功能 无广告版本
+
 end

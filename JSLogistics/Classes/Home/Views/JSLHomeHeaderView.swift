@@ -47,6 +47,7 @@ class JSLHomeHeaderView: UIView {
         adsView.pageControlIndictirColor = kWhiteColor
         adsView.pageControlCurrentIndictirColor = kGreenFontColor
         adsView.scrollDirection = .horizontal
+        adsView.isAutomatic = false
         
         return adsView
     }()

@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         /// 设置键盘控制
         setKeyboardManage()
+        /// 高德地图
+        AMapServices.shared()?.apiKey = kLBSMapAppKey
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.backgroundColor = kWhiteColor

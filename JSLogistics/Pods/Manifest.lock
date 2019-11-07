@@ -1,5 +1,12 @@
 PODS:
   - Alamofire (4.7.3)
+  - AMap3DMap-NO-IDFA (7.0.0):
+    - AMapFoundation-NO-IDFA (~> 1.5)
+  - AMapFoundation-NO-IDFA (1.5.7)
+  - AMapLocation-NO-IDFA (2.6.3):
+    - AMapFoundation-NO-IDFA (~> 1.4)
+  - AMapSearch-NO-IDFA (6.9.0):
+    - AMapFoundation-NO-IDFA (~> 1.4)
   - Cosmos (19.0.3)
   - CropViewController (2.5.1)
   - DKCamera (1.6.4)
@@ -72,6 +79,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7.3)
+  - AMap3DMap-NO-IDFA
+  - AMapLocation-NO-IDFA
+  - AMapSearch-NO-IDFA
   - Cosmos (~> 19.0.3)
   - DKImagePickerController
   - IQKeyboardManagerSwift
@@ -108,10 +118,18 @@ SPEC REPOS:
     - SnapKit
     - SwiftyJSON
   trunk:
+    - AMap3DMap-NO-IDFA
+    - AMapFoundation-NO-IDFA
+    - AMapLocation-NO-IDFA
+    - AMapSearch-NO-IDFA
     - TTGTagCollectionView
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  AMap3DMap-NO-IDFA: e8a2bd7759f04c9650c3cfc9c4731ad23f14b2e3
+  AMapFoundation-NO-IDFA: 9088085827c831811bb0fd3afd96b99963a7cf71
+  AMapLocation-NO-IDFA: f22a480573aa18c521946f13d49521f042a7dca6
+  AMapSearch-NO-IDFA: 264999e6c149383a8f164c2fe49b51513e93d674
   Cosmos: a6fb17284281fa12cf4c85c2efecd440a215ec44
   CropViewController: 10ba7af75e302f2db7eb913f8aa1156f95cfe88e
   DKCamera: 61fa47629a39354e5111bca1fe96695de020dcb9
@@ -132,6 +150,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   TTGTagCollectionView: 86fcbfa6a7493c9e860b01c2e693cffc8acf6de1
 
-PODFILE CHECKSUM: 9320ec39d5ecd5c3cc1deae77ac1f385ce88de65
+PODFILE CHECKSUM: 0c24fdc4188d1519b7a205deba290cc1cb3b5598
 
 COCOAPODS: 1.8.0.beta.2

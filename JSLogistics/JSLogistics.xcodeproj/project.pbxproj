@@ -162,6 +162,8 @@
 		0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */; };
 		0A6915F72369D8D500999206 /* JSLTripOrderConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */; };
 		0A6C388523673A9000B348C3 /* JSLCustomOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6C388423673A9000B348C3 /* JSLCustomOrderView.swift */; };
+		0A8B89562373C53C00E74275 /* JSLSearchShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B89552373C53C00E74275 /* JSLSearchShopVC.swift */; };
+		0A8B8958237412CA00E74275 /* JSLNoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */; };
 		0A9758CA22FC152D00CC071D /* JSLHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */; };
 		2D2DA590E3ED61BA468271D8 /* Pods_JSLogistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1785B1AF973FD205C96C69B /* Pods_JSLogistics.framework */; };
 /* End PBXBuildFile section */
@@ -358,6 +360,8 @@
 		0A6915F42369D69400999206 /* JSLTripOrderListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderListVC.swift; sourceTree = "<group>"; };
 		0A6915F62369D8D500999206 /* JSLTripOrderConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderConmentVC.swift; sourceTree = "<group>"; };
 		0A6C388423673A9000B348C3 /* JSLCustomOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCustomOrderView.swift; sourceTree = "<group>"; };
+		0A8B89552373C53C00E74275 /* JSLSearchShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSearchShopVC.swift; sourceTree = "<group>"; };
+		0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailVC.swift; sourceTree = "<group>"; };
 		0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeHeaderView.swift; sourceTree = "<group>"; };
 		674F552A2F5BAB6F140C2D27 /* Pods-JSLogistics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.release.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.release.xcconfig"; sourceTree = "<group>"; };
 		BACD1EAE9FBABD9951B21737 /* Pods-JSLogistics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.debug.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.debug.xcconfig"; sourceTree = "<group>"; };
@@ -817,6 +821,7 @@
 			children = (
 				0A5093DA22FAC98C002535FF /* JSLHomeVC.swift */,
 				0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */,
+				0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -929,6 +934,7 @@
 			children = (
 				0A5093DC22FAC9E6002535FF /* JSLShopVC.swift */,
 				0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */,
+				0A8B89552373C53C00E74275 /* JSLSearchShopVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -970,6 +976,7 @@
 				0A417B0122F9114F00BF9614 /* Frameworks */,
 				0A417B0222F9114F00BF9614 /* Resources */,
 				58DB398E988CE9EE99AD09DB /* [CP] Embed Pods Frameworks */,
+				4E42AB13E49A343B0ABD3C27 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1116,6 +1123,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		4E42AB13E49A343B0ABD3C27 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JSLogistics/Pods-JSLogistics-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-JSLogistics/Pods-JSLogistics-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JSLogistics/Pods-JSLogistics-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		58DB398E988CE9EE99AD09DB /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1160,6 +1184,7 @@
 				0A50939C22FAC675002535FF /* HXTagsCell.m in Sources */,
 				0A6915F32369D54800999206 /* JSLTripOrderVC.swift in Sources */,
 				0A5093A722FAC675002535FF /* ZCycleView.swift in Sources */,
+				0A8B89562373C53C00E74275 /* JSLSearchShopVC.swift in Sources */,
 				0A5093AD22FAC675002535FF /* GYZScanQrcodeVC.swift in Sources */,
 				0A5093B822FAC675002535FF /* SYLineProgressView.m in Sources */,
 				0A50937822FAC675002535FF /* GYZBottomSendView.swift in Sources */,
@@ -1267,6 +1292,7 @@
 				0A50937A22FAC675002535FF /* GYZSearchBtnView.swift in Sources */,
 				0A5093BF22FAC675002535FF /* GYZLunarFormatter.swift in Sources */,
 				0A417B0822F9114F00BF9614 /* AppDelegate.swift in Sources */,
+				0A8B8958237412CA00E74275 /* JSLNoteDetailVC.swift in Sources */,
 				0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */,
 				0A1D86812369769D00DA4CB8 /* JSLMyConmentVC.swift in Sources */,
 				0A50936C22FAC675002535FF /* LHSCheckView.swift in Sources */,

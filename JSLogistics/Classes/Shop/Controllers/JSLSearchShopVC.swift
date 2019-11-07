@@ -1,30 +1,35 @@
 //
-//  JSLShopListVC.swift
+//  JSLSearchShopVC.swift
 //  JSLogistics
-//  商铺列表
-//  Created by gouyz on 2019/8/9.
+//  搜索探店
+//  Created by gouyz on 2019/11/7.
 //  Copyright © 2019 gouyz. All rights reserved.
 //
 
 import UIKit
-import JXPagingView
 import MBProgressHUD
 
-private let shopListCell = "shopListCell"
+private let searchShopListCell = "searchShopListCell"
 
-class JSLShopListVC: GYZBaseVC {
+class JSLSearchShopVC: GYZBaseVC {
+    
+    /// 搜索 内容
+    var searchContent: String = ""
     
     var currPage: Int = 0
     /// 最后一页
     var lastPage: Int = 1
-    var listViewDidScrollCallback: ((UIScrollView) -> ())?
-    
-    var categoryId: String = ""
     var dataList: [JSLGoodsModel] = [JSLGoodsModel]()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        navigationItem.titleView = searchBar
+        /// 解决iOS11中UISearchBar高度变大
+        if #available(iOS 11.0, *) {
+            searchBar.heightAnchor.constraint(equalToConstant: kTitleHeight).isActive = true
+        }
+        
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
@@ -38,7 +43,7 @@ class JSLShopListVC: GYZBaseVC {
         table.separatorColor = kGrayLineColor
         table.backgroundColor = kWhiteColor
         
-        table.register(JSLShopListCell.classForCoder(), forCellReuseIdentifier: shopListCell)
+        table.register(JSLShopListCell.classForCoder(), forCellReuseIdentifier: searchShopListCell)
         
         weak var weakSelf = self
         ///添加下拉刷新
@@ -52,6 +57,28 @@ class JSLShopListVC: GYZBaseVC {
         
         return table
     }()
+    /// 搜索框
+    lazy var searchBar : UISearchBar = {
+        let search = UISearchBar()
+        
+        search.placeholder = "搜索感兴趣的内容"
+        search.delegate = self
+        //显示输入光标
+        search.tintColor = kHeightGaryFontColor
+        search.text = searchContent
+        /// 搜索框背景色
+        if #available(iOS 13.0, *){
+            search.searchTextField.backgroundColor = kGrayBackGroundColor
+        }else{
+            if let textfiled = search.subviews.first?.subviews.last as? UITextField {
+                textfiled.backgroundColor = kGrayBackGroundColor
+            }
+        }
+        //弹出键盘
+        //        search.becomeFirstResponder()
+        
+        return search
+    }()
     ///获取商品数据
     func requestGoodsList(){
         if !GYZTool.checkNetWork() {
@@ -61,7 +88,7 @@ class JSLShopListVC: GYZBaseVC {
         weak var weakSelf = self
         showLoadingView()
         
-        GYZNetWork.requestNetwork("goods/goodsList",parameters: ["page":currPage,"user_id":userDefaults.string(forKey: "userId") ?? "","type_id":categoryId,"longitude":userDefaults.string(forKey: CURRlongitude) ?? "","latitude":userDefaults.string(forKey: CURRlatitude) ?? ""],  success: { (response) in
+        GYZNetWork.requestNetwork("goods/search",parameters: ["page":currPage,"user_id":userDefaults.string(forKey: "userId") ?? "","keywords":searchContent,"longitude":userDefaults.string(forKey: CURRlongitude) ?? "","latitude":userDefaults.string(forKey: CURRlatitude) ?? ""],  success: { (response) in
             
             weakSelf?.closeRefresh()
             weakSelf?.hiddenLoadingView()
@@ -114,7 +141,6 @@ class JSLShopListVC: GYZBaseVC {
         currPage = 0
         dataList.removeAll()
         tableView.reloadData()
-        
         requestGoodsList()
     }
     
@@ -137,7 +163,7 @@ class JSLShopListVC: GYZBaseVC {
         }
     }
 }
-extension JSLShopListVC: UITableViewDelegate,UITableViewDataSource{
+extension JSLSearchShopVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -148,7 +174,7 @@ extension JSLShopListVC: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: shopListCell) as! JSLShopListCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: searchShopListCell) as! JSLShopListCell
         
         cell.dataModel = dataList[indexPath.row]
         cell.selectionStyle = .none
@@ -178,20 +204,14 @@ extension JSLShopListVC: UITableViewDelegate,UITableViewDataSource{
         return 0.00001
     }
     
-    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        self.listViewDidScrollCallback?(scrollView)
-    }
 }
-extension JSLShopListVC: JXPagingViewListViewDelegate {
-    func listView() -> UIView {
-        return self.view
+extension JSLSearchShopVC: UISearchBarDelegate {
+    ///mark - UISearchBarDelegate
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        searchBar.resignFirstResponder()
+        self.searchContent = searchBar.text ?? ""
+        refresh()
     }
     
-    func listScrollView() -> UIScrollView {
-        return tableView
-    }
-    
-    func listViewDidScrollCallback(callback: @escaping (UIScrollView) -> ()) {
-        listViewDidScrollCallback = callback
-    }
 }

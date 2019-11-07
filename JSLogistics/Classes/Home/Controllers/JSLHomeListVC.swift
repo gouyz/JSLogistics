@@ -15,6 +15,8 @@ private let homeListCell = "homeListCell"
 class JSLHomeListVC: GYZBaseVC {
     
     var currPage : Int = 0
+    /// 最后一页
+    var lastPage: Int = 1
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
     
     var categoryId: String = ""
@@ -72,7 +74,7 @@ class JSLHomeListVC: GYZBaseVC {
             GYZLog(response)
             
             if response["status"].intValue == kQuestSuccessTag{//请求成功
-                
+                weakSelf?.lastPage = response["result"]["page_count"].intValue
                 guard let data = response["result"]["publishList"].array else { return }
                 for item in data{
                     guard let itemInfo = item.dictionaryObject else { return }
@@ -113,12 +115,21 @@ class JSLHomeListVC: GYZBaseVC {
     // MARK: - 上拉加载更多/下拉刷新
     /// 下拉刷新
     func refresh(){
+        if currPage == lastPage - 1 {
+            GYZTool.resetNoMoreData(scorllView: collectionView)
+        }
         currPage = 0
+        dataList.removeAll()
+        collectionView.reloadData()
         requestNotesList()
     }
     
     /// 上拉加载更多
     func loadMore(){
+        if currPage == lastPage - 1 {
+            GYZTool.noMoreData(scorllView: collectionView)
+            return
+        }
         currPage += 1
         requestNotesList()
     }
@@ -126,7 +137,6 @@ class JSLHomeListVC: GYZBaseVC {
     /// 关闭上拉/下拉刷新
     func closeRefresh(){
         if collectionView.mj_header.isRefreshing{//下拉刷新
-            dataList.removeAll()
             GYZTool.endRefresh(scorllView: collectionView)
         }else if collectionView.mj_footer.isRefreshing{//上拉加载更多
             GYZTool.endLoadMore(scorllView: collectionView)

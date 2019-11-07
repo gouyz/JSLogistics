@@ -10,6 +10,10 @@ import UIKit
 import JXSegmentedView
 import JXPagingView
 import MBProgressHUD
+import PYSearch
+
+
+private let searchShopHistoryPath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)[0] + "PYSearchhistoriesShop.plist" // the path of search record cached
 
 class JSLShopVC: JSLCommonNavVC {
 
@@ -18,6 +22,7 @@ class JSLShopVC: JSLCommonNavVC {
     /// 分类
     var catrgoryList: [JSLGoodsCategoryModel] = [JSLGoodsCategoryModel]()
     var catrgoryNameList: [String] = [String]()
+    var searchHotList: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +34,10 @@ class JSLShopVC: JSLCommonNavVC {
         }
         
         segmentedView.contentScrollView = pagingView.listContainerView.collectionView
+        headerView.searchBtn.addTarget(self, action: #selector(onClickedSearch), for: .touchUpInside)
+        
         requestCategoryList()
+        requestHotSearchList()
     }
     
     lazy var pagingView: JXPagingView = {
@@ -99,6 +107,7 @@ class JSLShopVC: JSLCommonNavVC {
         })
     }
     
+    /// 重新加载
     func reloadData() {
         if catrgoryNameList.count > 0 {
             //一定要统一segmentedDataSource、segmentedView、listContainerView的defaultSelectedIndex
@@ -113,7 +122,60 @@ class JSLShopVC: JSLCommonNavVC {
             pagingView.reloadData()
         }
     }
-    
+    ///获取热门搜索数据
+    func requestHotSearchList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        
+        GYZNetWork.requestNetwork("index/getGoodsWords",parameters: nil,method :.get,  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].array else { return }
+                for item in data{
+                    
+                    weakSelf?.searchHotList.append(item.stringValue)
+                }
+                
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
+    }
+    /// 搜索
+    @objc func onClickedSearch(){
+        let searchVC: PYSearchViewController = PYSearchViewController.init(hotSearches: searchHotList, searchBarPlaceholder: "搜索感兴趣的内容") { (searchViewController, searchBar, searchText) in
+            
+            let searchVC = JSLSearchShopVC()
+            searchVC.searchContent = searchText!
+            searchViewController?.navigationController?.pushViewController(searchVC, animated: true)
+        }
+        
+        let searchNav = GYZBaseNavigationVC(rootViewController:searchVC)
+        //
+        searchVC.cancelButton.setTitleColor(kHeightGaryFontColor, for: .normal)
+        
+        /// 搜索框背景色
+        if #available(iOS 13.0, *){
+            searchVC.searchBar.searchTextField.backgroundColor = kGrayBackGroundColor
+        }else{
+            searchVC.searchBarBackgroundColor = kGrayBackGroundColor
+        }
+        //显示输入光标
+        searchVC.searchBar.tintColor = kHeightGaryFontColor
+        searchVC.searchHistoriesCachePath = searchShopHistoryPath
+        self.present(searchNav, animated: true, completion: nil)
+    }
 }
 extension JSLShopVC: JXPagingViewDelegate {
     

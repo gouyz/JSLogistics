@@ -23,9 +23,13 @@ class JSLHomeVC: JSLCommonNavVC {
     var adsList:[JSLHomeAdsModel] = [JSLHomeAdsModel]()
     var adsImgUrlList: [String] = [String]()
     
+    /// 高德地图定位
+    let locationManager: AMapLocationManager = AMapLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initLocation()
         self.view.addSubview(pagingView)
         pagingView.snp.makeConstraints { (make) in
             //            make.top.equalTo(kTitleAndStateHeight)
@@ -36,6 +40,15 @@ class JSLHomeVC: JSLCommonNavVC {
         
         requestAdsList()
         requestCategoryList()
+    }
+    
+    /// 初始化高德地图定位
+    func initLocation(){
+        locationManager.delegate = self
+        /// 设置定位最小更新距离
+        locationManager.distanceFilter = 200
+        locationManager.locatingWithReGeocode = true
+        locationManager.startUpdatingLocation()
     }
     
     lazy var pagingView: JXPagingView = {
@@ -197,4 +210,26 @@ extension JSLHomeVC: JXSegmentedViewDelegate {
     func segmentedView(_ segmentedView: JXSegmentedView, didClickSelectedItemAt index: Int) {
         self.pagingView.listContainerView.collectionView.scrollToItem(at: IndexPath(item: index, section: 0), at: .centeredHorizontally, animated: false)
     }
+}
+extension JSLHomeVC:AMapLocationManagerDelegate{
+    func amapLocationManager(_ manager: AMapLocationManager!, didUpdate location: CLLocation!, reGeocode: AMapLocationReGeocode?) {
+        NSLog("location:{lat:\(location.coordinate.latitude); lon:\(location.coordinate.longitude); accuracy:\(location.horizontalAccuracy);};");
+        // 存储定位经纬度
+        userDefaults.set(location.coordinate.latitude, forKey: CURRlatitude)
+        userDefaults.set(location.coordinate.longitude, forKey: CURRlongitude)
+        if let reGeocode = reGeocode {
+            locationManager.stopUpdatingLocation()
+            NSLog("reGeocode:%@", reGeocode)
+            if reGeocode.city != nil{
+//                findLocationCity(cityName: reGeocode.city)
+            }
+        }
+    }
+    func amapLocationManager(_ manager: AMapLocationManager!, doRequireLocationAuth locationManager: CLLocationManager!) {
+        
+    }
+    func amapLocationManager(_ manager: AMapLocationManager!, didFailWithError error: Error!) {
+        GYZLog(error)
+    }
+    
 }

@@ -31,6 +31,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>用于修改图片或上传照片</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>用于获取当前位置,以便获取周边美食</string>
+	<key>NSLocationUsageDescription</key>
+	<string>用于获取当前位置,以便获取周边美食</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>用于获取当前位置,以便获取周边美食</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>用于保存视频截图或报警日志图片</string>
 	<key>NSPhotoLibraryUsageDescription</key>
