@@ -9,12 +9,15 @@
 import UIKit
 import JXSegmentedView
 import JXPagingView
+import MBProgressHUD
 
 class JSLMineVC: GYZBaseVC {
     
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
     let JXTableHeaderViewHeight: Int = 220
-    let titles = ["我的笔记(88)", "我的收藏(88)"]
+    var titles: [String] = ["我的笔记(0)", "我的收藏(0)"]
+    
+    var userInfoModel: JSLMineInfoModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +40,7 @@ class JSLMineVC: GYZBaseVC {
             self.clickedOperator(index: index)
         }
         
+        requestMineInfo()
     }
     lazy var pagingView: JXPagingView = {
         let pageView = JXPagingListRefreshView(delegate: self) //JXPagingView.init(delegate: self)
@@ -67,6 +71,53 @@ class JSLMineVC: GYZBaseVC {
     }()
     lazy var headerView: JSLMineHeaderView = JSLMineHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: kScreenWidth, height: CGFloat(JXTableHeaderViewHeight)))
     
+    //我的
+    func requestMineInfo(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("user/myIndex", parameters: ["user_id":userDefaults.string(forKey: "userId") ?? ""],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+        
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].dictionaryObject else { return }
+                weakSelf?.userInfoModel = JSLMineInfoModel.init(dict: data)
+                weakSelf?.dealData()
+            
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
+    func dealData(){
+        if userInfoModel != nil {
+            headerView.dataModel = userInfoModel
+            titles = ["我的笔记(\((userInfoModel?.my_publish)!))", "我的收藏(\((userInfoModel?.my_collect)!))"]
+            reloadData()
+        }
+    }
+    func reloadData() {
+        //一定要统一segmentedDataSource、segmentedView、listContainerView的defaultSelectedIndex
+        segmentedViewDataSource.titles = titles
+        //reloadData(selectedIndex:)一定要调用
+        segmentedViewDataSource.reloadData(selectedIndex: 0)
+        
+        segmentedView.defaultSelectedIndex = 0
+        segmentedView.reloadData()
+        
+        pagingView.defaultSelectedIndex = 0
+        pagingView.reloadData()
+    }
     /// 分享
     @objc func clickedSharedBtn(){
         
@@ -158,7 +209,8 @@ extension JSLMineVC: JXPagingViewDelegate {
     }
     
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
-        let vc = JSLHomeListVC()
+        let vc = JSLMyPublishNotesVC()
+        vc.type = "\(index)"
         return vc
     }
     

@@ -11,6 +11,26 @@ import UIKit
 class JSLMineHeaderView: UIView {
     
     var didSelectItemBlock:((_ index: Int) -> Void)?
+    
+    /// 填充数据
+    var dataModel : JSLMineInfoModel?{
+        didSet{
+            if let model = dataModel {
+                
+                if let userInfo = model.userInfoModel {
+                    userHeaderImgView.kf.setImage(with: URL.init(string: userInfo.head_pic!))
+                    nameLab.text = userInfo.nickname
+                    desLab.text = userInfo.introduction
+                    
+                }
+                
+                fenSiView.countLab.text = model.ect_count
+                followView.countLab.text = model.concern_count
+                zanView.countLab.text = model.point_count
+                favouriteView.countLab.text = model.collect_count
+            }
+        }
+    }
 
     // MARK: 生命周期方法
     public override init(frame: CGRect) {
@@ -30,8 +50,8 @@ class JSLMineHeaderView: UIView {
     
     func setupUI(){
         self.addSubview(nameLab)
-        self.addSubview(tagImgView)
-        self.addSubview(levelLab)
+//        self.addSubview(tagImgView)
+//        self.addSubview(levelLab)
         self.addSubview(userHeaderImgView)
         self.addSubview(desLab)
         self.addSubview(fenSiView)
@@ -47,23 +67,23 @@ class JSLMineHeaderView: UIView {
         nameLab.snp.makeConstraints { (make) in
             make.left.equalTo(kMargin)
             make.top.equalTo(kMargin)
+            make.right.equalTo(userHeaderImgView.snp.left).offset(-kMargin)
             make.height.equalTo(30)
         }
-        tagImgView.snp.makeConstraints { (make) in
-            make.left.equalTo(nameLab.snp.right).offset(5)
-            make.centerY.equalTo(levelLab)
-            make.size.equalTo(CGSize.init(width: 15, height: 12))
-        }
-        levelLab.snp.makeConstraints { (make) in
-            make.left.equalTo(tagImgView.snp.right).offset(3)
-            make.top.equalTo(nameLab)
-            make.height.equalTo(20)
-            make.width.equalTo(60)
-        }
+//        tagImgView.snp.makeConstraints { (make) in
+//            make.left.equalTo(nameLab.snp.right).offset(5)
+//            make.centerY.equalTo(levelLab)
+//            make.size.equalTo(CGSize.init(width: 15, height: 12))
+//        }
+//        levelLab.snp.makeConstraints { (make) in
+//            make.left.equalTo(tagImgView.snp.right).offset(3)
+//            make.top.equalTo(nameLab)
+//            make.height.equalTo(20)
+//            make.width.equalTo(60)
+//        }
         desLab.snp.makeConstraints { (make) in
-            make.left.equalTo(nameLab)
+            make.left.right.equalTo(nameLab)
             make.top.equalTo(nameLab.snp.bottom).offset(kMargin)
-            make.right.equalTo(userHeaderImgView.snp.left).offset(-kMargin)
             make.height.equalTo(30)
         }
         userHeaderImgView.snp.makeConstraints { (make) in
@@ -136,16 +156,16 @@ class JSLMineHeaderView: UIView {
         return lab
     }()
     ///tag图片
-    lazy var tagImgView: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_level_diamond"))
-    ///等级
-    lazy var levelLab: UILabel = {
-        let lab = UILabel()
-        lab.font = k13Font
-        lab.textColor = kGreenFontColor
-        lab.text = "专属等级"
-        
-        return lab
-    }()
+//    lazy var tagImgView: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_level_diamond"))
+//    ///等级
+//    lazy var levelLab: UILabel = {
+//        let lab = UILabel()
+//        lab.font = k13Font
+//        lab.textColor = kGreenFontColor
+//        lab.text = "专属等级"
+//
+//        return lab
+//    }()
     ///简介
     lazy var desLab: UILabel = {
         let lab = UILabel()

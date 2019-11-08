@@ -35,6 +35,8 @@
 		0A417B1222F9115100BF9614 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A417B1022F9115100BF9614 /* LaunchScreen.storyboard */; };
 		0A417B1D22F9115100BF9614 /* JSLogisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B1C22F9115100BF9614 /* JSLogisticsTests.swift */; };
 		0A417B2822F9115100BF9614 /* JSLogisticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */; };
+		0A424A7E23754B08001E1163 /* JSLMineInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */; };
+		0A424A8023755881001E1163 /* JSLMyPublishNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A424A7F23755881001E1163 /* JSLMyPublishNotesVC.swift */; };
 		0A4339C423710534001A6B38 /* JSLSelectedFoodTagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4339C323710534001A6B38 /* JSLSelectedFoodTagVC.swift */; };
 		0A4339C623710CB3001A6B38 /* JSLSearchHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4339C523710CB3001A6B38 /* JSLSearchHotCell.swift */; };
 		0A4339C823716479001A6B38 /* JSLHomeAdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4339C723716479001A6B38 /* JSLHomeAdsModel.swift */; };
@@ -220,6 +222,8 @@
 		0A417B2322F9115100BF9614 /* JSLogisticsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSLogisticsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLogisticsUITests.swift; sourceTree = "<group>"; };
 		0A417B2922F9115100BF9614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineInfoModel.swift; sourceTree = "<group>"; };
+		0A424A7F23755881001E1163 /* JSLMyPublishNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyPublishNotesVC.swift; sourceTree = "<group>"; };
 		0A4339C323710534001A6B38 /* JSLSelectedFoodTagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSelectedFoodTagVC.swift; sourceTree = "<group>"; };
 		0A4339C523710CB3001A6B38 /* JSLSearchHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSearchHotCell.swift; sourceTree = "<group>"; };
 		0A4339C723716479001A6B38 /* JSLHomeAdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeAdsModel.swift; sourceTree = "<group>"; };
@@ -750,6 +754,7 @@
 			isa = PBXGroup;
 			children = (
 				0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */,
+				0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -774,6 +779,7 @@
 				0A66A0E1236C7CDD00A00541 /* JSLLoginVC.swift */,
 				0A434B6E236FCFC8005B2BD4 /* JSLMyProfileVC.swift */,
 				0A434B74237006BF005B2BD4 /* JSLEditMyProfileVC.swift */,
+				0A424A7F23755881001E1163 /* JSLMyPublishNotesVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1192,6 +1198,7 @@
 				0A5093B222FAC675002535FF /* SegmentStyle.swift in Sources */,
 				0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */,
 				0A6677B423687DAB0044A978 /* JSLCartOrderListVC.swift in Sources */,
+				0A424A7E23754B08001E1163 /* JSLMineInfoModel.swift in Sources */,
 				0A5093C222FAC675002535FF /* GYZThrowLineTool.swift in Sources */,
 				0A2A334D2371656A006028DC /* JSLPublishCategoryModel.swift in Sources */,
 				0A434B6F236FCFC8005B2BD4 /* JSLMyProfileVC.swift in Sources */,
@@ -1201,6 +1208,7 @@
 				0A434B73236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift in Sources */,
 				0A50938E22FAC675002535FF /* GYZUIButton+Extension.swift in Sources */,
 				0A5093B322FAC675002535FF /* ScrollPageView.swift in Sources */,
+				0A424A8023755881001E1163 /* JSLMyPublishNotesVC.swift in Sources */,
 				0A50938D22FAC675002535FF /* ETNavBarTransparent.swift in Sources */,
 				0A6915F72369D8D500999206 /* JSLTripOrderConmentVC.swift in Sources */,
 				0A5093B122FAC675002535FF /* GYZSheetCell.swift in Sources */,

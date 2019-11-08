@@ -12,6 +12,21 @@ class JSLMyProfileHeaderView: UICollectionReusableView {
     
     var didSelectItemBlock:((_ index: Int) -> Void)?
     
+    /// 填充数据
+    var dataModel : JSLUserInfoModel?{
+        didSet{
+            if let model = dataModel {
+                
+                userHeaderImgView.kf.setImage(with: URL.init(string: model.head_pic!))
+                nameLab.text = model.nickname
+                contentLab.text = model.introduction
+                phoneLab.text = model.mobile
+                sexLab.text = model.sex
+                addressLab.text = model.province! + model.city!
+            }
+        }
+    }
+    
     // MARK: 生命周期方法
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,8 +42,8 @@ class JSLMyProfileHeaderView: UICollectionReusableView {
     
     func setupUI(){
         self.addSubview(nameLab)
-        self.addSubview(tagImgView)
-        self.addSubview(levelLab)
+//        self.addSubview(tagImgView)
+//        self.addSubview(levelLab)
         self.addSubview(userHeaderImgView)
         self.addSubview(phoneLab)
         self.addSubview(sexLab)
@@ -46,19 +61,20 @@ class JSLMyProfileHeaderView: UICollectionReusableView {
         nameLab.snp.makeConstraints { (make) in
             make.left.equalTo(userHeaderImgView.snp.right).offset(kMargin)
             make.top.equalTo(userHeaderImgView)
+            make.right.equalTo(-kMargin)
             make.height.equalTo(40)
         }
-        tagImgView.snp.makeConstraints { (make) in
-            make.left.equalTo(nameLab.snp.right).offset(5)
-            make.centerY.equalTo(levelLab)
-            make.size.equalTo(CGSize.init(width: 15, height: 12))
-        }
-        levelLab.snp.makeConstraints { (make) in
-            make.left.equalTo(tagImgView.snp.right).offset(3)
-            make.centerY.equalTo(nameLab)
-            make.height.equalTo(20)
-            make.width.equalTo(80)
-        }
+//        tagImgView.snp.makeConstraints { (make) in
+//            make.left.equalTo(nameLab.snp.right).offset(5)
+//            make.centerY.equalTo(levelLab)
+//            make.size.equalTo(CGSize.init(width: 15, height: 12))
+//        }
+//        levelLab.snp.makeConstraints { (make) in
+//            make.left.equalTo(tagImgView.snp.right).offset(3)
+//            make.centerY.equalTo(nameLab)
+//            make.height.equalTo(20)
+//            make.width.equalTo(80)
+//        }
         phoneLab.snp.makeConstraints { (make) in
             make.left.equalTo(nameLab)
             make.top.equalTo(nameLab.snp.bottom)
@@ -118,16 +134,16 @@ class JSLMyProfileHeaderView: UICollectionReusableView {
         return lab
     }()
     ///tag图片
-    lazy var tagImgView: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_level_diamond"))
-    ///等级
-    lazy var levelLab: UILabel = {
-        let lab = UILabel()
-        lab.font = k13Font
-        lab.textColor = kGreenFontColor
-        lab.text = "专属等级"
-        
-        return lab
-    }()
+//    lazy var tagImgView: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_level_diamond"))
+//    ///等级
+//    lazy var levelLab: UILabel = {
+//        let lab = UILabel()
+//        lab.font = k13Font
+//        lab.textColor = kGreenFontColor
+//        lab.text = "专属等级"
+//
+//        return lab
+//    }()
     ///电话
     lazy var phoneLab: UILabel = {
         let lab = UILabel()

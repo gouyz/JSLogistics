@@ -15,10 +15,10 @@ class JSLHomeShopCell: UICollectionViewCell {
         didSet{
             if let model = dataModel {
                 
-                tagImgView.kf.setImage(with: URL.init(string: model.img!), placeholder: UIImage.init(named: ""))
+                tagImgView.kf.setImage(with: URL.init(string: model.img!))
                 
                 
-                userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!), placeholder: UIImage.init(named: ""))
+                userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!))
                 nameLab.text = model.userInfoModel?.nickname
                 contentLab.text = model.content
                 

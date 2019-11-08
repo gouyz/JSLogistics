@@ -15,7 +15,7 @@ class JSLShopListCell: UITableViewCell {
         didSet{
             if let model = dataModel {
                 
-                tagImgView.kf.setImage(with: URL.init(string: model.original_img!), placeholder: UIImage.init(named: ""))
+                tagImgView.kf.setImage(with: URL.init(string: model.original_img!))
                 
                 let priceStr = String(format:"%.2f",Float((model.shop_price)!)!)
                 let marketPrice = String(format:"%.2f",Float((model.market_price)!)!)
