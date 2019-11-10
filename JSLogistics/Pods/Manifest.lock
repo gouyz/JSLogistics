@@ -97,8 +97,12 @@ DEPENDENCIES:
   - TTGTagCollectionView
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AMap3DMap-NO-IDFA
+    - AMapFoundation-NO-IDFA
+    - AMapLocation-NO-IDFA
+    - AMapSearch-NO-IDFA
     - Cosmos
     - CropViewController
     - DKCamera
@@ -117,11 +121,6 @@ SPEC REPOS:
     - SKPhotoBrowser
     - SnapKit
     - SwiftyJSON
-  trunk:
-    - AMap3DMap-NO-IDFA
-    - AMapFoundation-NO-IDFA
-    - AMapLocation-NO-IDFA
-    - AMapSearch-NO-IDFA
     - TTGTagCollectionView
 
 SPEC CHECKSUMS:
@@ -152,4 +151,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 0c24fdc4188d1519b7a205deba290cc1cb3b5598
 
-COCOAPODS: 1.8.0.beta.2
+COCOAPODS: 1.7.5
