@@ -130,10 +130,10 @@ class JSLMineVC: GYZBaseVC {
     /// 操作
     func clickedOperator(index:Int){
         switch index {
-        case 101:
-            goLogin()
-        case 102:
-            break
+        case 101:/// 我的粉丝
+            goMyFensi()
+        case 102:/// 我的关注
+            goMyFollow()
         case 103:
             break
         case 104:
@@ -156,12 +156,22 @@ class JSLMineVC: GYZBaseVC {
         
         self.present(navVC, animated: true, completion: nil)
     }
+    /// 我的粉丝
+    func goMyFensi(){
+        let vc = JSLMyFenSiVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    /// 我的关注
+    func goMyFollow(){
+        let vc = JSLMyFollowVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     /// 评论
     func goMyConment(){
         let vc = JSLMyConmentVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    /// 评论
+    /// 我的资料
     func goMyProfile(){
         let vc = JSLMyProfileVC()
         self.navigationController?.pushViewController(vc, animated: true)

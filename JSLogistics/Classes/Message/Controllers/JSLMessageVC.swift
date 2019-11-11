@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 private let messageCell = "messageCell"
 private let messageHeader = "messageHeader"
 
 class JSLMessageVC: GYZBaseVC {
+    
+    var dataModel: JSLMessageHomeModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +37,35 @@ class JSLMessageVC: GYZBaseVC {
         
         return table
     }()
+    
+    //消息
+    func requestMsgInfo(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("message/index", parameters: ["user_id":userDefaults.string(forKey: "userId") ?? ""],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+        
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].dictionaryObject else { return }
+                weakSelf?.dataModel = JSLMessageHomeModel.init(dict: data)
+                weakSelf?.tableView.reloadData()
+            
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
     
     func goOperatorVC(tag: Int){
         switch tag {
@@ -79,12 +111,16 @@ extension JSLMessageVC: UITableViewDelegate,UITableViewDataSource{
             cell.tagImgView.image = UIImage.init(named: "icon_msg_notification")
             cell.dateLab.isHidden = true
             cell.nameLab.text = "通知消息"
-            cell.desLab.text = "您发布的文章未通过审核"
+            if dataModel != nil  {
+                cell.desLab.text = dataModel?.notificationModel?.desc
+            }
         }else{
             cell.tagImgView.image = UIImage.init(named: "icon_msg_care")
             cell.dateLab.isHidden = false
             cell.nameLab.text = "关注消息"
-            cell.desLab.text = "XXX 发表了新的美食笔记"
+            if dataModel != nil  {
+                cell.desLab.text = (dataModel?.followMsgModel?.concern_nickname)! + " " + (dataModel?.followMsgModel?.desc)!
+            }
         }
         
         cell.selectionStyle = .none

@@ -1,7 +1,7 @@
 //
 //  JSLMyFensiCell.swift
 //  JSLogistics
-//
+//  我的粉丝 cell
 //  Created by gouyz on 2019/11/10.
 //  Copyright © 2019 gouyz. All rights reserved.
 //
@@ -9,6 +9,26 @@
 import UIKit
 
 class JSLMyFensiCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataFenSiModel : JSLMyFenSiModel?{
+        didSet{
+            if let model = dataFenSiModel {
+                
+                userHeaderImgView.kf.setImage(with: URL.init(string: (model.head_pic)!))
+                nameLab.text = model.nickname
+                desLab.text = model.details
+                
+                if model.is_concern == "1"{// 已关注
+                    operatorBtn.isSelected = false
+                    operatorBtn.backgroundColor = kWhiteColor
+                }else{
+                    operatorBtn.isSelected = true
+                    operatorBtn.backgroundColor = kGreenFontColor
+                }
+            }
+        }
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -82,6 +102,7 @@ class JSLMyFensiCell: UITableViewCell {
         btn.setTitleColor(kGreenFontColor, for: .normal)
         btn.setTitleColor(kWhiteColor, for: .selected)
         btn.setTitle("已关注", for: .normal)
+        btn.setTitle("关注", for: .selected)
         btn.backgroundColor = kWhiteColor
         btn.cornerRadius = 8
         btn.borderColor = kGreenFontColor
@@ -89,6 +110,4 @@ class JSLMyFensiCell: UITableViewCell {
         
         return btn
     }()
-}
-
 }

@@ -31,6 +31,10 @@
 		0A3C981B22FE586B0002586E /* JSLMessageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */; };
 		0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */; };
 		0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */; };
+		0A414F29237905FB00D54593 /* JSLMyFenSiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */; };
+		0A414F2B23795AC800D54593 /* JSLMessageHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */; };
+		0A414F2D23795B2300D54593 /* JSLNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */; };
+		0A414F2F23795C2400D54593 /* JSLFollowMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2E23795C2400D54593 /* JSLFollowMsgModel.swift */; };
 		0A417B0822F9114F00BF9614 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B0722F9114F00BF9614 /* AppDelegate.swift */; };
 		0A417B0A22F9114F00BF9614 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B0922F9114F00BF9614 /* ViewController.swift */; };
 		0A417B0D22F9114F00BF9614 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A417B0B22F9114F00BF9614 /* Main.storyboard */; };
@@ -55,7 +59,6 @@
 		0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */; };
 		0A4866E5236C2CE500BEAB9F /* JSLConmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */; };
 		0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */; };
-		0A4C7D5B235808A80082C926 /* JSLMyFenSiListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */; };
 		0A4F0C5823692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */; };
 		0A4F235B23725AF7009DEB30 /* JSLPublishNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */; };
 		0A4F235D23725BF6009DEB30 /* JSLUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */; };
@@ -215,6 +218,10 @@
 		0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHeaderView.swift; sourceTree = "<group>"; };
 		0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgVC.swift; sourceTree = "<group>"; };
 		0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgCell.swift; sourceTree = "<group>"; };
+		0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiModel.swift; sourceTree = "<group>"; };
+		0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHomeModel.swift; sourceTree = "<group>"; };
+		0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNotificationModel.swift; sourceTree = "<group>"; };
+		0A414F2E23795C2400D54593 /* JSLFollowMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFollowMsgModel.swift; sourceTree = "<group>"; };
 		0A417B0422F9114F00BF9614 /* JSLogistics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSLogistics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A417B0722F9114F00BF9614 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A417B0922F9114F00BF9614 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -245,7 +252,6 @@
 		0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListCell.swift; sourceTree = "<group>"; };
 		0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLConmentDetailVC.swift; sourceTree = "<group>"; };
 		0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutHeaderView.swift; sourceTree = "<group>"; };
-		0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiListVC.swift; sourceTree = "<group>"; };
 		0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderDetailHeaderCell.swift; sourceTree = "<group>"; };
 		0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLPublishNotesModel.swift; sourceTree = "<group>"; };
 		0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLUserInfoModel.swift; sourceTree = "<group>"; };
@@ -761,6 +767,7 @@
 			children = (
 				0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */,
 				0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */,
+				0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -771,7 +778,6 @@
 				0A5093E022FACA62002535FF /* JSLMineVC.swift */,
 				0A2D813223575DB300A3E024 /* JSLSettingVC.swift */,
 				0A2D813623576C9F00A3E024 /* JSLAboutVC.swift */,
-				0A4C7D5A235808A80082C926 /* JSLMyFenSiListVC.swift */,
 				0A6677B123687CC90044A978 /* JSLCartOrderVC.swift */,
 				0A6677B323687DAB0044A978 /* JSLCartOrderListVC.swift */,
 				0A3645C9236896210080B872 /* JSLCartOrderDetailVC.swift */,
@@ -863,6 +869,9 @@
 		0A5093CF22FAC932002535FF /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */,
+				0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */,
+				0A414F2E23795C2400D54593 /* JSLFollowMsgModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1191,6 +1200,7 @@
 				0A234024231D609100D21C11 /* GYZLabAndLabBtnView.swift in Sources */,
 				0A4339C423710534001A6B38 /* JSLSelectedFoodTagVC.swift in Sources */,
 				0A6C388523673A9000B348C3 /* JSLCustomOrderView.swift in Sources */,
+				0A414F2D23795B2300D54593 /* JSLNotificationModel.swift in Sources */,
 				0A50937922FAC675002535FF /* GYZCommonSwitchCell.swift in Sources */,
 				0A434B75237006BF005B2BD4 /* JSLEditMyProfileVC.swift in Sources */,
 				0A0F8F6B23006B6C00827699 /* JSLFollowMsgCell.swift in Sources */,
@@ -1214,6 +1224,7 @@
 				0A434B6F236FCFC8005B2BD4 /* JSLMyProfileVC.swift in Sources */,
 				0A5093AA22FAC675002535FF /* ZPageControl.swift in Sources */,
 				0A50937622FAC675002535FF /* FSCityAreaCell.swift in Sources */,
+				0A414F2F23795C2400D54593 /* JSLFollowMsgModel.swift in Sources */,
 				0A45C2BB22FD5A770034BCCD /* JSLShopListVC.swift in Sources */,
 				0A434B73236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift in Sources */,
 				0A50938E22FAC675002535FF /* GYZUIButton+Extension.swift in Sources */,
@@ -1240,6 +1251,7 @@
 				0A6677B6236880400044A978 /* JSLCartOrderListCell.swift in Sources */,
 				0A5093B022FAC675002535FF /* GYZActionSheet.swift in Sources */,
 				0A50937722FAC675002535FF /* GYZImgAndTxtBtnView.swift in Sources */,
+				0A414F29237905FB00D54593 /* JSLMyFenSiModel.swift in Sources */,
 				0A0F8F672300631900827699 /* JSLNotificateMsgVC.swift in Sources */,
 				0A50939E22FAC675002535FF /* HXTagCollectionViewFlowLayout.m in Sources */,
 				0A50937E22FAC675002535FF /* GYZBaseNavigationVC.swift in Sources */,
@@ -1290,6 +1302,7 @@
 				0A50937D22FAC675002535FF /* GYZMainTabBarVC.swift in Sources */,
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
 				0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */,
+				0A414F2B23795AC800D54593 /* JSLMessageHomeModel.swift in Sources */,
 				0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */,
 				0A50939722FAC675002535FF /* AXBadgeView.swift in Sources */,
 				0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */,
@@ -1298,7 +1311,6 @@
 				0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */,
 				0A4866E5236C2CE500BEAB9F /* JSLConmentDetailVC.swift in Sources */,
 				0A1D868523697B4500DA4CB8 /* JSLRunOrderListCell.swift in Sources */,
-				0A4C7D5B235808A80082C926 /* JSLMyFenSiListVC.swift in Sources */,
 				0A417B0A22F9114F00BF9614 /* ViewController.swift in Sources */,
 				0A50936922FAC675002535FF /* FSHotCityCell.swift in Sources */,
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
