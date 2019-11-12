@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 private let fenSiMsgListCell = "fenSiMsgListCell"
 
 class JSLFenSiMsgListVC: GYZBaseVC {
+    var currPage : Int = 0
+    /// 最后一页
+    var lastPage: Int = 1
+    var dataList: [JSLNotificationModel] = [JSLNotificationModel]()
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -59,7 +59,7 @@ extension GYZMainTabBarVC: UITabBarControllerDelegate{
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         
         /// 当选中发布、我的的时候，要判断是否登录
-        if viewController.tabBarItem.tag == 2 ||  viewController.tabBarItem.tag == 4{
+        if viewController.tabBarItem.tag == 2 ||  viewController.tabBarItem.tag == 3 ||  viewController.tabBarItem.tag == 4{
             
             if userDefaults.bool(forKey: kIsLoginTagKey){
                 return true

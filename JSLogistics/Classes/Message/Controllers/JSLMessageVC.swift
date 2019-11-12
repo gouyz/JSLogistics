@@ -24,6 +24,7 @@ class JSLMessageVC: GYZBaseVC {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
+        requestMsgInfo()
     }
     lazy var tableView : UITableView = {
         let table = UITableView(frame: CGRect.zero, style: .grouped)

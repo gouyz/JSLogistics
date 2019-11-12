@@ -26,6 +26,7 @@ class JSLNotificateMsgVC: GYZBaseVC {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
+        requestNotificationMsgList()
     }
     lazy var tableView : UITableView = {
         let table = UITableView(frame: CGRect.zero, style: .grouped)
