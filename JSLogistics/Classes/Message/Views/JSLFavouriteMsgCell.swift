@@ -9,6 +9,20 @@
 import UIKit
 
 class JSLFavouriteMsgCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLFavouriteMsgModel?{
+        didSet{
+            if let model = dataModel {
+                
+                userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!))
+                nameLab.text = (model.userInfoModel?.nickname)! + " " + model.desc!
+                
+                dateLab.text = model.add_time
+                tagImgView.kf.setImage(with: URL.init(string: (model.img)!))
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)

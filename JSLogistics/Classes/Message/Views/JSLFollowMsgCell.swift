@@ -9,6 +9,21 @@
 import UIKit
 
 class JSLFollowMsgCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLFollowMsgModel?{
+        didSet{
+            if let model = dataModel {
+                
+                userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!))
+                nameLab.text = (model.userInfoModel?.nickname)! + " " + model.desc!
+                desLab.text = model.publishInfoModel?.title
+                
+                dateLab.text = model.add_time
+                tagImgView.kf.setImage(with: URL.init(string: (model.publishInfoModel?.img)!))
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)

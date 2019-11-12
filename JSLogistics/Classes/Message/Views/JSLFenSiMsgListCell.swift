@@ -9,6 +9,26 @@
 import UIKit
 
 class JSLFenSiMsgListCell: UITableViewCell {
+    /// 填充数据
+    var dataFenSiModel : JSLFenSiMsgModel?{
+        didSet{
+            if let model = dataFenSiModel {
+                
+                userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!))
+                nameLab.text = (model.userInfoModel?.nickname)! + " 关注了你"
+                dateLab.text = model.add_time
+                
+                if model.is_concern == "1"{// 已关注
+                    operatorBtn.isSelected = false
+                    operatorBtn.backgroundColor = kWhiteColor
+                }else{
+                    operatorBtn.isSelected = true
+                    operatorBtn.backgroundColor = kGreenFontColor
+                }
+            }
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
             super.init(style: style, reuseIdentifier: reuseIdentifier)
             

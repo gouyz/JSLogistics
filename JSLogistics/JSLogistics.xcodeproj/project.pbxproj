@@ -57,6 +57,8 @@
 		0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */; };
 		0A45C2BB22FD5A770034BCCD /* JSLShopListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */; };
 		0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */; };
+		0A46E068237A5C06000A3CDD /* JSLFenSiMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A46E067237A5C06000A3CDD /* JSLFenSiMsgModel.swift */; };
+		0A46E06A237A85DA000A3CDD /* JSLFavouriteMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */; };
 		0A4866E5236C2CE500BEAB9F /* JSLConmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */; };
 		0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */; };
 		0A4F0C5823692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */; };
@@ -250,6 +252,8 @@
 		0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCommonNavVC.swift; sourceTree = "<group>"; };
 		0A45C2BA22FD5A770034BCCD /* JSLShopListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListVC.swift; sourceTree = "<group>"; };
 		0A45C2BC22FD5FD20034BCCD /* JSLShopListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLShopListCell.swift; sourceTree = "<group>"; };
+		0A46E067237A5C06000A3CDD /* JSLFenSiMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFenSiMsgModel.swift; sourceTree = "<group>"; };
+		0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgModel.swift; sourceTree = "<group>"; };
 		0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLConmentDetailVC.swift; sourceTree = "<group>"; };
 		0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutHeaderView.swift; sourceTree = "<group>"; };
 		0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderDetailHeaderCell.swift; sourceTree = "<group>"; };
@@ -872,6 +876,8 @@
 				0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */,
 				0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */,
 				0A414F2E23795C2400D54593 /* JSLFollowMsgModel.swift */,
+				0A46E067237A5C06000A3CDD /* JSLFenSiMsgModel.swift */,
+				0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1251,6 +1257,7 @@
 				0A6677B6236880400044A978 /* JSLCartOrderListCell.swift in Sources */,
 				0A5093B022FAC675002535FF /* GYZActionSheet.swift in Sources */,
 				0A50937722FAC675002535FF /* GYZImgAndTxtBtnView.swift in Sources */,
+				0A46E068237A5C06000A3CDD /* JSLFenSiMsgModel.swift in Sources */,
 				0A414F29237905FB00D54593 /* JSLMyFenSiModel.swift in Sources */,
 				0A0F8F672300631900827699 /* JSLNotificateMsgVC.swift in Sources */,
 				0A50939E22FAC675002535FF /* HXTagCollectionViewFlowLayout.m in Sources */,
@@ -1303,6 +1310,7 @@
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
 				0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */,
 				0A414F2B23795AC800D54593 /* JSLMessageHomeModel.swift in Sources */,
+				0A46E06A237A85DA000A3CDD /* JSLFavouriteMsgModel.swift in Sources */,
 				0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */,
 				0A50939722FAC675002535FF /* AXBadgeView.swift in Sources */,
 				0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */,
