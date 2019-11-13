@@ -193,6 +193,7 @@ extension JSLHomeVC: JXPagingViewDelegate {
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         let vc = JSLHomeListVC()
         vc.categoryId = catrgoryList[index].type_id!
+        vc.naviController = self.navigationController
         return vc
     }
     

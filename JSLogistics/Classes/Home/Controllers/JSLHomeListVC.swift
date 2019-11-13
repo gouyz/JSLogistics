@@ -18,6 +18,7 @@ class JSLHomeListVC: GYZBaseVC {
     /// 最后一页
     var lastPage: Int = 1
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
+    weak var naviController: UINavigationController?
     
     var categoryId: String = ""
     var dataList:[JSLPublishNotesModel] = [JSLPublishNotesModel]()
@@ -174,7 +175,11 @@ class JSLHomeListVC: GYZBaseVC {
             GYZLog(error)
         })
     }
-    
+    /// 详情
+    func goDetailVC(){
+        let vc = JSLNoteDetailVC()
+        self.naviController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLHomeListVC: UICollectionViewDataSource,UICollectionViewDelegate,CHTCollectionViewDelegateWaterfallLayout{
     
@@ -198,6 +203,8 @@ extension JSLHomeListVC: UICollectionViewDataSource,UICollectionViewDelegate,CHT
     
     // MARK: UICollectionViewDelegate的代理方法
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    
+        goDetailVC()
     }
     //MARK: - CollectionView Waterfall Layout Delegate Methods (Required)
     

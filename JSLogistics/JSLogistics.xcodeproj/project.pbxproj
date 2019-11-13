@@ -52,6 +52,10 @@
 		0A434B73236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B72236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift */; };
 		0A434B75237006BF005B2BD4 /* JSLEditMyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B74237006BF005B2BD4 /* JSLEditMyProfileVC.swift */; };
 		0A434B7723700CE9005B2BD4 /* JSLUploadPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A434B7623700CE9005B2BD4 /* JSLUploadPhotoCell.swift */; };
+		0A4579B7237BE0A400BAB8D3 /* JSLNoteDetailInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4579B6237BE0A400BAB8D3 /* JSLNoteDetailInfoCell.swift */; };
+		0A4579B9237BE9B000BAB8D3 /* JSLNoteDetailShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4579B8237BE9B000BAB8D3 /* JSLNoteDetailShopCell.swift */; };
+		0A4579BB237BFDB800BAB8D3 /* JSLNoteDetailConmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4579BA237BFDB800BAB8D3 /* JSLNoteDetailConmentCell.swift */; };
+		0A4579BD237C00DE00BAB8D3 /* JSLNoteDetailConmentHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4579BC237C00DE00BAB8D3 /* JSLNoteDetailConmentHeader.swift */; };
 		0A45C2B522FD1BD40034BCCD /* JSLHomeListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */; };
 		0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */; };
 		0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */; };
@@ -247,6 +251,10 @@
 		0A434B72236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyProfilePhotoCell.swift; sourceTree = "<group>"; };
 		0A434B74237006BF005B2BD4 /* JSLEditMyProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLEditMyProfileVC.swift; sourceTree = "<group>"; };
 		0A434B7623700CE9005B2BD4 /* JSLUploadPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLUploadPhotoCell.swift; sourceTree = "<group>"; };
+		0A4579B6237BE0A400BAB8D3 /* JSLNoteDetailInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailInfoCell.swift; sourceTree = "<group>"; };
+		0A4579B8237BE9B000BAB8D3 /* JSLNoteDetailShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailShopCell.swift; sourceTree = "<group>"; };
+		0A4579BA237BFDB800BAB8D3 /* JSLNoteDetailConmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailConmentCell.swift; sourceTree = "<group>"; };
+		0A4579BC237C00DE00BAB8D3 /* JSLNoteDetailConmentHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailConmentHeader.swift; sourceTree = "<group>"; };
 		0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeListVC.swift; sourceTree = "<group>"; };
 		0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeShopCell.swift; sourceTree = "<group>"; };
 		0A45C2B822FD59F50034BCCD /* JSLCommonNavVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCommonNavVC.swift; sourceTree = "<group>"; };
@@ -856,6 +864,10 @@
 			children = (
 				0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */,
 				0A45C2B622FD22790034BCCD /* JSLHomeShopCell.swift */,
+				0A4579B6237BE0A400BAB8D3 /* JSLNoteDetailInfoCell.swift */,
+				0A4579B8237BE9B000BAB8D3 /* JSLNoteDetailShopCell.swift */,
+				0A4579BA237BFDB800BAB8D3 /* JSLNoteDetailConmentCell.swift */,
+				0A4579BC237C00DE00BAB8D3 /* JSLNoteDetailConmentHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1195,6 +1207,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A50935E22FAC675002535FF /* LHSBaseModel.swift in Sources */,
+				0A4579BD237C00DE00BAB8D3 /* JSLNoteDetailConmentHeader.swift in Sources */,
 				0A25D41023771AB800179293 /* JSLMyFollowVC.swift in Sources */,
 				0A4F236023726850009DEB30 /* CHTCollectionViewWaterfallLayout.swift in Sources */,
 				0A5093B722FAC675002535FF /* SYProgressView.m in Sources */,
@@ -1225,6 +1238,7 @@
 				0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */,
 				0A6677B423687DAB0044A978 /* JSLCartOrderListVC.swift in Sources */,
 				0A424A7E23754B08001E1163 /* JSLMineInfoModel.swift in Sources */,
+				0A4579BB237BFDB800BAB8D3 /* JSLNoteDetailConmentCell.swift in Sources */,
 				0A5093C222FAC675002535FF /* GYZThrowLineTool.swift in Sources */,
 				0A2A334D2371656A006028DC /* JSLPublishCategoryModel.swift in Sources */,
 				0A434B6F236FCFC8005B2BD4 /* JSLMyProfileVC.swift in Sources */,
@@ -1316,6 +1330,7 @@
 				0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */,
 				0A5093C522FAC676002535FF /* GYZConst.swift in Sources */,
 				0A5093A822FAC675002535FF /* ZCycleViewCell.swift in Sources */,
+				0A4579B7237BE0A400BAB8D3 /* JSLNoteDetailInfoCell.swift in Sources */,
 				0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */,
 				0A4866E5236C2CE500BEAB9F /* JSLConmentDetailVC.swift in Sources */,
 				0A1D868523697B4500DA4CB8 /* JSLRunOrderListCell.swift in Sources */,
@@ -1338,6 +1353,7 @@
 				0A5093B622FAC675002535FF /* SYPieProgressView.m in Sources */,
 				0A5093DB22FAC98C002535FF /* JSLHomeVC.swift in Sources */,
 				0A50935F22FAC675002535FF /* FSCityModel.swift in Sources */,
+				0A4579B9237BE9B000BAB8D3 /* JSLNoteDetailShopCell.swift in Sources */,
 				0A5093DF22FACA36002535FF /* JSLMessageVC.swift in Sources */,
 				0A5093C322FAC675002535FF /* GYZTool.swift in Sources */,
 				0A50939922FAC675002535FF /* GYZLoadingView.swift in Sources */,
