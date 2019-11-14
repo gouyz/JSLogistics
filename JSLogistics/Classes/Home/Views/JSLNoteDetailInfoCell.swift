@@ -11,6 +11,34 @@ import Cosmos
 
 class JSLNoteDetailInfoCell: UITableViewCell {
     
+    /// 填充数据
+    var dataModel : JSLNoteDetailModel?{
+        didSet{
+            if let model = dataModel {
+                
+                adsImgView.setUrlsGroup((model.publishInfo?.imgList)!)
+                tagImgView.kf.setImage(with: URL.init(string: (model.goodsInfo?.original_img)!))
+                
+                nameLab.text = model.goodsInfo?.goods_name
+                let priceStr = String(format:"%.2f",Float((model.goodsInfo?.shop_price)!)!)
+                let marketPrice = String(format:"%.2f",Float((model.goodsInfo?.market_price)!)!)
+                let str = "￥\(priceStr)"  + "  \(marketPrice)"
+                let priceAtt : NSMutableAttributedString = NSMutableAttributedString(string: str)
+                priceAtt.addAttribute(NSAttributedString.Key.foregroundColor, value: kRedFontColor, range: NSMakeRange(0, priceStr.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.font, value: k18Font, range: NSMakeRange(0, priceStr.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.baselineOffset, value: 0, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
+                
+                priceLab.attributedText = priceAtt
+                
+                titleLab.text = model.publishInfo?.title
+                contentLab.text = model.publishInfo?.content
+                ratingView.rating = Double.init((model.publishInfo?.exponent)!)!
+                dateLab.text = "发布于\((model.publishInfo?.publish_time)!)"
+            }
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -99,14 +127,13 @@ class JSLNoteDetailInfoCell: UITableViewCell {
     /// 广告轮播图
     lazy var adsImgView: ZCycleView = {
         let adsView = ZCycleView()
+        adsView.isAutomatic = false
         adsView.placeholderImage = UIImage.init(named: "icon_home_banner")
         adsView.setImagesGroup([#imageLiteral(resourceName: "icon_home_banner"),#imageLiteral(resourceName: "icon_home_banner"),#imageLiteral(resourceName: "icon_home_banner")])
         adsView.pageControlAlignment = .center
-        adsView.isAutomatic = false
         adsView.pageControlIndictirColor = kWhiteColor
         adsView.pageControlCurrentIndictirColor = kGreenFontColor
         adsView.scrollDirection = .horizontal
-        adsView.isAutomatic = false
         
         return adsView
     }()

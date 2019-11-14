@@ -176,8 +176,9 @@ class JSLHomeListVC: GYZBaseVC {
         })
     }
     /// 详情
-    func goDetailVC(){
+    func goDetailVC(index : Int){
         let vc = JSLNoteDetailVC()
+        vc.noteId = dataList[index].publish_id!
         self.naviController?.pushViewController(vc, animated: true)
     }
 }
@@ -204,7 +205,7 @@ extension JSLHomeListVC: UICollectionViewDataSource,UICollectionViewDelegate,CHT
     // MARK: UICollectionViewDelegate的代理方法
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     
-        goDetailVC()
+        goDetailVC(index: indexPath.row)
     }
     //MARK: - CollectionView Waterfall Layout Delegate Methods (Required)
     

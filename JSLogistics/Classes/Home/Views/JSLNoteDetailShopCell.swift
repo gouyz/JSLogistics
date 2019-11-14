@@ -10,6 +10,23 @@ import UIKit
 import Cosmos
 
 class JSLNoteDetailShopCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLStoreModel?{
+        didSet{
+            if let model = dataModel {
+                
+                tagImgView.kf.setImage(with: URL.init(string: model.store_logo!))
+                
+                nameLab.text = model.store_name
+                ratingView.rating = Double.init(model.store_exponent!)!
+                typeLab.text = model.store_tag
+                priceLab.text = "人均￥\(model.store_consume!)"
+                
+                addressLab.text = model.address
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)

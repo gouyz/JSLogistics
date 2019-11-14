@@ -12,6 +12,41 @@ class JSLNoteDetailConmentHeader: UITableViewHeaderFooterView {
 
     /// 闭包回调
     public var operatorBlock: ((_ tag: Int) ->())?
+    
+    /// 填充数据
+    var dataModel : JSLNoteDetailModel?{
+        didSet{
+            if let model = dataModel {
+                
+                var zanCount: String = model.point_count!
+                if zanCount.isEmpty || zanCount == "0"{
+                    zanCount = ""
+                }
+                var conmentCount: String = model.comment_count!
+                if conmentCount.isEmpty || conmentCount == "0"{
+                    conmentCount = ""
+                }
+                var favouriteCount: String = model.collect_count!
+                if favouriteCount.isEmpty || favouriteCount == "0"{
+                    favouriteCount = ""
+                }
+                
+                if model.is_point == "1"{// 已点赞
+                    zanBtn.set(image: UIImage.init(named: "icon_home_heart_selected"), title: zanCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                }else{
+                    zanBtn.set(image: UIImage.init(named: "icon_home_heart"), title: zanCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                }
+                conmentBtn.set(image: UIImage.init(named: "icon_conment"), title: conmentCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                
+                if model.is_collect == "1"{// 已收藏
+                    favouriteBtn.set(image: UIImage.init(named: "icon_favourite_selected"), title: favouriteCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                }else{
+                    favouriteBtn.set(image: UIImage.init(named: "icon_favourite"), title: favouriteCount, titlePosition: .right, additionalSpacing: 5, state: .normal)
+                }
+                
+            }
+        }
+    }
 
     override init(reuseIdentifier: String?){
         
@@ -20,9 +55,6 @@ class JSLNoteDetailConmentHeader: UITableViewHeaderFooterView {
         contentView.backgroundColor = kBackgroundColor
         setupUI()
         
-        zanBtn.set(image: UIImage.init(named: "icon_home_heart"), title: "100", titlePosition: .right, additionalSpacing: 5, state: .normal)
-        favouriteBtn.set(image: UIImage.init(named: "icon_favourite"), title: "100", titlePosition: .right, additionalSpacing: 5, state: .normal)
-        conmentBtn.set(image: UIImage.init(named: "icon_conment"), title: "100", titlePosition: .right, additionalSpacing: 5, state: .normal)
     }
     
     required init?(coder aDecoder: NSCoder) {

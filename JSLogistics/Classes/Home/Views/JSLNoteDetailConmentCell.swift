@@ -9,6 +9,17 @@
 import UIKit
 
 class JSLNoteDetailConmentCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLConmentModel?{
+        didSet{
+            if let model = dataModel {
+                
+                nameLab.text = model.username
+                contentLab.text = model.content
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
