@@ -147,7 +147,6 @@ class JSLNoteDetailVC: GYZBaseVC {
         btn.titleLabel?.font = k15Font
         btn.setTitleColor(kWhiteColor, for: .normal)
         btn.setTitle("已关注", for: .normal)
-        btn.setTitle("+关注", for: .selected)
         btn.backgroundColor = kGreenFontColor
         btn.cornerRadius = 15
         
@@ -196,9 +195,9 @@ class JSLNoteDetailVC: GYZBaseVC {
             userHeaderImgView.kf.setImage(with: URL.init(string: (model.userInfoModel?.head_pic)!))
             nameLab.text = model.userInfoModel?.nickname
             if model.is_concern == "1"{// 已关注
-                followBtn.isSelected = false
+                followBtn.setTitle("已关注", for: .normal)
             }else{
-                followBtn.isSelected = true
+                followBtn.setTitle("+关注", for: .normal)
             }
             
             bottomView.favouriteImgView.isHighlighted = model.is_collect == "1"
@@ -258,6 +257,7 @@ class JSLNoteDetailVC: GYZBaseVC {
         self.tableView.snp.updateConstraints({ (make) in
             make.bottom.equalTo(-kBottomTabbarHeight)
         })
+        self.sendConmentView.contentTxtView.text = ""
         //弹出键盘
         self.sendConmentView.contentTxtView.becomeFirstResponder()
     }
@@ -310,7 +310,34 @@ class JSLNoteDetailVC: GYZBaseVC {
             return
         }
         sendConmentView.contentTxtView.resignFirstResponder()
+        requestSendConment()
+    }
+    
+    ///发表评论
+    func requestSendConment(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
         
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("publish/addComment", parameters: ["user_id":userDefaults.string(forKey: "userId") ?? "","publish_id":noteId,"content":sendConmentView.contentTxtView.text!],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                
+                let num: Int = Int.init((weakSelf?.dataModel?.comment_count)!)! + 1
+                weakSelf?.dataModel?.comment_count = "\(num)"
+                weakSelf?.tableView.reloadData()
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
     }
     
     // 收藏
@@ -374,6 +401,24 @@ class JSLNoteDetailVC: GYZBaseVC {
             GYZLog(error)
         })
     }
+    /// 全部评论
+    @objc func onClickedMoreConment(){
+        let vc = JSLNoteAllConmentVC()
+        vc.noteId = self.noteId
+        vc.resultBlock = {[unowned self] (isRefresh) in
+            self.requestDetailInfo()
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    /// 店铺详情
+    @objc func onClickedStoreDetail(){
+        let vc = JSLStoreDetailVC()
+        if dataModel != nil {
+            vc.storeId = (self.dataModel?.storeInfo?.store_id)!
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -405,6 +450,8 @@ extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
             if dataModel != nil {
                 cell.dataModel = dataModel?.storeInfo
             }
+            
+            cell.bgView.addOnClickListener(target: self, action: #selector(onClickedStoreDetail))
             
             cell.selectionStyle = .none
             return cell
@@ -443,6 +490,8 @@ extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 2 {
             let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: noteDetailConmentFooter) as! JSLNoteDetailContentFooter
+            
+            footerView.moreLab.addOnClickListener(target: self, action: #selector(onClickedMoreConment))
             
             return footerView
         }

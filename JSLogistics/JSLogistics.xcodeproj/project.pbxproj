@@ -65,6 +65,12 @@
 		0A46E06A237A85DA000A3CDD /* JSLFavouriteMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */; };
 		0A4866E5236C2CE500BEAB9F /* JSLConmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */; };
 		0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */; };
+		0A4EE859237E3D8600A30411 /* JSLNoteAllConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE858237E3D8500A30411 /* JSLNoteAllConmentVC.swift */; };
+		0A4EE85B237E415900A30411 /* JSLNoteAllConmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE85A237E415900A30411 /* JSLNoteAllConmentCell.swift */; };
+		0A4EE85D237E455000A30411 /* JSLNoteAllConmentReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE85C237E455000A30411 /* JSLNoteAllConmentReplyCell.swift */; };
+		0A4EE861237E829900A30411 /* JSLStoreDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE860237E829900A30411 /* JSLStoreDetailVC.swift */; };
+		0A4EE863237E890200A30411 /* JSLStoreDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE862237E890200A30411 /* JSLStoreDetailHeaderView.swift */; };
+		0A4EE865237E928D00A30411 /* JSLStoreDetailGoodsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE864237E928D00A30411 /* JSLStoreDetailGoodsCell.swift */; };
 		0A4F0C5823692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */; };
 		0A4F235B23725AF7009DEB30 /* JSLPublishNotesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */; };
 		0A4F235D23725BF6009DEB30 /* JSLUserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */; };
@@ -273,6 +279,12 @@
 		0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgModel.swift; sourceTree = "<group>"; };
 		0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLConmentDetailVC.swift; sourceTree = "<group>"; };
 		0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutHeaderView.swift; sourceTree = "<group>"; };
+		0A4EE858237E3D8500A30411 /* JSLNoteAllConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteAllConmentVC.swift; sourceTree = "<group>"; };
+		0A4EE85A237E415900A30411 /* JSLNoteAllConmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteAllConmentCell.swift; sourceTree = "<group>"; };
+		0A4EE85C237E455000A30411 /* JSLNoteAllConmentReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteAllConmentReplyCell.swift; sourceTree = "<group>"; };
+		0A4EE860237E829900A30411 /* JSLStoreDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLStoreDetailVC.swift; sourceTree = "<group>"; };
+		0A4EE862237E890200A30411 /* JSLStoreDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLStoreDetailHeaderView.swift; sourceTree = "<group>"; };
+		0A4EE864237E928D00A30411 /* JSLStoreDetailGoodsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLStoreDetailGoodsCell.swift; sourceTree = "<group>"; };
 		0A4F0C5723692B4600D605A3 /* JSLCartOrderDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCartOrderDetailHeaderCell.swift; sourceTree = "<group>"; };
 		0A4F235A23725AF7009DEB30 /* JSLPublishNotesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLPublishNotesModel.swift; sourceTree = "<group>"; };
 		0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLUserInfoModel.swift; sourceTree = "<group>"; };
@@ -877,6 +889,8 @@
 				0A5093DA22FAC98C002535FF /* JSLHomeVC.swift */,
 				0A45C2B422FD1BD40034BCCD /* JSLHomeListVC.swift */,
 				0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */,
+				0A4EE858237E3D8500A30411 /* JSLNoteAllConmentVC.swift */,
+				0A4EE860237E829900A30411 /* JSLStoreDetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -895,6 +909,10 @@
 				0A83178E237CF710008E78AE /* JSLNoteDetailMoreCell.swift */,
 				0A831790237CF9EE008E78AE /* JSLConmentBottomView.swift */,
 				0A831792237CFC1E008E78AE /* JSLConmentSendView.swift */,
+				0A4EE85A237E415900A30411 /* JSLNoteAllConmentCell.swift */,
+				0A4EE85C237E455000A30411 /* JSLNoteAllConmentReplyCell.swift */,
+				0A4EE862237E890200A30411 /* JSLStoreDetailHeaderView.swift */,
+				0A4EE864237E928D00A30411 /* JSLStoreDetailGoodsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1266,6 +1284,7 @@
 				0A5093B222FAC675002535FF /* SegmentStyle.swift in Sources */,
 				0A83178D237CF459008E78AE /* JSLNoteDetailMoreHeader.swift in Sources */,
 				0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */,
+				0A4EE859237E3D8600A30411 /* JSLNoteAllConmentVC.swift in Sources */,
 				0A83178F237CF710008E78AE /* JSLNoteDetailMoreCell.swift in Sources */,
 				0A6677B423687DAB0044A978 /* JSLCartOrderListVC.swift in Sources */,
 				0A424A7E23754B08001E1163 /* JSLMineInfoModel.swift in Sources */,
@@ -1315,6 +1334,7 @@
 				0A5093A922FAC675002535FF /* ZCycleLayout.swift in Sources */,
 				0A831791237CF9EE008E78AE /* JSLConmentBottomView.swift in Sources */,
 				0A50937F22FAC675002535FF /* GYZBaseVC.swift in Sources */,
+				0A4EE85D237E455000A30411 /* JSLNoteAllConmentReplyCell.swift in Sources */,
 				0A83179B237D2FEF008E78AE /* JSLConmentModel.swift in Sources */,
 				0A4F235D23725BF6009DEB30 /* JSLUserInfoModel.swift in Sources */,
 				0A50936322FAC675002535FF /* GYZCommonArrowCell.swift in Sources */,
@@ -1352,6 +1372,7 @@
 				0A50937122FAC675002535FF /* FSCitySelectedHeaderView.swift in Sources */,
 				0A50939622FAC675002535FF /* GYZEmptyView.swift in Sources */,
 				0A5093A022FAC675002535FF /* Picker.swift in Sources */,
+				0A4EE861237E829900A30411 /* JSLStoreDetailVC.swift in Sources */,
 				0A5093E322FACA99002535FF /* JSLPublishVC.swift in Sources */,
 				0A6677B223687CC90044A978 /* JSLCartOrderVC.swift in Sources */,
 				0A5093AC22FAC675002535FF /* MMCardItem.swift in Sources */,
@@ -1363,6 +1384,7 @@
 				0A46E06A237A85DA000A3CDD /* JSLFavouriteMsgModel.swift in Sources */,
 				0A45C2B922FD59F50034BCCD /* JSLCommonNavVC.swift in Sources */,
 				0A50939722FAC675002535FF /* AXBadgeView.swift in Sources */,
+				0A4EE863237E890200A30411 /* JSLStoreDetailHeaderView.swift in Sources */,
 				0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */,
 				0A5093C522FAC676002535FF /* GYZConst.swift in Sources */,
 				0A5093A822FAC675002535FF /* ZCycleViewCell.swift in Sources */,
@@ -1386,6 +1408,7 @@
 				0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */,
 				0A1D86812369769D00DA4CB8 /* JSLMyConmentVC.swift in Sources */,
 				0A50936C22FAC675002535FF /* LHSCheckView.swift in Sources */,
+				0A4EE865237E928D00A30411 /* JSLStoreDetailGoodsCell.swift in Sources */,
 				0A5093B622FAC675002535FF /* SYPieProgressView.m in Sources */,
 				0A5093DB22FAC98C002535FF /* JSLHomeVC.swift in Sources */,
 				0A50935F22FAC675002535FF /* FSCityModel.swift in Sources */,
@@ -1402,6 +1425,7 @@
 				0A50938B22FAC675002535FF /* GYZUIView+Extension.swift in Sources */,
 				0A5093BC22FAC675002535FF /* GYZNetWork.swift in Sources */,
 				0A25D40E2377196F00179293 /* JSLMyFenSiVC.swift in Sources */,
+				0A4EE85B237E415900A30411 /* JSLNoteAllConmentCell.swift in Sources */,
 				0A50936522FAC675002535FF /* GYZFuncModelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

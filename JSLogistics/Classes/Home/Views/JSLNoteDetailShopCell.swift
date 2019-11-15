@@ -40,12 +40,13 @@ class JSLNoteDetailShopCell: UITableViewCell {
     }
     
     func setupUI(){
-        contentView.addSubview(tagImgView)
-        contentView.addSubview(nameLab)
-        contentView.addSubview(ratingView)
-        contentView.addSubview(typeLab)
-        contentView.addSubview(priceLab)
-        contentView.addSubview(rightIconView)
+        contentView.addSubview(bgView)
+        bgView.addSubview(tagImgView)
+        bgView.addSubview(nameLab)
+        bgView.addSubview(ratingView)
+        bgView.addSubview(typeLab)
+        bgView.addSubview(priceLab)
+        bgView.addSubview(rightIconView)
         contentView.addSubview(lineView)
         contentView.addSubview(addressIconView)
         contentView.addSubview(addressLab)
@@ -53,6 +54,10 @@ class JSLNoteDetailShopCell: UITableViewCell {
         contentView.addSubview(lineView1)
         contentView.addSubview(phoneImgView)
         
+        bgView.snp.makeConstraints { (make) in
+            make.left.right.top.equalTo(contentView)
+            make.height.equalTo(80)
+        }
         tagImgView.snp.makeConstraints { (make) in
             make.top.equalTo(kMargin)
             make.left.equalTo(kMargin)
@@ -88,7 +93,7 @@ class JSLNoteDetailShopCell: UITableViewCell {
         lineView.snp.makeConstraints { (make) in
             make.left.equalTo(tagImgView)
             make.height.equalTo(klineWidth)
-            make.top.equalTo(tagImgView.snp.bottom).offset(kMargin)
+            make.top.equalTo(bgView.snp.bottom)
             make.right.equalTo(-kMargin)
         }
         addressIconView.snp.makeConstraints { (make) in
@@ -119,6 +124,12 @@ class JSLNoteDetailShopCell: UITableViewCell {
             make.size.equalTo(CGSize.init(width: 12, height: 15))
         }
     }
+    lazy var bgView: UIView = {
+        let view = UIView()
+        view.backgroundColor = kWhiteColor
+        
+        return view
+    }()
     ///tag图片
     lazy var tagImgView: UIImageView = {
         let imgView = UIImageView()
