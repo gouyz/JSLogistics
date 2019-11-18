@@ -87,7 +87,7 @@ class JSLStoreDetailGoodsCell: UITableViewCell {
         view.cornerRadius = kCornerRadius
         view.layer.shadowOffset = CGSize.init(width: 0, height: 0)
         view.layer.shadowOpacity = 0.8
-        view.layer.shadowRadius = 8
+        view.layer.shadowRadius = 4
         view.layer.shadowColor = kGrayLineColor.cgColor
         view.borderColor = kWhiteColor
         view.borderWidth = klineWidth

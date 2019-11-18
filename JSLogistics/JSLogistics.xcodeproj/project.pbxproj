@@ -195,6 +195,7 @@
 		0A8B8958237412CA00E74275 /* JSLNoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */; };
 		0A95136C238286C200E2AA2A /* JSLStoreDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A95136B238286C200E2AA2A /* JSLStoreDetailModel.swift */; };
 		0A9758CA22FC152D00CC071D /* JSLHomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */; };
+		0AA325F22382E83C00349ACE /* JSLConmentMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA325F12382E83C00349ACE /* JSLConmentMsgVC.swift */; };
 		2D2DA590E3ED61BA468271D8 /* Pods_JSLogistics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1785B1AF973FD205C96C69B /* Pods_JSLogistics.framework */; };
 /* End PBXBuildFile section */
 
@@ -423,6 +424,7 @@
 		0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailVC.swift; sourceTree = "<group>"; };
 		0A95136B238286C200E2AA2A /* JSLStoreDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLStoreDetailModel.swift; sourceTree = "<group>"; };
 		0A9758C922FC152D00CC071D /* JSLHomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeHeaderView.swift; sourceTree = "<group>"; };
+		0AA325F12382E83C00349ACE /* JSLConmentMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLConmentMsgVC.swift; sourceTree = "<group>"; };
 		674F552A2F5BAB6F140C2D27 /* Pods-JSLogistics.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.release.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.release.xcconfig"; sourceTree = "<group>"; };
 		BACD1EAE9FBABD9951B21737 /* Pods-JSLogistics.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JSLogistics.debug.xcconfig"; path = "Target Support Files/Pods-JSLogistics/Pods-JSLogistics.debug.xcconfig"; sourceTree = "<group>"; };
 		D1785B1AF973FD205C96C69B /* Pods_JSLogistics.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JSLogistics.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -950,6 +952,7 @@
 				0A0F8F62230054F800827699 /* JSLFenSiMsgListVC.swift */,
 				0A0F8F662300631900827699 /* JSLNotificateMsgVC.swift */,
 				0A0F8F682300674C00827699 /* JSLFollowMsgVC.swift */,
+				0AA325F12382E83C00349ACE /* JSLConmentMsgVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1313,6 +1316,7 @@
 				0A1D867F2369694800DA4CB8 /* JSLOrderConmentVC.swift in Sources */,
 				0A5093A322FAC675002535FF /* ToolBarView.swift in Sources */,
 				0A83178B237CF2A5008E78AE /* JSLNoteDetailContentFooter.swift in Sources */,
+				0AA325F22382E83C00349ACE /* JSLConmentMsgVC.swift in Sources */,
 				0A4339C823716479001A6B38 /* JSLHomeAdsModel.swift in Sources */,
 				0A5093BD22FAC675002535FF /* GYZUpdateVersionTool.swift in Sources */,
 				0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */,

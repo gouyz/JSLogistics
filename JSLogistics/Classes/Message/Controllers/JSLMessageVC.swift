@@ -74,7 +74,7 @@ class JSLMessageVC: GYZBaseVC {
             let vc = JSLFavouriteMsgVC()
             navigationController?.pushViewController(vc, animated: true)
         case 2://  评论
-            let vc = JSLFavouriteMsgVC()
+            let vc = JSLConmentMsgVC()
             navigationController?.pushViewController(vc, animated: true)
         case 3://  粉丝
             let vc = JSLFenSiMsgListVC()
