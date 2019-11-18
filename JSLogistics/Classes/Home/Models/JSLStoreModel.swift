@@ -27,6 +27,8 @@ class JSLStoreModel: LHSBaseModel {
     var store_tag : String? = ""
     /// 人均消费
     var store_consume : String? = ""
+    /// 店铺背景
+    var store_banner : String? = ""
     /// 经度
     var longitude : String? = ""
     /// 纬度

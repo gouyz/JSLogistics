@@ -59,7 +59,7 @@ class JSLStoreDetailHeaderView: UIView {
             make.left.equalTo(nameLab)
             make.bottom.equalTo(-kMargin)
             make.right.equalTo(carBtn.snp.left).offset(-5)
-            make.height.equalTo(kTitleHeight)
+            make.height.equalTo(30)
         }
         addressIconView.snp.makeConstraints { (make) in
             make.left.equalTo(distanceLab)

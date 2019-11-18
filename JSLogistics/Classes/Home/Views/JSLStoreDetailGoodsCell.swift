@@ -9,6 +9,29 @@
 import UIKit
 
 class JSLStoreDetailGoodsCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLGoodsModel?{
+        didSet{
+            if let model = dataModel {
+                
+                tagImgView.kf.setImage(with: URL.init(string: model.original_img!))
+                
+                nameLab.text = model.goods_name
+                
+                let priceStr = String(format:"%.2f",Float((model.shop_price)!)!)
+                let marketPrice = String(format:"%.2f",Float((model.market_price)!)!)
+                let str = "￥\(priceStr)"  + "  \(marketPrice)"
+                let priceAtt : NSMutableAttributedString = NSMutableAttributedString(string: str)
+                priceAtt.addAttribute(NSAttributedString.Key.foregroundColor, value: kRedFontColor, range: NSMakeRange(0, priceStr.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.font, value: k18Font, range: NSMakeRange(0, priceStr.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.baselineOffset, value: 0, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
+                priceAtt.addAttribute(NSAttributedString.Key.strikethroughStyle, value: 1, range: NSMakeRange(str.count - marketPrice.count - 1, marketPrice.count + 1))
+                
+                priceLab.attributedText = priceAtt
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)

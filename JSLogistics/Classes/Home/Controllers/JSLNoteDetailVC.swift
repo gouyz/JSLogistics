@@ -419,6 +419,12 @@ class JSLNoteDetailVC: GYZBaseVC {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    /// 详情
+    func goDetailVC(index : Int){
+        let vc = JSLNoteDetailVC()
+        vc.noteId = dataList[index].publish_id!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -466,6 +472,9 @@ extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: noteDetailMoreCell) as! JSLNoteDetailMoreCell
             
             cell.dataModel = dataList
+            cell.didSelectItemBlock = {[unowned self] (index) in
+                self.goDetailVC(index: index)
+            }
             cell.selectionStyle = .none
             return cell
         }
@@ -489,11 +498,13 @@ extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         if section == 2 {
-            let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: noteDetailConmentFooter) as! JSLNoteDetailContentFooter
-            
-            footerView.moreLab.addOnClickListener(target: self, action: #selector(onClickedMoreConment))
-            
-            return footerView
+            if dataModel?.conmentList.count > 0 {
+                let footerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: noteDetailConmentFooter) as! JSLNoteDetailContentFooter
+                
+                footerView.moreLab.addOnClickListener(target: self, action: #selector(onClickedMoreConment))
+                
+                return footerView
+            }
         }
         return UIView()
     }
