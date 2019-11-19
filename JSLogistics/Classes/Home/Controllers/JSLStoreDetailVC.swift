@@ -106,6 +106,14 @@ class JSLStoreDetailVC: GYZBaseVC {
         vc.noteId = (dataModel?.publishList[index].publish_id)!
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    /// 商品详情
+    func goGoodsDetail(index : Int){
+        let vc = JSLGoodsDetailVC()
+        if dataModel != nil {
+            vc.goodsId = (self.dataModel?.goodsList[index].goods_id)!
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLStoreDetailVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -157,7 +165,9 @@ extension JSLStoreDetailVC: UITableViewDelegate,UITableViewDataSource{
         return UIView()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        goDetailVC()
+        if indexPath.section == 0 {
+            goGoodsDetail(index: indexPath.row)
+        }
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

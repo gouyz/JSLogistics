@@ -18,6 +18,7 @@ class JSLShopListVC: GYZBaseVC {
     /// 最后一页
     var lastPage: Int = 1
     var listViewDidScrollCallback: ((UIScrollView) -> ())?
+    weak var naviController: UINavigationController?
     
     var categoryId: String = ""
     var dataList: [JSLGoodsModel] = [JSLGoodsModel]()
@@ -136,6 +137,12 @@ class JSLShopListVC: GYZBaseVC {
             GYZTool.endLoadMore(scorllView: tableView)
         }
     }
+    /// 商品详情
+    func goGoodsDetail(index : Int){
+        let vc = JSLGoodsDetailVC()
+        vc.goodsId = dataList[index].goods_id!
+        self.naviController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLShopListVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -164,7 +171,7 @@ extension JSLShopListVC: UITableViewDelegate,UITableViewDataSource{
         return UIView()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        goGoodsDetail(index: indexPath.row)
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

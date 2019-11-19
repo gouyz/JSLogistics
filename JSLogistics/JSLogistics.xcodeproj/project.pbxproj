@@ -44,6 +44,12 @@
 		0A417B2822F9115100BF9614 /* JSLogisticsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A417B2722F9115100BF9614 /* JSLogisticsUITests.swift */; };
 		0A424A7E23754B08001E1163 /* JSLMineInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */; };
 		0A424A8023755881001E1163 /* JSLMyPublishNotesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A424A7F23755881001E1163 /* JSLMyPublishNotesVC.swift */; };
+		0A428FAA23837EB00063DB37 /* JSLGoodsDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428FA923837EB00063DB37 /* JSLGoodsDetailVC.swift */; };
+		0A428FAC238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428FAB238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift */; };
+		0A428FAE2383860A0063DB37 /* JSLGoodsRuleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428FAD2383860A0063DB37 /* JSLGoodsRuleCell.swift */; };
+		0A428FB0238395790063DB37 /* JSLGoodsDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428FAF238395790063DB37 /* JSLGoodsDetailModel.swift */; };
+		0A428FB22383C71F0063DB37 /* JSLCreateOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428FB12383C71F0063DB37 /* JSLCreateOrderVC.swift */; };
+		0A428FB42383D46B0063DB37 /* JSLCreateOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A428FB32383D46B0063DB37 /* JSLCreateOrderModel.swift */; };
 		0A4339C423710534001A6B38 /* JSLSelectedFoodTagVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4339C323710534001A6B38 /* JSLSelectedFoodTagVC.swift */; };
 		0A4339C623710CB3001A6B38 /* JSLSearchHotCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4339C523710CB3001A6B38 /* JSLSearchHotCell.swift */; };
 		0A4339C823716479001A6B38 /* JSLHomeAdsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4339C723716479001A6B38 /* JSLHomeAdsModel.swift */; };
@@ -260,6 +266,12 @@
 		0A417B2922F9115100BF9614 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineInfoModel.swift; sourceTree = "<group>"; };
 		0A424A7F23755881001E1163 /* JSLMyPublishNotesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyPublishNotesVC.swift; sourceTree = "<group>"; };
+		0A428FA923837EB00063DB37 /* JSLGoodsDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsDetailVC.swift; sourceTree = "<group>"; };
+		0A428FAB238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsDetailHeaderView.swift; sourceTree = "<group>"; };
+		0A428FAD2383860A0063DB37 /* JSLGoodsRuleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsRuleCell.swift; sourceTree = "<group>"; };
+		0A428FAF238395790063DB37 /* JSLGoodsDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsDetailModel.swift; sourceTree = "<group>"; };
+		0A428FB12383C71F0063DB37 /* JSLCreateOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCreateOrderVC.swift; sourceTree = "<group>"; };
+		0A428FB32383D46B0063DB37 /* JSLCreateOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCreateOrderModel.swift; sourceTree = "<group>"; };
 		0A4339C323710534001A6B38 /* JSLSelectedFoodTagVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSelectedFoodTagVC.swift; sourceTree = "<group>"; };
 		0A4339C523710CB3001A6B38 /* JSLSearchHotCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSearchHotCell.swift; sourceTree = "<group>"; };
 		0A4339C723716479001A6B38 /* JSLHomeAdsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHomeAdsModel.swift; sourceTree = "<group>"; };
@@ -884,6 +896,8 @@
 				0A831798237D2E3D008E78AE /* JSLPublishInfoModel.swift */,
 				0A83179A237D2FEF008E78AE /* JSLConmentModel.swift */,
 				0A95136B238286C200E2AA2A /* JSLStoreDetailModel.swift */,
+				0A428FAF238395790063DB37 /* JSLGoodsDetailModel.swift */,
+				0A428FB32383D46B0063DB37 /* JSLCreateOrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -896,6 +910,8 @@
 				0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */,
 				0A4EE858237E3D8500A30411 /* JSLNoteAllConmentVC.swift */,
 				0A4EE860237E829900A30411 /* JSLStoreDetailVC.swift */,
+				0A428FA923837EB00063DB37 /* JSLGoodsDetailVC.swift */,
+				0A428FB12383C71F0063DB37 /* JSLCreateOrderVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -918,6 +934,8 @@
 				0A4EE85C237E455000A30411 /* JSLNoteAllConmentReplyCell.swift */,
 				0A4EE862237E890200A30411 /* JSLStoreDetailHeaderView.swift */,
 				0A4EE864237E928D00A30411 /* JSLStoreDetailGoodsCell.swift */,
+				0A428FAB238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift */,
+				0A428FAD2383860A0063DB37 /* JSLGoodsRuleCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1287,6 +1305,7 @@
 				0A5093B822FAC675002535FF /* SYLineProgressView.m in Sources */,
 				0A50937822FAC675002535FF /* GYZBottomSendView.swift in Sources */,
 				0A5093BA22FAC675002535FF /* SYRingProgressView.m in Sources */,
+				0A428FAE2383860A0063DB37 /* JSLGoodsRuleCell.swift in Sources */,
 				0A5093B222FAC675002535FF /* SegmentStyle.swift in Sources */,
 				0A83178D237CF459008E78AE /* JSLNoteDetailMoreHeader.swift in Sources */,
 				0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */,
@@ -1339,6 +1358,8 @@
 				0A0F8F63230054F800827699 /* JSLFenSiMsgListVC.swift in Sources */,
 				0A50936722FAC675002535FF /* GYZCommonInfoCell.swift in Sources */,
 				0A50939222FAC675002535FF /* GYZUIColor+Extension.swift in Sources */,
+				0A428FB0238395790063DB37 /* JSLGoodsDetailModel.swift in Sources */,
+				0A428FAA23837EB00063DB37 /* JSLGoodsDetailVC.swift in Sources */,
 				0A5093A922FAC675002535FF /* ZCycleLayout.swift in Sources */,
 				0A831791237CF9EE008E78AE /* JSLConmentBottomView.swift in Sources */,
 				0A50937F22FAC675002535FF /* GYZBaseVC.swift in Sources */,
@@ -1384,6 +1405,7 @@
 				0A5093E322FACA99002535FF /* JSLPublishVC.swift in Sources */,
 				0A6677B223687CC90044A978 /* JSLCartOrderVC.swift in Sources */,
 				0A5093AC22FAC675002535FF /* MMCardItem.swift in Sources */,
+				0A428FB22383C71F0063DB37 /* JSLCreateOrderVC.swift in Sources */,
 				0A50937522FAC675002535FF /* GYZLabAndLabView.swift in Sources */,
 				0A50937D22FAC675002535FF /* GYZMainTabBarVC.swift in Sources */,
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
@@ -1395,6 +1417,7 @@
 				0A4EE863237E890200A30411 /* JSLStoreDetailHeaderView.swift in Sources */,
 				0A3C981922FE54050002586E /* JSLMessageCell.swift in Sources */,
 				0A5093C522FAC676002535FF /* GYZConst.swift in Sources */,
+				0A428FB42383D46B0063DB37 /* JSLCreateOrderModel.swift in Sources */,
 				0A5093A822FAC675002535FF /* ZCycleViewCell.swift in Sources */,
 				0A4579B7237BE0A400BAB8D3 /* JSLNoteDetailInfoCell.swift in Sources */,
 				0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */,
@@ -1405,6 +1428,7 @@
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
 				0A4F23642372B5A5009DEB30 /* JSLGoodsModel.swift in Sources */,
+				0A428FAC238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift in Sources */,
 				0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */,
 				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,
 				0A3645CA236896210080B872 /* JSLCartOrderDetailVC.swift in Sources */,

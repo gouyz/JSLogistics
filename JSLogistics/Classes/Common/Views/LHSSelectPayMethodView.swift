@@ -12,6 +12,8 @@ class LHSSelectPayMethodView: UIView {
 
     /// 选择结果回调
     var selectPayTypeBlock:((_ isAliPay: Bool) -> Void)?
+    /// 打开虚拟币结果回调
+    var openXuniPayBlock:(() -> Void)?
     // MARK: 生命周期方法
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -46,6 +48,13 @@ class LHSSelectPayMethodView: UIView {
             make.top.equalTo(tieleLab.snp.bottom)
             make.height.equalTo(klineWidth)
         }
+        
+        addSubview(xuniView)
+        xuniView.addSubview(xuniIconView)
+        xuniView.addSubview(xuniNameLab)
+        xuniView.addSubview(xuniCheckBtn)
+        addSubview(lineView1)
+        
         addSubview(alipayView)
         alipayView.addSubview(alipayIconView)
         alipayView.addSubview(alipayNameLab)
@@ -57,10 +66,36 @@ class LHSSelectPayMethodView: UIView {
         weChatView.addSubview(weChatLab)
         weChatView.addSubview(weChatCheckBtn)
         
-        alipayView.snp.makeConstraints { (make) in
+        xuniView.snp.makeConstraints { (make) in
             make.left.right.equalTo(self)
             make.top.equalTo(line1.snp.bottom)
             make.height.equalTo(50)
+        }
+        xuniIconView.snp.makeConstraints { (make) in
+            make.left.equalTo(xuniView).offset(kMargin)
+            make.centerY.equalTo(xuniView)
+            make.size.equalTo(CGSize.init(width: 30, height: 30))
+        }
+        xuniNameLab.snp.makeConstraints { (make) in
+            make.left.equalTo(xuniIconView.snp.right).offset(5)
+            make.right.equalTo(xuniCheckBtn.snp.left).offset(-kMargin)
+            make.top.bottom.equalTo(xuniView)
+        }
+        xuniCheckBtn.snp.makeConstraints { (make) in
+            make.right.equalTo(xuniView).offset(-kMargin)
+            make.centerY.equalTo(xuniView)
+            make.size.equalTo(CGSize.init(width: 44, height: 24))
+        }
+        
+        lineView1.snp.makeConstraints { (make) in
+            make.left.right.equalTo(self)
+            make.top.equalTo(xuniView.snp.bottom)
+            make.height.equalTo(klineWidth)
+        }
+        
+        alipayView.snp.makeConstraints { (make) in
+            make.left.right.height.equalTo(xuniView)
+            make.top.equalTo(xuniView.snp.bottom)
         }
         alipayIconView.snp.makeConstraints { (make) in
             make.left.equalTo(alipayView).offset(kMargin)
@@ -115,8 +150,36 @@ class LHSSelectPayMethodView: UIView {
         
         alipayCheckBtn.addTarget(self, action: #selector(onClickedPayBtn(sender:)), for: .touchUpInside)
         weChatCheckBtn.addTarget(self, action: #selector(onClickedPayBtn(sender:)), for: .touchUpInside)
+        xuniCheckBtn.addTarget(self, action: #selector(onClickedOpenXuniPayBtn), for: .touchUpInside)
         
     }
+    
+    lazy var xuniView: UIView = UIView()
+    /// 图标
+    lazy var xuniIconView: UIImageView = UIImageView.init(image: UIImage.init(named: "icon_pay_xuni"))
+    /// 虚拟币抵扣支付
+    lazy var xuniNameLab : UILabel = {
+        let lab = UILabel()
+        lab.font = k15Font
+        lab.textColor = kBlackFontColor
+        lab.text = "虚拟币抵扣"
+        
+        return lab
+    }()
+    /// 选择图标
+    lazy var xuniCheckBtn : UIButton = {
+        let btn = UIButton.init(type: .custom)
+        btn.setImage(UIImage.init(named: "icon_switch_off"), for: .normal)
+        btn.setImage(UIImage.init(named: "icon_switch_on"), for: .selected)
+        return btn
+    }()
+    /// 线
+    lazy var lineView1: UIView = {
+        let line = UIView()
+        line.backgroundColor = kGrayLineColor
+        
+        return line
+    }()
     
     lazy var alipayView: UIView = UIView()
     /// 图标
@@ -194,6 +257,12 @@ class LHSSelectPayMethodView: UIView {
         
         if selectPayTypeBlock != nil {
             selectPayTypeBlock!(alipayCheckBtn.isSelected)
+        }
+    }
+    /// 打开虚拟币
+    @objc func onClickedOpenXuniPayBtn(){
+        if openXuniPayBlock != nil  {
+            openXuniPayBlock!()
         }
     }
 }

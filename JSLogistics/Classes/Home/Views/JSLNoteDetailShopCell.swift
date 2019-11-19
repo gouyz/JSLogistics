@@ -24,6 +24,12 @@ class JSLNoteDetailShopCell: UITableViewCell {
                 priceLab.text = "人均￥\(model.store_consume!)"
                 
                 addressLab.text = model.address
+                
+                let anno = MAPointAnnotation()
+                anno.title = model.store_name
+                anno.coordinate = CLLocationCoordinate2D(latitude: Double.init(model.latitude!)!, longitude: Double.init(model.longitude!)!)
+                mapView.addAnnotation(anno)
+                mapView.showAnnotations([anno], animated: true)
             }
         }
     }
@@ -53,6 +59,7 @@ class JSLNoteDetailShopCell: UITableViewCell {
         contentView.addSubview(locationtagImgView)
         contentView.addSubview(lineView1)
         contentView.addSubview(phoneImgView)
+        contentView.addSubview(mapView)
         
         bgView.snp.makeConstraints { (make) in
             make.left.right.top.equalTo(contentView)
@@ -106,22 +113,28 @@ class JSLNoteDetailShopCell: UITableViewCell {
             make.top.equalTo(lineView.snp.bottom)
             make.right.equalTo(locationtagImgView.snp.left).offset(-kMargin)
             make.height.equalTo(kTitleHeight)
-            make.bottom.equalTo(-3)
         }
         phoneImgView.snp.makeConstraints { (make) in
             make.right.equalTo(-kMargin)
             make.centerY.equalTo(addressLab)
-            make.size.equalTo(CGSize.init(width: 15, height: 15))
+            make.size.equalTo(CGSize.init(width: 18, height: 18))
         }
         lineView1.snp.makeConstraints { (make) in
-            make.right.equalTo(phoneImgView.snp.left).offset(-5)
+            make.right.equalTo(phoneImgView.snp.left).offset(-kMargin)
             make.top.bottom.equalTo(phoneImgView)
             make.width.equalTo(klineWidth)
         }
         locationtagImgView.snp.makeConstraints { (make) in
-            make.right.equalTo(lineView1.snp.left).offset(-5)
+            make.right.equalTo(lineView1.snp.left).offset(-kMargin)
             make.centerY.equalTo(addressLab)
-            make.size.equalTo(CGSize.init(width: 12, height: 15))
+            make.size.equalTo(CGSize.init(width: 15, height: 18))
+        }
+        mapView.snp.makeConstraints { (make) in
+            make.left.equalTo(kMargin)
+            make.right.equalTo(-kMargin)
+            make.bottom.equalTo(-kMargin)
+            make.top.equalTo(addressLab.snp.bottom)
+            make.height.equalTo((kScreenWidth - kMargin * 2) * 0.5)
         }
     }
     lazy var bgView: UIView = {
@@ -225,4 +238,32 @@ class JSLNoteDetailShopCell: UITableViewCell {
         return imgView
     }()
 
+    lazy var mapView: MAMapView = {
+        let map = MAMapView()
+        map.delegate = self
+        map.isZoomEnabled = false
+        map.isScrollEnabled = false
+        
+        return map
+    }()
+}
+extension JSLNoteDetailShopCell: MAMapViewDelegate{
+    func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
+        if annotation.isKind(of: MAPointAnnotation.self) {
+            let pointReuseIndetifier = "pointReuseIndetifier"
+            var annotationView: MAPinAnnotationView? = mapView.dequeueReusableAnnotationView(withIdentifier: pointReuseIndetifier) as! MAPinAnnotationView?
+            
+            if annotationView == nil {
+                annotationView = MAPinAnnotationView(annotation: annotation, reuseIdentifier: pointReuseIndetifier)
+            }
+            
+            annotationView!.canShowCallout = true
+            annotationView!.animatesDrop = true
+            annotationView!.isDraggable = true
+            
+            return annotationView!
+        }
+        
+        return nil
+    }
 }

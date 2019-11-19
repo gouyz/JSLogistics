@@ -33,22 +33,9 @@ class JSLConmentMsgVC: GYZBaseVC {
             make.bottom.left.right.equalTo(view)
             make.height.equalTo(kBottomTabbarHeight)
         }
-        view.addSubview(bottomView)
-        bottomView.favouriteImgView.isHidden = true
-        bottomView.zanImgView.isHidden = true
-        bottomView.snp.makeConstraints { (make) in
-            make.bottom.left.right.equalTo(view)
-            make.height.equalTo(kTabBarHeight)
-        }
-        bottomView.favouriteImgView.snp.updateConstraints { (make) in
-            make.width.equalTo(0)
-        }
-        bottomView.zanImgView.snp.updateConstraints { (make) in
-            make.width.equalTo(0)
-        }
         view.addSubview(tableView)
         tableView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(-kTabBarHeight)
+            make.bottom.equalTo(-1)
             make.left.right.equalTo(view)
             if #available(iOS 11.0, *) {
                 make.top.equalTo(view)
@@ -60,13 +47,6 @@ class JSLConmentMsgVC: GYZBaseVC {
         // 监听键盘隐藏通知
         NotificationCenter.default.addObserver(self,selector: #selector(keyboardWillHide(notification:)),name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        bottomView.onClickedOperatorBlock = {[unowned self] (index) in
-            
-            if index == 101 { // 评论
-                self.isReply = false
-                self.showConment()
-            }
-        }
         sendConmentView.sendBtn.addTarget(self, action: #selector(onClickedSend), for: .touchUpInside)
         
         requestAllConmentList()
@@ -88,8 +68,6 @@ class JSLConmentMsgVC: GYZBaseVC {
         
         return table
     }()
-    /// 底部评论view
-    lazy var bottomView: JSLConmentBottomView = JSLConmentBottomView()
     /// 发送评论view
     lazy var sendConmentView: JSLConmentSendView = JSLConmentSendView()
     
@@ -151,15 +129,13 @@ class JSLConmentMsgVC: GYZBaseVC {
     }
     // 键盘隐藏
     @objc func keyboardWillHide(notification: Notification) {
-        bottomView.isHidden = false
         sendConmentView.isHidden = true
         self.tableView.snp.updateConstraints { (make) in
-            make.bottom.equalTo(-kTabBarHeight)
+            make.bottom.equalTo(-1)
         }
     }
-    /// 显示评论或回复
+    /// 显示回复
     func showConment(){
-        self.bottomView.isHidden = true
         self.sendConmentView.isHidden = false
         self.tableView.snp.updateConstraints({ (make) in
             make.bottom.equalTo(-kBottomTabbarHeight)

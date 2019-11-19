@@ -419,6 +419,21 @@ class JSLNoteDetailVC: GYZBaseVC {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    /// 商品详情
+    @objc func onClickedGoodsDetail(){
+        let vc = JSLGoodsDetailVC()
+        if dataModel != nil {
+            vc.goodsId = (self.dataModel?.goodsInfo?.goods_id)!
+        }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    /// 打电话
+    @objc func onClickedCallPhone(){
+        if dataModel != nil {
+            GYZTool.callPhone(phone: (dataModel?.storeInfo?.store_phone)!)
+        }
+        
+    }
     /// 详情
     func goDetailVC(index : Int){
         let vc = JSLNoteDetailVC()
@@ -446,6 +461,7 @@ extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: noteDetailInfoCell) as! JSLNoteDetailInfoCell
             
             cell.dataModel = dataModel
+            cell.bgView.addOnClickListener(target: self, action: #selector(onClickedGoodsDetail))
             
             cell.selectionStyle = .none
             return cell
@@ -456,6 +472,7 @@ extension JSLNoteDetailVC: UITableViewDelegate,UITableViewDataSource{
             if dataModel != nil {
                 cell.dataModel = dataModel?.storeInfo
             }
+            cell.phoneImgView.addOnClickListener(target: self, action: #selector(onClickedCallPhone))
             
             cell.bgView.addOnClickListener(target: self, action: #selector(onClickedStoreDetail))
             

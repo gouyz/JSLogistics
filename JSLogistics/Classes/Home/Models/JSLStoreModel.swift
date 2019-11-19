@@ -22,7 +22,7 @@ class JSLStoreModel: LHSBaseModel {
     /// 商家电话
     var store_phone : String? = ""
     /// 店铺指数
-    var store_exponent : String? = ""
+    var store_exponent : String? = "0"
     /// 店铺标签
     var store_tag : String? = ""
     /// 人均消费
@@ -30,7 +30,7 @@ class JSLStoreModel: LHSBaseModel {
     /// 店铺背景
     var store_banner : String? = ""
     /// 经度
-    var longitude : String? = ""
+    var longitude : String? = "0"
     /// 纬度
-    var latitude : String? = ""
+    var latitude : String? = "0"
 }

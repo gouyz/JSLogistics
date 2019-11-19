@@ -29,5 +29,19 @@ class JSLGoodsModel: LHSBaseModel {
     var address : String? = ""
     /// 距离
     var distance : String? = ""
+    /// 菜单
+    var goods_content : String? = ""
+    /// 图片
+    var imgList : [String] = [String]()
     
+    override func setValue(_ value: Any?, forKey key: String) {
+        if key == "img"{
+            guard let datas = value as? [String] else { return }
+            for item in datas {
+                imgList.append(item)
+            }
+        }else {
+            super.setValue(value, forKey: key)
+        }
+    }
 }

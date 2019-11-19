@@ -202,6 +202,7 @@ extension JSLShopVC: JXPagingViewDelegate {
     func pagingView(_ pagingView: JXPagingView, initListAtIndex index: Int) -> JXPagingViewListViewDelegate {
         let vc = JSLShopListVC()
         vc.categoryId = catrgoryList[index].id!
+        vc.naviController = self.navigationController
         return vc
     }
     
