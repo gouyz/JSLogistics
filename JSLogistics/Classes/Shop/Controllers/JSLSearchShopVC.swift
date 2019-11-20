@@ -13,6 +13,8 @@ private let searchShopListCell = "searchShopListCell"
 
 class JSLSearchShopVC: GYZBaseVC {
     
+    /// 选择结果回调
+    var resultBlock:((_ model: JSLGoodsModel) -> Void)?
     /// 搜索 内容
     var searchContent: String = ""
     
@@ -20,6 +22,8 @@ class JSLSearchShopVC: GYZBaseVC {
     /// 最后一页
     var lastPage: Int = 1
     var dataList: [JSLGoodsModel] = [JSLGoodsModel]()
+    /// 是否是发布笔记
+    var isPublish: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -196,7 +200,14 @@ extension JSLSearchShopVC: UITableViewDelegate,UITableViewDataSource{
         return UIView()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goGoodsDetail(index: indexPath.row)
+        if isPublish {
+            if resultBlock != nil {
+                resultBlock!(dataList[indexPath.row])
+            }
+            clickedBackBtn()
+        }else{
+            goGoodsDetail(index: indexPath.row)
+        }
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

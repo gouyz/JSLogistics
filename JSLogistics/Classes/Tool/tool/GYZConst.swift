@@ -97,6 +97,8 @@ let CURRlongitude = "currlongitude"
 /// 存储当前定位纬度的key
 let CURRlatitude = "currlatitude"
 
+let publishTagsData = "publishTagsData"
+
 //APPID，应用提交时候替换
 let APPID = "1441962604"
 /// 极光推送AppKey

@@ -8,6 +8,7 @@
 
 import UIKit
 import MBProgressHUD
+import TTGTagCollectionView
 
 
 private let selectedFoodTagCell = "selectedFoodTagCell"
@@ -18,6 +19,13 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
     
     var isSearchResult: Bool = false
     
+    /// 热门标签
+    var hotTagList:[String] = [String]()
+    /// 历史标签
+    var historyTagList:[String] = [String]()
+    /// 当前选择标签
+    var currTagList:[String] = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,7 +34,8 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
-        
+        historyTagList = userDefaults.stringArray(forKey: publishTagsData)!
+        requestHotTagsList()
     }
     func setupUI(){
         
@@ -85,6 +94,36 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
             return search
         }()
     
+    ///获取热门标签数据
+    func requestHotTagsList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("index/getTagWords",parameters: nil,method :.get,  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].array else { return }
+                for item in data{
+                    weakSelf?.hotTagList.append(item.stringValue)
+                }
+                weakSelf?.tableView.reloadData()
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
+    }
     /// 取消搜索
     @objc func cancleSearchClick(){
         searchBar.resignFirstResponder()
@@ -94,9 +133,8 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
     
     ///保存选择城市信息
     func saveSelectCityInfo(city: FSCityListModel){
-        let model = NSKeyedArchiver.archivedData(withRootObject: city)
-        userDefaults.set(model, forKey: CURRCITYINFO)
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
+        userDefaults.stringArray(forKey: publishTagsData)
     }
     
 }
@@ -151,7 +189,15 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: selectedFoodTagCell) as! JSLSearchHotCell
             
             cell.tagsView.removeAllTags()
-            cell.tagsView.addTags(["火锅/自助","520我要吃","元气端午","日韩料理","欢乐六一去哪儿","西餐"])
+            
+            cell.tagsView.tag = indexPath.section
+            cell.tagsView.delegate = self
+            if indexPath.section == 1 { // 热门
+                cell.tagsView.addTags(hotTagList)
+                
+            }else{
+                cell.tagsView.addTags(["火锅/自助","520我要吃","元气端午","日韩料理","欢乐六一去哪儿","西餐"])
+            }
             
             cell.tagsView.preferredMaxLayoutWidth = kScreenWidth - kMargin * 2
             
@@ -198,3 +244,9 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
     
 }
 
+extension JSLSelectedFoodTagVC: TTGTextTagCollectionViewDelegate {
+    func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
+        
+        
+    }
+}

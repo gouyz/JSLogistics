@@ -4,7 +4,7 @@
 //  发布笔记
 //  Created by gouyz on 2019/8/7.
 //  Copyright © 2019 gouyz. All rights reserved.
-//
+//  7939 151 318 722 885
 
 import UIKit
 import MBProgressHUD
@@ -23,6 +23,12 @@ class JSLPublishVC: GYZBaseVC {
     var selectImgCount: Int = 0
     /// 是否是视频
     var isVideo: Bool = false
+    /// 选择美食
+    var currGoodsModel: JSLGoodsModel?
+    
+    var catrgoryList: [JSLPublishCategoryModel] = [JSLPublishCategoryModel]()
+    var categoryNameList:[String] = [String]()
+    var selectCategoryIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +50,7 @@ class JSLPublishVC: GYZBaseVC {
         contentTxtView.delegate = self
         contentTxtView.text = placeHolder
         
+        requestCategoryList()
     }
     func setUpUI(){
         view.addSubview(scrollView)
@@ -243,7 +250,7 @@ class JSLPublishVC: GYZBaseVC {
         
         return view
     }()
-    /// 选择美食坐标
+    /// 添加套餐
     lazy var zuoBiaoView: GYZLabAndFieldView = {
         let selectView = GYZLabAndFieldView()
         selectView.desLab.text = "添加套餐"
@@ -325,6 +332,46 @@ class JSLPublishVC: GYZBaseVC {
 //        }else{
 //            requestPublishDynamic(urls: "")
 //        }
+    }
+    
+    ///获取发布分类数据
+    func requestCategoryList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("publish/getPublishType",parameters: nil,method :.get,  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].array else { return }
+                for item in data{
+                    guard let itemInfo = item.dictionaryObject else { return }
+                    let model = JSLPublishCategoryModel.init(dict: itemInfo)
+                    
+                    weakSelf?.catrgoryList.append(model)
+                    weakSelf?.categoryNameList.append(model.name!)
+                }
+                
+                if weakSelf?.catrgoryList.count > 0 {
+                    weakSelf?.selectCategoryIndex = 0
+                    weakSelf?.categoryView.textFiled.text = weakSelf?.categoryNameList[0]
+                }
+                
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
     }
     
     /// 上传图片
@@ -437,17 +484,38 @@ class JSLPublishVC: GYZBaseVC {
         let tag = sender.view?.tag
         if tag == 101 { //选择标签
             goSelectTag()
-        }else if tag == 102 { //谁可以看
-//            goSeePower()
-        }else if tag == 103 { //选择地点
-//            goSelectAddressVC()
+        }else if tag == 102 { //选择美食
+            goSelectGoodsVC()
+        }else if tag == 103 { //选择分类
+            selectCategory()
         }
     }
+    //选择标签
     func goSelectTag(){
         let vc = JSLSelectedFoodTagVC()
         let navVC = GYZBaseNavigationVC(rootViewController:vc)
         
         self.present(navVC, animated: true, completion: nil)
+    }
+    //选择美食
+    func goSelectGoodsVC(){
+        let searchVC = JSLSearchShopVC()
+        searchVC.isPublish = true
+        searchVC.resultBlock = {[unowned self] (model) in
+            self.currGoodsModel = model
+            self.zuoBiaoView.textFiled.text = model.goods_name
+        }
+        self.navigationController?.pushViewController(searchVC, animated: true)
+    }
+    //选择分类
+    func selectCategory(){
+        if catrgoryList.count > 0 {
+            UsefulPickerView.showSingleColPicker("选择笔记分类", data: categoryNameList, defaultSelectedIndex: selectCategoryIndex) {[unowned self] (index, value) in
+                
+                self.selectCategoryIndex = index
+                self.categoryView.textFiled.text = self.categoryNameList[index]
+            }
+        }
     }
     ///打开相机
     func openCamera(){
