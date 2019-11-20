@@ -25,6 +25,8 @@ class JSLPublishVC: GYZBaseVC {
     var isVideo: Bool = false
     /// 选择美食
     var currGoodsModel: JSLGoodsModel?
+    /// 选择美食标签
+    var tagNames: String = ""
     
     var catrgoryList: [JSLPublishCategoryModel] = [JSLPublishCategoryModel]()
     var categoryNameList:[String] = [String]()
@@ -493,6 +495,10 @@ class JSLPublishVC: GYZBaseVC {
     //选择标签
     func goSelectTag(){
         let vc = JSLSelectedFoodTagVC()
+        vc.resultBlock = {[unowned self] (names) in
+            self.tagNames = names
+            self.tagView.textFiled.text = names
+        }
         let navVC = GYZBaseNavigationVC(rootViewController:vc)
         
         self.present(navVC, animated: true, completion: nil)

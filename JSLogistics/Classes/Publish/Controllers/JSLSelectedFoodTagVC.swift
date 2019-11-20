@@ -17,6 +17,9 @@ private let selectedFoodTagSearchCell = "selectedFoodTagSearchCell"
 
 class JSLSelectedFoodTagVC: GYZBaseVC {
     
+    /// 选择结果回调
+    var resultBlock:((_ tagNames: String) -> Void)?
+    
     var isSearchResult: Bool = false
     
     /// 热门标签
@@ -26,6 +29,12 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
     /// 当前选择标签
     var currTagList:[String] = [String]()
     
+    /// 搜索 内容
+    var searchContent: String = ""
+    // 搜索数据
+    var dataList: [JSLGoodsCategoryModel] = [JSLGoodsCategoryModel]()
+    var isHas: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,7 +43,9 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
-        historyTagList = userDefaults.stringArray(forKey: publishTagsData)!
+        if let tags = userDefaults.stringArray(forKey: publishTagsData) {
+            historyTagList = tags
+        }
         requestHotTagsList()
     }
     func setupUI(){
@@ -127,16 +138,87 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
     /// 取消搜索
     @objc func cancleSearchClick(){
         searchBar.resignFirstResponder()
-        
+        if resultBlock != nil {
+            var names: String = ""
+            if currTagList.count > 0 {
+                for item in currTagList {
+                    names += item + ","
+                }
+                names = names.subString(start: 0, length: names.count - 1)
+                userDefaults.set(currTagList, forKey: publishTagsData)
+            }
+            resultBlock!(names)
+        }
         self.dismiss(animated: false, completion: nil)
     }
     
-    ///保存选择城市信息
-    func saveSelectCityInfo(city: FSCityListModel){
+    ///获取搜索标签数据
+    func requestSearchTagsList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
         
-        userDefaults.stringArray(forKey: publishTagsData)
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("publish/searchTag",parameters: ["keywords":searchContent],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].array else { return }
+                
+                for item in data{
+                    guard let itemInfo = item.dictionaryObject else { return }
+                    let model = JSLGoodsCategoryModel.init(dict: itemInfo)
+                    weakSelf?.dataList.append(model)
+                    
+                    if model.name == weakSelf?.searchContent {
+                        weakSelf?.isHas = true
+                    }
+                }
+                if !(weakSelf?.isHas)! {
+                    let model = JSLGoodsCategoryModel.init(dict: ["name":weakSelf?.searchContent as Any])
+                    weakSelf?.dataList.append(model)
+                }
+                weakSelf?.tableView.reloadData()
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
     }
     
+    ///添加标签数据
+    func requestAddTags(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("publish/addTag",parameters: ["name":searchContent],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            
+            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.cancleSearchClick()
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+            
+        })
+    }
 }
 extension JSLSelectedFoodTagVC: UISearchBarDelegate{
     ///mark - UISearchBarDelegate
@@ -148,8 +230,8 @@ extension JSLSelectedFoodTagVC: UISearchBarDelegate{
             return
         }
         isSearchResult = true
-        tableView.reloadData()
-//        searchCityData(searchTxt: searchBar.text!)
+        self.searchContent = searchBar.text ?? ""
+        requestSearchTagsList()
     }
     /// 文本改变会调用该方法（包含clear文本）
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
@@ -169,8 +251,9 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if isSearchResult {
-            return 12
+            return dataList.count
         }
+        
         return 1
     }
     
@@ -180,7 +263,7 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: selectedFoodTagSearchCell) as! GYZLabArrowCell
             
             cell.rightIconView.isHidden = true
-            cell.nameLab.text = "结果"
+            cell.nameLab.text = dataList[indexPath.row].name
             cell.nameLab.textColor = kGaryFontColor
             
             cell.selectionStyle = .none
@@ -194,9 +277,18 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
             cell.tagsView.delegate = self
             if indexPath.section == 1 { // 热门
                 cell.tagsView.addTags(hotTagList)
-                
+                for item in currTagList {
+                    if hotTagList.contains(item) {
+                        cell.tagsView.setTagAt(UInt(hotTagList.firstIndex(of: item)!), selected: true)
+                    }
+                }
             }else{
-                cell.tagsView.addTags(["火锅/自助","520我要吃","元气端午","日韩料理","欢乐六一去哪儿","西餐"])
+                cell.tagsView.addTags(historyTagList)
+                for item in currTagList {
+                    if historyTagList.contains(item) {
+                        cell.tagsView.setTagAt(UInt(historyTagList.firstIndex(of: item)!), selected: true)
+                    }
+                }
             }
             
             cell.tagsView.preferredMaxLayoutWidth = kScreenWidth - kMargin * 2
@@ -239,7 +331,14 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        if isSearchResult {
+            currTagList.append(dataList[indexPath.row].name!)
+            if isHas {
+                cancleSearchClick()
+            }else{
+                requestAddTags()
+            }
+        }
     }
     
 }
@@ -247,6 +346,18 @@ extension JSLSelectedFoodTagVC: UITableViewDelegate,UITableViewDataSource{
 extension JSLSelectedFoodTagVC: TTGTextTagCollectionViewDelegate {
     func textTagCollectionView(_ textTagCollectionView: TTGTextTagCollectionView!, didTapTag tagText: String!, at index: UInt, selected: Bool, tagConfig config: TTGTextTagConfig!) {
         
-        
+        if selected {
+            if !currTagList.contains(tagText) {
+                currTagList.append(tagText)
+            }
+        }else{
+            for (index,item) in currTagList.enumerated() {
+                if item == tagText {
+                    currTagList.remove(at: index)
+                    break
+                }
+            }
+        }
+        tableView.reloadData()
     }
 }
