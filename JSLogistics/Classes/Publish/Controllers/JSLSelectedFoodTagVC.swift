@@ -57,7 +57,7 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
         }
         
         let btn = UIButton(type: .custom)
-        btn.setTitle("取消", for: .normal)
+        btn.setTitle("完成", for: .normal)
         btn.titleLabel?.font = k15Font
         btn.setTitleColor(kBlackFontColor, for: .normal)
         btn.frame = CGRect.init(x: 0, y: 0, width: kTitleHeight, height: kTitleHeight)
@@ -142,7 +142,7 @@ class JSLSelectedFoodTagVC: GYZBaseVC {
             var names: String = ""
             if currTagList.count > 0 {
                 for item in currTagList {
-                    names += item + ","
+                    names += item + "/"
                 }
                 names = names.subString(start: 0, length: names.count - 1)
                 userDefaults.set(currTagList, forKey: publishTagsData)

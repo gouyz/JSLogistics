@@ -12,7 +12,7 @@ import JXSegmentedView
 class JSLCartOrderVC: GYZBaseVC {
     
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
-    let titles = ["进行中", "已结束"]
+    let titles = ["全部", "待使用", "待评价", "已取消"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,7 @@ extension JSLCartOrderVC: JXSegmentedListContainerViewDataSource {
         
         let vc = JSLCartOrderListVC()
         vc.naviController = self.navigationController
+        vc.status = titles[index]
         return vc
     }
 }

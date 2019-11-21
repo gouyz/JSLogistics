@@ -68,6 +68,8 @@ let kPhotosImgHeight: CGFloat = (kScreenWidth - 50)/4.0
 let kPhotosImgHeight4Processing: CGFloat = (kScreenWidth - 80)/3.0
 /////3列，列间隔为10，距离屏幕边距右10,左60
 let kPhotosImgHeight4Comment: CGFloat = (kScreenWidth - 90)/3.0
+/////3列，列间隔为10，距离屏幕边距左右各10
+let kPhotosImgHeight3: CGFloat = (kScreenWidth - 40)/3.0
 /// 最大上传图片张数
 let kMaxSelectCount = 9
 

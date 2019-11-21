@@ -31,6 +31,7 @@
 		0A3C981B22FE586B0002586E /* JSLMessageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */; };
 		0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */; };
 		0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */; };
+		0A3E0E0D23866939001A2F13 /* JSLGoodsOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E0E0C23866939001A2F13 /* JSLGoodsOrderModel.swift */; };
 		0A414F29237905FB00D54593 /* JSLMyFenSiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */; };
 		0A414F2B23795AC800D54593 /* JSLMessageHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */; };
 		0A414F2D23795B2300D54593 /* JSLNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */; };
@@ -247,6 +248,7 @@
 		0A3C981A22FE586B0002586E /* JSLMessageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHeaderView.swift; sourceTree = "<group>"; };
 		0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgVC.swift; sourceTree = "<group>"; };
 		0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgCell.swift; sourceTree = "<group>"; };
+		0A3E0E0C23866939001A2F13 /* JSLGoodsOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsOrderModel.swift; sourceTree = "<group>"; };
 		0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiModel.swift; sourceTree = "<group>"; };
 		0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHomeModel.swift; sourceTree = "<group>"; };
 		0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNotificationModel.swift; sourceTree = "<group>"; };
@@ -826,6 +828,7 @@
 				0A4F235C23725BF6009DEB30 /* JSLUserInfoModel.swift */,
 				0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */,
 				0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */,
+				0A3E0E0C23866939001A2F13 /* JSLGoodsOrderModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1383,6 +1386,7 @@
 				0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */,
 				0A434B71236FD1DF005B2BD4 /* JSLMyProfileHeaderView.swift in Sources */,
 				0A50936122FAC675002535FF /* JSMWebViewVC.swift in Sources */,
+				0A3E0E0D23866939001A2F13 /* JSLGoodsOrderModel.swift in Sources */,
 				0A50939822FAC675002535FF /* LHSCustomAlertView.swift in Sources */,
 				0A5093AB22FAC675002535FF /* MMShareSheet.swift in Sources */,
 				0A50936D22FAC675002535FF /* GYZLabAndFieldView.swift in Sources */,

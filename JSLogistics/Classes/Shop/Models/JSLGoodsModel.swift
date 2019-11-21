@@ -19,6 +19,8 @@ class JSLGoodsModel: LHSBaseModel {
     var shop_price : String? = "0"
     /// 原价
     var market_price : String? = "0"
+    /// 订单里的商品价格
+    var goods_price : String? = "0"
     /// 店铺id
     var store_id : String? = ""
     /// 图片

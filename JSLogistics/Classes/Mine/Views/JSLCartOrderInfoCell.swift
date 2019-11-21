@@ -65,6 +65,7 @@ class JSLCartOrderInfoCell: UITableViewCell {
             make.top.equalTo(lineView1.snp.bottom)
             make.height.equalTo(kTitleHeight)
             make.right.equalTo(lineView2.snp.left)
+            make.bottom.equalTo(-5)
         }
         lineView2.snp.makeConstraints { (make) in
             make.top.equalTo(lineView1.snp.bottom).offset(5)
@@ -108,7 +109,7 @@ class JSLCartOrderInfoCell: UITableViewCell {
         let lab = UILabel()
         lab.textColor = kGaryFontColor
         lab.font = k15Font
-        lab.text = "创建时间：2019-10-30 11:00:00"
+        lab.text = "下单时间：2019-10-30 11:00:00"
         
         return lab
     }()

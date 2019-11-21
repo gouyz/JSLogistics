@@ -9,6 +9,67 @@
 import UIKit
 
 class JSLCartOrderListCell: UITableViewCell {
+    
+    /// 填充数据
+    var dataModel : JSLGoodsOrderModel?{
+        didSet{
+            if let model = dataModel {
+                shopNameLab.text = model.storeInfo?.store_name
+                statusNameLab.text = model.status_name
+                foodImgView.kf.setImage(with: URL.init(string: (model.goodsInfo?.original_img)!))
+                nameLab.text = model.goodsInfo?.goods_name
+                
+                priceLab.text = "￥\((model.goodsInfo?.goods_price)!)"
+                ///order_status:0：取消订单，立即支付；1:立即使用；2：立即评价；
+                let status: String = model.order_status!
+                
+                if status == "0" {
+                    cancleBtn.isHidden = false
+                    cancleBtn.snp.updateConstraints { (make) in
+                        make.height.equalTo(30)
+                    }
+                    operatorBtn.isHidden = false
+                    operatorBtn.setTitle("立即支付", for: .normal)
+                    operatorBtn.snp.updateConstraints { (make) in
+                        make.width.equalTo(80)
+                        make.height.equalTo(30)
+                    }
+                }else if status == "1" {
+                    cancleBtn.isHidden = true
+                    cancleBtn.snp.updateConstraints { (make) in
+                        make.height.equalTo(0)
+                    }
+                    operatorBtn.isHidden = false
+                    operatorBtn.setTitle("立即使用", for: .normal)
+                    operatorBtn.snp.updateConstraints { (make) in
+                        make.width.equalTo(80)
+                        make.height.equalTo(30)
+                    }
+                }else if status == "2" {
+                    cancleBtn.isHidden = true
+                    cancleBtn.snp.updateConstraints { (make) in
+                        make.height.equalTo(0)
+                    }
+                    operatorBtn.isHidden = false
+                    operatorBtn.setTitle("立即评价", for: .normal)
+                    operatorBtn.snp.updateConstraints { (make) in
+                        make.width.equalTo(80)
+                        make.height.equalTo(30)
+                    }
+                }else {
+                    cancleBtn.isHidden = true
+                    cancleBtn.snp.updateConstraints { (make) in
+                        make.height.equalTo(0)
+                    }
+                    operatorBtn.isHidden = true
+                    operatorBtn.snp.updateConstraints { (make) in
+                        make.width.equalTo(0)
+                        make.height.equalTo(0)
+                    }
+                }
+            }
+        }
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,7 +90,6 @@ class JSLCartOrderListCell: UITableViewCell {
         bgView.addSubview(statusNameLab)
         bgView.addSubview(foodImgView)
         bgView.addSubview(nameLab)
-        bgView.addSubview(addressLab)
         bgView.addSubview(priceLab)
         bgView.addSubview(operatorBtn)
         bgView.addSubview(cancleBtn)
@@ -71,27 +131,23 @@ class JSLCartOrderListCell: UITableViewCell {
             make.top.equalTo(foodImgView)
             make.right.equalTo(-kMargin)
         }
-        addressLab.snp.makeConstraints { (make) in
-            make.left.equalTo(nameLab)
-            make.right.equalTo(-kMargin)
-            make.top.equalTo(nameLab.snp.bottom).offset(kMargin)
-            make.height.equalTo(20)
-        }
         priceLab.snp.makeConstraints { (make) in
-            make.left.right.equalTo(addressLab)
-            make.top.equalTo(addressLab.snp.bottom)
+            make.left.right.equalTo(nameLab)
+            make.height.equalTo(20)
             make.bottom.equalTo(foodImgView)
         }
         operatorBtn.snp.makeConstraints { (make) in
             make.right.equalTo(-kMargin)
             make.top.equalTo(foodImgView.snp.bottom).offset(kMargin)
-            make.size.equalTo(CGSize.init(width: 80, height: 30))
+            make.width.equalTo(80)
+            make.height.equalTo(30)
             make.bottom.equalTo(-kMargin)
         }
         cancleBtn.snp.makeConstraints { (make) in
             make.right.equalTo(operatorBtn.snp.left).offset(-15)
-            make.top.bottom.equalTo(operatorBtn)
+            make.top.equalTo(operatorBtn)
             make.width.equalTo(80)
+            make.height.equalTo(30)
         }
     }
     
@@ -99,6 +155,7 @@ class JSLCartOrderListCell: UITableViewCell {
         let view = UIView()
         view.backgroundColor = kWhiteColor
         view.cornerRadius = kCornerRadius
+        view.isUserInteractionEnabled = true
         
         return view
     }()
@@ -142,15 +199,6 @@ class JSLCartOrderListCell: UITableViewCell {
         lab.font = k15Font
         lab.numberOfLines = 2
         lab.text = "用心熬好粥，用心熬好粥，用心熬好粥"
-        
-        return lab
-    }()
-    /// 地址
-    lazy var addressLab : UILabel = {
-        let lab = UILabel()
-        lab.textColor = kGaryFontColor
-        lab.font = k12Font
-        lab.text = "南大街店"
         
         return lab
     }()

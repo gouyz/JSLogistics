@@ -9,24 +9,24 @@
 import UIKit
 import MBProgressHUD
 import Cosmos
-import SKPhotoBrowser
+import DKImagePickerController
 
 class JSLPublishVC: GYZBaseVC {
     
     ///txtView 提示文字
     let placeHolder = "内容分享的第一句话会在主页显示哦！"
-    // 拍照
-    var selectCameraImgs: [UIImage] = [UIImage]()
+    /// 选择的图片
+    var selectImgs: [UIImage] = [UIImage]()
     /// 最大选择图片数量
     var maxImgCount: Int = kMaxSelectCount
-    /// 已选择图片数量
-    var selectImgCount: Int = 0
     /// 是否是视频
     var isVideo: Bool = false
     /// 选择美食
     var currGoodsModel: JSLGoodsModel?
     /// 选择美食标签
     var tagNames: String = ""
+    /// 图片上传后的路径
+    var imgUrls: String = ""
     
     var catrgoryList: [JSLPublishCategoryModel] = [JSLPublishCategoryModel]()
     var categoryNameList:[String] = [String]()
@@ -114,7 +114,7 @@ class JSLPublishVC: GYZBaseVC {
         addPhotosView.snp.makeConstraints { (make) in
             make.left.right.equalTo(contentTxtView)
             make.top.equalTo(lineView1.snp.bottom).offset(kMargin)
-            make.height.equalTo(kPhotosImgHeight)
+            make.height.equalTo(kPhotosImgHeight3)
         }
         lineView2.snp.makeConstraints { (make) in
             make.left.right.height.equalTo(lineView)
@@ -325,15 +325,37 @@ class JSLPublishVC: GYZBaseVC {
     
     // 发布
     @objc func onClickRightBtn(){
-//        if contentTxtView.text.isEmpty || contentTxtView.text == placeHolder{
-//            MBProgressHUD.showAutoDismissHUD(message: "请输入动态内容")
-//            return
-//        }
-//        if selectCameraImgs.count > 0 {
-//            uploadImgFiles()
-//        }else{
-//            requestPublishDynamic(urls: "")
-//        }
+        if titleTextFiled.text!.isEmpty {
+            MBProgressHUD.showAutoDismissHUD(message: "请输入标题")
+            return
+        }
+        if contentTxtView.text.isEmpty || contentTxtView.text == placeHolder{
+            MBProgressHUD.showAutoDismissHUD(message: "请输入动态内容")
+            return
+        }
+        if tagNames.count == 0 {
+            MBProgressHUD.showAutoDismissHUD(message: "请选择美食标签")
+            return
+        }
+        if currGoodsModel == nil {
+            MBProgressHUD.showAutoDismissHUD(message: "请选择美食套餐")
+            return
+        }
+        if selectImgs.count == 0 {
+            MBProgressHUD.showAutoDismissHUD(message: "请选择图片")
+            return
+        }
+        createHUD(message: "加载中...")
+        
+        for (index,imgItem) in selectImgs.enumerated() {
+            let imgParam: ImageFileUploadParam = ImageFileUploadParam()
+            imgParam.name = "image"
+            imgParam.fileName = "dynamic\(index).jpg"
+            imgParam.mimeType = "image/jpg"
+            imgParam.data = UIImage.jpegData(imgItem)(compressionQuality: 0.5)!
+            
+            uploadImgFiles(imgsParam: [imgParam],index: index)
+        }
     }
     
     ///获取发布分类数据
@@ -379,38 +401,25 @@ class JSLPublishVC: GYZBaseVC {
     /// 上传图片
     ///
     /// - Parameter params: 参数
-    func uploadImgFiles(){
+    func uploadImgFiles(imgsParam: [ImageFileUploadParam],index:Int){
         if !GYZTool.checkNetWork() {
             return
         }
         
-        createHUD(message: "加载中...")
         weak var weakSelf = self
         
-        var imgsParam: [ImageFileUploadParam] = [ImageFileUploadParam]()
-        for (index,imgItem) in selectCameraImgs.enumerated() {
-            let imgParam: ImageFileUploadParam = ImageFileUploadParam()
-            imgParam.name = "files[]"
-            imgParam.fileName = "dynamic\(index).jpg"
-            imgParam.mimeType = "image/jpg"
-            imgParam.data = UIImage.jpegData(imgItem)(compressionQuality: 0.5)!
-            
-            imgsParam.append(imgParam)
-        }
-        
-        GYZNetWork.uploadImageRequest("Dynamic/Publish/addMaterial", parameters: nil, uploadParam: imgsParam, success: { (response) in
+        GYZNetWork.uploadImageRequest("user/upload_image", parameters: nil, uploadParam: imgsParam, success: { (response) in
             
             GYZLog(response)
-            if response["result"].intValue == kQuestSuccessTag{//请求成功
-                guard let data = response["data"]["files"].array else { return }
-                var urls: String = ""
-                for item in data{
-                    urls += item["material"].stringValue + ","
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.imgUrls += response["url"].stringValue + ","
+                
+                if index == (weakSelf?.selectImgs.count)! - 1 {
+                    if weakSelf?.imgUrls.count > 0{
+                        weakSelf?.imgUrls = (weakSelf?.imgUrls.subString(start: 0, length: (weakSelf?.imgUrls.count)! - 1))!
+                    }
+                    weakSelf?.requestPublishDynamic()
                 }
-                if urls.count > 0{
-                    urls = urls.subString(start: 0, length: urls.count - 1)
-                }
-                weakSelf?.requestPublishDynamic(urls: urls)
             }else{
                 weakSelf?.hud?.hide(animated: true)
                 MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
@@ -423,63 +432,27 @@ class JSLPublishVC: GYZBaseVC {
     }
     
     ///发布动态-提交
-    func requestPublishDynamic(urls: String){
-//        if !GYZTool.checkNetWork() {
-//            return
-//        }
-//
-//        if urls == "" {
-//            createHUD(message: "加载中...")
-//        }
-//        weak var weakSelf = self
-//
-//        var paramDic: [String:Any] = ["content":contentTxtView.text!,"material":urls,"open_type":openType]
-//        if topicModel != nil {
-//            paramDic["topic_id"] = (topicModel?.id)!
-//        }
-//        if currAddress != nil {
-//            paramDic["position"] = currAddress?.name
-//            paramDic["lng"] = currAddress?.location.longitude
-//            paramDic["lat"] = currAddress?.location.latitude
-//            paramDic["address"] = currAddress?.address
-//        }
-//
-//        GYZNetWork.requestNetwork("Dynamic/Publish/material", parameters: paramDic,  success: { (response) in
-//
-//            weakSelf?.hud?.hide(animated: true)
-//            GYZLog(response)
-//            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
-//            if response["result"].intValue == kQuestSuccessTag{//请求成功
-//                userDefaults.set(true, forKey: kIsPublishDynamicTagKey)
-//                weakSelf?.dealBack()
-//            }
-//
-//        }, failture: { (error) in
-//            weakSelf?.hud?.hide(animated: true)
-//            GYZLog(error)
-//        })
-    }
-    func dealBack(){
-//        if topicModel != nil {
-//            var isBack = false
-//            for i in 0..<(navigationController?.viewControllers.count)!{
-//
-//                if navigationController?.viewControllers[i].isKind(of: FSTopicDetailVC.self) == true {
-//
-//                    isBack = true
-//                    let vc = navigationController?.viewControllers[i] as! FSTopicDetailVC
-//                    vc.isRefresh = true
-//                    _ = navigationController?.popToViewController(vc, animated: true)
-//
-//                    break
-//                }
-//            }
-//            if !isBack{
-//                let _ = self.navigationController?.popToRootViewController(animated: true)
-//            }
-//            return
-//        }
-//        let _ = self.navigationController?.popToRootViewController(animated: true)
+    func requestPublishDynamic(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        weak var weakSelf = self
+
+        let paramDic: [String:Any] = ["content":contentTxtView.text!,"title":titleTextFiled.text!,"user_id":userDefaults.string(forKey: "userId") ?? "","img":imgUrls,"tag":tagNames,"goods_id":(currGoodsModel?.goods_id)!,"exponent":tuijianRatingView.rating,"type_id":catrgoryList[selectCategoryIndex].type_id!]
+
+        GYZNetWork.requestNetwork("publish/addPublish", parameters: paramDic,  success: { (response) in
+
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                
+            }
+
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
     }
     //
     @objc func onClickedOperator(sender: UITapGestureRecognizer){
@@ -525,7 +498,7 @@ class JSLPublishVC: GYZBaseVC {
     }
     ///打开相机
     func openCamera(){
-        if selectImgCount == kMaxSelectCount{
+        if selectImgs.count == kMaxSelectCount{
             MBProgressHUD.showAutoDismissHUD(message: "最多只能上传\(kMaxSelectCount)张图片")
             return
         }
@@ -549,19 +522,35 @@ class JSLPublishVC: GYZBaseVC {
         
     }
     
-    /// 手机相册
-    func goSelectPhotoVC(){
-//        let vc = FSSelectPhotosVC()
-//        vc.isBack = true
-//        vc.maxImgCount = self.maxImgCount - self.selectImgCount
-//        //        vc.selectImgs = self.selectImgs
-//        self.navigationController?.pushViewController(vc, animated: true)
+    ///打开相册
+    func openPhotos(){
+        
+        let pickerController = DKImagePickerController()
+        pickerController.maxSelectableCount = maxImgCount
+        pickerController.sourceType = .photo
+        
+        weak var weakSelf = self
+        
+        pickerController.didSelectAssets = { (assets) in
+            
+            var count = 0
+            for item in assets {
+                item.fetchFullScreenImage(completeBlock: { (image, info) in
+                    
+                    weakSelf?.selectImgs.append(image!)
+                    weakSelf?.maxImgCount = kMaxSelectCount - (weakSelf?.selectImgs.count)!
+                    
+                    count += 1
+                    if count == assets.count{
+                        weakSelf?.resetAddImgView()
+                    }
+                })
+            }
+        }
+        pickerController.modalPresentationStyle = .fullScreen
+        self.present(pickerController, animated: true) {}
     }
     
-    func cleanImg(){
-        self.selectCameraImgs.removeAll()
-        self.selectImgCount = 0
-    }
 }
 extension JSLPublishVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate
 {
@@ -573,9 +562,12 @@ extension JSLPublishVC : UIImagePickerControllerDelegate,UINavigationControllerD
         
         picker.dismiss(animated: true) { [unowned self] in
             
-            //            self.cleanImg()
-            self.selectCameraImgs.append(image)
-            self.selectImgCount += 1
+            if self.selectImgs.count == kMaxSelectCount{
+                MBProgressHUD.showAutoDismissHUD(message: "最多只能上传\(kMaxSelectCount)张图片")
+                return
+            }
+            self.selectImgs.append(image)
+            self.maxImgCount -= 1
             self.resetAddImgView()
         }
         
@@ -590,17 +582,18 @@ extension JSLPublishVC : UIImagePickerControllerDelegate,UINavigationControllerD
     
     /// 选择图片后重新设置图片显示
     func resetAddImgView(){
-//        var rowIndex = ceil(CGFloat.init(selectImgCount) / 3.0)//向上取整
-//        /// 预留出增加按钮位置
-//        if selectImgCount < maxImgCount && selectImgCount % 3 == 0 {
-//            rowIndex += 1
-//        }
-//        let height = kPhotosImgHeight3 * rowIndex + kMargin * (rowIndex - 1)
-//
-//        addPhotosView.snp.updateConstraints({ (make) in
-//            make.height.equalTo(height)
-//        })
-        addPhotosView.selectImgs = selectCameraImgs
+        
+        var rowIndex = ceil(CGFloat.init(selectImgs.count) / 3.0)//向上取整
+        /// 预留出增加按钮位置
+        if selectImgs.count < kMaxSelectCount && selectImgs.count % 3 == 0 {
+            rowIndex += 1
+        }
+        let height = kPhotosImgHeight3 * rowIndex + kMargin * (rowIndex - 1)
+        
+        addPhotosView.snp.updateConstraints({ (make) in
+            make.height.equalTo(height)
+        })
+        addPhotosView.selectImgs = selectImgs
     }
 }
 extension JSLPublishVC : UITextViewDelegate,LHSAddPhotoViewDelegate
@@ -620,31 +613,15 @@ extension JSLPublishVC : UITextViewDelegate,LHSAddPhotoViewDelegate
             if index == 0{//拍照
                 self?.openCamera()
             }else if index == 1 {//从相册选取
-                self?.goSelectPhotoVC()
+                self?.openPhotos()
             }
         }
     }
     
     func didClickDeleteImage(index: Int, photoView: LHSAddPhotoView) {
-        if isVideo {
-            maxImgCount = kMaxSelectCount
-            addPhotosView.maxImgCount = maxImgCount
-        }
-        selectCameraImgs.remove(at: index)
-        selectImgCount -= 1
+        selectImgs.remove(at: index)
+        maxImgCount += 1
         resetAddImgView()
-    }
-    /// 查看大图
-    ///
-    /// - Parameters:
-    ///   - index: 索引
-    ///   - urls: 图片路径
-    func goBigPhotos(index: Int){
-        let browser = SKPhotoBrowser(photos: GYZTool.createWebPhotosWithImgs(imgs: selectCameraImgs))
-        browser.initializePageIndex(index)
-        //        browser.delegate = self
-        
-        present(browser, animated: true, completion: nil)
     }
     
     ///MARK UITextViewDelegate

@@ -15,8 +15,8 @@ class LHSAddPhotoView: UIView {
     
     var imageViewsArray:[UIImageView] = []
     
-    //默认4列，列间隔为10，距离屏幕边距左右各10
-    var imgWidth: CGFloat = kPhotosImgHeight
+    //默认3列，列间隔为10，距离屏幕边距左右各10
+    var imgWidth: CGFloat = kPhotosImgHeight3
     var maxImgCount : Int = kMaxSelectCount
     var perRowItemCount = 4
     

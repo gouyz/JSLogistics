@@ -22,9 +22,12 @@ class JSLOrderConmentVC: GYZBaseVC {
     var selectImgs: [UIImage] = []
     /// 最大选择图片数量
     var maxImgCount: Int = kMaxSelectCount
+    /// 图片上传后的路径
+    var imgUrls: String = ""
     // 内容
     var content: String = ""
-    var needId: String = ""
+    var orderId: String = ""
+    var goodsImgUrl: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +47,7 @@ class JSLOrderConmentVC: GYZBaseVC {
         
         contentTxtView.delegate = self
         contentTxtView.text = placeHolder
-        ratingView.didFinishTouchingCosmos = { rating in
-            
-        }
+        goodImgView.kf.setImage(with: URL.init(string: goodsImgUrl))
     }
     
     override func didReceiveMemoryWarning() {
@@ -122,7 +123,7 @@ class JSLOrderConmentVC: GYZBaseVC {
         addPhotosView.snp.makeConstraints { (make) in
             make.left.right.equalTo(contentTxtView)
             make.top.equalTo(contentTxtView.snp.bottom).offset(kMargin)
-            make.height.equalTo(kPhotosImgHeight)
+            make.height.equalTo(kPhotosImgHeight3)
         }
         lineView1.snp.makeConstraints { (make) in
             make.left.right.height.equalTo(lineView)
@@ -303,6 +304,7 @@ class JSLOrderConmentVC: GYZBaseVC {
         
         let pickerController = DKImagePickerController()
         pickerController.maxSelectableCount = maxImgCount
+        pickerController.sourceType = .photo
         
         weak var weakSelf = self
         
@@ -321,48 +323,57 @@ class JSLOrderConmentVC: GYZBaseVC {
                 })
             }
         }
-        
+        pickerController.modalPresentationStyle = .fullScreen
         self.present(pickerController, animated: true) {}
     }
     
     /// 发表
     @objc func onClickRightBtn(){
         
-        requestUpdateImg()
-    }
-    
-    /// 提交评价
-    func requestUpdateImg(){
-        if !GYZTool.checkNetWork() {
+        if contentTxtView.text.isEmpty || contentTxtView.text == placeHolder{
+            MBProgressHUD.showAutoDismissHUD(message: "请输入评论内容")
             return
         }
         createHUD(message: "加载中...")
-        weak var weakSelf = self
-        
-        var imgParams: [ImageFileUploadParam] = [ImageFileUploadParam]()
         if selectImgs.count > 0 {
-            for (index,img) in selectImgs.enumerated(){
+            for (index,imgItem) in selectImgs.enumerated() {
                 let imgParam: ImageFileUploadParam = ImageFileUploadParam()
-                imgParam.name = "image[]"
-                imgParam.fileName = "image\(index).jpg"
+                imgParam.name = "image"
+                imgParam.fileName = "dynamic\(index).jpg"
                 imgParam.mimeType = "image/jpg"
-                imgParam.data = UIImage.jpegData(img)(compressionQuality: 0.5)!
-                imgParams.append(imgParam)
+                imgParam.data = UIImage.jpegData(imgItem)(compressionQuality: 0.5)!
+                
+                uploadImgFiles(imgsParam: [imgParam],index: index)
             }
+        }else{
+            requestPublishDynamic()
+        }
+    }
+    
+    /// 上传图片
+    ///
+    /// - Parameter params: 参数
+    func uploadImgFiles(imgsParam: [ImageFileUploadParam],index:Int){
+        if !GYZTool.checkNetWork() {
+            return
         }
         
-        GYZNetWork.uploadImageRequest("second/evaluate",parameters :["id": needId,"pscore": String.init(Int.init(ratingView.rating)),"cscore": String.init(Int.init(serviceRatingView.rating)),"wscore": String.init(Int.init(wlRatingView.rating)),"evaluate": content], uploadParam: imgParams, success: { (response) in
+        weak var weakSelf = self
+        
+        GYZNetWork.uploadImageRequest("user/upload_image", parameters: nil, uploadParam: imgsParam, success: { (response) in
             
-            weakSelf?.hud?.hide(animated: true)
             GYZLog(response)
             if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.imgUrls += response["url"].stringValue + ","
                 
-                if weakSelf?.resultBlock != nil {
-                    weakSelf?.resultBlock!()
+                if index == (weakSelf?.selectImgs.count)! - 1 {
+                    if weakSelf?.imgUrls.count > 0{
+                        weakSelf?.imgUrls = (weakSelf?.imgUrls.subString(start: 0, length: (weakSelf?.imgUrls.count)! - 1))!
+                    }
+                    weakSelf?.requestPublishDynamic()
                 }
-                weakSelf?.clickedBackBtn()
-                
             }else{
+                weakSelf?.hud?.hide(animated: true)
                 MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
             }
             
@@ -372,6 +383,37 @@ class JSLOrderConmentVC: GYZBaseVC {
         })
     }
     
+    ///发布动态-提交
+    func requestPublishDynamic(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        weak var weakSelf = self
+
+        let paramDic: [String:Any] = ["content":contentTxtView.text!,"order_id":orderId,"user_id":userDefaults.string(forKey: "userId") ?? "","img":imgUrls,"goods_rank":ratingView.rating,"store_rank":wlRatingView.rating,"service_rank":serviceRatingView.rating]
+
+        GYZNetWork.requestNetwork("order/addComment", parameters: paramDic,  success: { (response) in
+
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.dealData()
+            }
+
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
+    
+    func dealData(){
+        if resultBlock != nil {
+            resultBlock!()
+        }
+        
+        clickedBackBtn()
+    }
 }
 
 extension JSLOrderConmentVC : UIImagePickerControllerDelegate,UINavigationControllerDelegate
@@ -402,12 +444,12 @@ extension JSLOrderConmentVC : UIImagePickerControllerDelegate,UINavigationContro
     
     /// 选择图片后重新设置图片显示
     func resetAddImgView(){
-        var rowIndex = ceil(CGFloat.init(selectImgs.count) / 4.0)//向上取整
+        var rowIndex = ceil(CGFloat.init(selectImgs.count) / 3.0)//向上取整
         /// 预留出增加按钮位置
-        if selectImgs.count < kMaxSelectCount && selectImgs.count % 4 == 0 {
+        if selectImgs.count < kMaxSelectCount && selectImgs.count % 3 == 0 {
             rowIndex += 1
         }
-        let height = kPhotosImgHeight * rowIndex + kMargin * (rowIndex - 1)
+        let height = kPhotosImgHeight3 * rowIndex + kMargin * (rowIndex - 1)
         
         addPhotosView.snp.updateConstraints({ (make) in
             make.height.equalTo(height)
