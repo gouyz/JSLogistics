@@ -141,9 +141,9 @@ class JSLMineVC: GYZBaseVC {
         case 105:
             break
         case 107:/// 我的订单
-            showOrderView()
+            showOrderView(isConment: false)
         case 106:/// 我的评论
-            goMyConment()
+            showOrderView(isConment: true)
         case 108:/// 我的资料
             goMyProfile()
         default:
@@ -167,8 +167,9 @@ class JSLMineVC: GYZBaseVC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 评论
-    func goMyConment(){
+    func goMyConment(type: String){
         let vc = JSLMyConmentVC()
+        vc.orderType = type
         self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 我的资料
@@ -177,21 +178,33 @@ class JSLMineVC: GYZBaseVC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 我的订单
-    func showOrderView(){
+    func showOrderView(isConment: Bool){
         let alertView = JSLCustomOrderView()
+        if isConment {
+            alertView.cartOrderBtn.set(image: UIImage.init(named: "icon_gouwu_order"), title: "购物评论", titlePosition: .bottom, additionalSpacing: 10, state: .normal)
+            alertView.chuxingOrderBtn.set(image: UIImage.init(named: "icon_chuxing_order"), title: "出行评论", titlePosition: .bottom, additionalSpacing: 10, state: .normal)
+        }
         alertView.action = {[unowned self] (alert,index) in
-            self.gotoDeal(index: index)
+            self.gotoDeal(index: index,isConment: isConment)
         }
         alertView.show()
     }
     
-    func gotoDeal(index: Int){
-        if index == 101 {// 购物订单
-            let vc = JSLCartOrderVC()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }else{// 出行订单
-            let vc = JSLTripOrderVC()
-            self.navigationController?.pushViewController(vc, animated: true)
+    func gotoDeal(index: Int,isConment: Bool){
+        if isConment {
+            if index == 101 {// 购物评论
+                goMyConment(type: "1")
+            }else{// 出行评论
+                goMyConment(type: "2")
+            }
+        }else{
+            if index == 101 {// 购物订单
+                let vc = JSLCartOrderVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }else{// 出行订单
+                let vc = JSLTripOrderVC()
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     

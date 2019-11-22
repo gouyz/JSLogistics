@@ -71,6 +71,7 @@ extension JSLTripOrderVC: JXSegmentedListContainerViewDataSource {
         
         let vc = JSLTripOrderListVC()
         vc.naviController = self.navigationController
+        vc.status = titles[index]
         return vc
     }
 }

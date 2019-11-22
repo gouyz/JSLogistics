@@ -13,6 +13,8 @@ class JSLMyConmentVC: GYZBaseVC {
     
     var segmentedViewDataSource: JXSegmentedTitleDataSource!
     let titles = ["未评价", "已评价"]
+    /// 1购物评论2出行评论
+    var orderType:String = "1"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,10 +70,17 @@ extension JSLMyConmentVC: JXSegmentedListContainerViewDataSource {
     }
     
     func listContainerView(_ listContainerView: JXSegmentedListContainerView, initListAt index: Int) -> JXSegmentedListContainerViewListDelegate {
-        
-        let vc = JSLMyConmentListVC()
-        vc.naviController = self.navigationController
-        return vc
+        if orderType == "1" {// 购物评价
+            let vc = JSLMyConmentListVC()
+            vc.naviController = self.navigationController
+            vc.type = index + 1
+            return vc
+        }else{//出行评价
+            let vc = JSLMyAppointConmentVC()
+            vc.naviController = self.navigationController
+            vc.type = index + 1
+            return vc
+        }
     }
 }
 

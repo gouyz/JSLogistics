@@ -18,8 +18,11 @@ class JSLCartOrderDetailVC: GYZBaseVC {
     
     /// 1购物订单2出行订单
     var orderType: String = "1"
+    /// 购物订单model
     var dataModel: JSLGoodsOrderModel?
     var orderId: String = ""
+    /// 出行订单model
+    var appointDataModel: JSLTripOrderModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +33,11 @@ class JSLCartOrderDetailVC: GYZBaseVC {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
-        requestDetailInfo()
+        if orderType == "1" {
+            requestDetailInfo()
+        }else{
+            requestAppointDetailInfo()
+        }
     }
     lazy var tableView : UITableView = {
         let table = UITableView(frame: CGRect.zero, style: .grouped)
@@ -51,7 +58,7 @@ class JSLCartOrderDetailVC: GYZBaseVC {
         return table
     }()
 
-    //订单详情
+    //购物订单详情
     func requestDetailInfo(){
         if !GYZTool.checkNetWork() {
             return
@@ -68,6 +75,35 @@ class JSLCartOrderDetailVC: GYZBaseVC {
             if response["status"].intValue == kQuestSuccessTag{//请求成功
                 guard let data = response["result"].dictionaryObject else { return }
                 weakSelf?.dataModel = JSLGoodsOrderModel.init(dict: data)
+                weakSelf?.tableView.reloadData()
+            
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
+    
+    //出行订单详情
+    func requestAppointDetailInfo(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("appointment/getAppointDetail", parameters: ["user_id":userDefaults.string(forKey: "userId") ?? "","appoint_id":orderId],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+        
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                guard let data = response["result"].dictionaryObject else { return }
+                weakSelf?.appointDataModel = JSLTripOrderModel.init(dict: data)
                 weakSelf?.tableView.reloadData()
             
             }else{
@@ -109,6 +145,20 @@ extension JSLCartOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
                     
                     cell.desLab.text = des
                 }
+            }else{
+                if let model = appointDataModel {
+                    cell.statusNameLab.text = model.status_name
+                    /// 订单状态0：待出行；1：待评价；2：已完成；3：已取消
+                    let status: String = model.status!
+                    var des: String = "期待您的下次光临"
+                    if status == "0" {
+                        des = "请您耐心等待"
+                    }else if status == "1" {
+                        des = "期待您的好评"
+                    }
+                    
+                    cell.desLab.text = des
+                }
             }
             
             cell.selectionStyle = .none
@@ -125,6 +175,8 @@ extension JSLCartOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
             }else{
                 let cell = tableView.dequeueReusableCell(withIdentifier: cartOrderDetailTripCell) as! JSLRunOrderListCell
                 
+                cell.dataModel = appointDataModel
+                
                 cell.selectionStyle = .none
                 return cell
             }
@@ -135,7 +187,13 @@ extension JSLCartOrderDetailVC: UITableViewDelegate,UITableViewDataSource{
                 if let model = dataModel {
                     cell.orderNumLab.text = "订单编号：\(model.order_sn!)"
                     
-                    cell.desLab.text = "下单时间：\(model.add_time!)"
+                    cell.dateLab.text = "下单时间：\(model.add_time!)"
+                }
+            }else{
+                if let model = appointDataModel {
+                    cell.orderNumLab.text = "订单编号：\(model.order_sn!)"
+                    
+                    cell.dateLab.text = "下单时间：\(model.add_time!)"
                 }
             }
             

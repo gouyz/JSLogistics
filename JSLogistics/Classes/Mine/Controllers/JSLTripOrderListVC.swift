@@ -15,6 +15,13 @@ private let tripOrderListCell = "tripOrderListCell"
 class JSLTripOrderListVC: GYZBaseVC {
     
     weak var naviController: UINavigationController?
+    /// "0全部", "1待出行","2待评价","3已取消"
+    var status: String = "全部"
+    
+    var currPage : Int = 0
+    /// 最后一页
+    var lastPage: Int = 1
+    var dataList:[JSLTripOrderModel] = [JSLTripOrderModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +30,8 @@ class JSLTripOrderListVC: GYZBaseVC {
         tableView.snp.makeConstraints { (make) in
             make.edges.equalTo(0)
         }
+        
+        requestOrderList()
     }
     lazy var tableView : UITableView = {
         let table = UITableView(frame: CGRect.zero, style: .grouped)
@@ -30,26 +39,131 @@ class JSLTripOrderListVC: GYZBaseVC {
         table.delegate = self
         table.separatorStyle = .none
         table.backgroundColor = kBackgroundColor
-        
+        // 设置大概高度
+        table.estimatedRowHeight = 190
+        // 设置行高为自动适配
+        table.rowHeight = UITableView.automaticDimension
         
         table.register(JSLRunOrderListCell.classForCoder(), forCellReuseIdentifier: tripOrderListCell)
-        
+        weak var weakSelf = self
+        ///添加下拉刷新
+        GYZTool.addPullRefresh(scorllView: table, pullRefreshCallBack: {
+            weakSelf?.refresh()
+        })
+        ///添加上拉加载更多
+        GYZTool.addLoadMore(scorllView: table, loadMoreCallBack: {
+            weakSelf?.loadMore()
+        })
         
         return table
     }()
+    ///获取订单数据
+    func requestOrderList(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        showLoadingView()
+        
+        GYZNetWork.requestNetwork("appointment/getAppointList",parameters: ["page":currPage,"user_id":userDefaults.string(forKey: "userId") ?? "","type":status],  success: { (response) in
+            
+            weakSelf?.closeRefresh()
+            weakSelf?.hiddenLoadingView()
+            GYZLog(response)
+            
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.lastPage = response["result"]["page_count"].intValue
+                guard let data = response["result"]["appointList"].array else { return }
+                for item in data{
+                    guard let itemInfo = item.dictionaryObject else { return }
+                    let model = JSLTripOrderModel.init(dict: itemInfo)
+                    
+                    weakSelf?.dataList.append(model)
+                }
+                weakSelf?.tableView.reloadData()
+                if weakSelf?.dataList.count > 0{
+                    weakSelf?.hiddenEmptyView()
+                }else{
+                    weakSelf?.showEmptyView(content: "暂无订单，请点击重新加载", reload: {
+                        weakSelf?.hiddenEmptyView()
+                        weakSelf?.refresh()
+                    })
+                }
+                
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.closeRefresh()
+            weakSelf?.hiddenLoadingView()
+            GYZLog(error)
+            
+            //第一次加载失败，显示加载错误页面
+            if weakSelf?.currPage == 0{
+                weakSelf?.showEmptyView(content: "加载失败，请点击重新加载", reload: {
+                    weakSelf?.hiddenEmptyView()
+                    weakSelf?.refresh()
+                })
+            }
+            
+        })
+    }
+    
+    // MARK: - 上拉加载更多/下拉刷新
+    /// 下拉刷新
+    func refresh(){
+        if currPage == lastPage - 1 {
+            GYZTool.resetNoMoreData(scorllView: tableView)
+        }
+        currPage = 0
+        dataList.removeAll()
+        tableView.reloadData()
+        requestOrderList()
+    }
+    
+    /// 上拉加载更多
+    func loadMore(){
+        if currPage == lastPage - 1 {
+            GYZTool.noMoreData(scorllView: tableView)
+            return
+        }
+        currPage += 1
+        requestOrderList()
+    }
+    
+    /// 关闭上拉/下拉刷新
+    func closeRefresh(){
+        if tableView.mj_header.isRefreshing{//下拉刷新
+            GYZTool.endRefresh(scorllView: tableView)
+        }else if tableView.mj_footer.isRefreshing{//上拉加载更多
+            GYZTool.endLoadMore(scorllView: tableView)
+        }
+    }
     /// 操作
     @objc func onClickedOperator(sender:UIButton){
-        goConmentVC()
+        let tag = sender.tag
+        ///0：待出行；1：待评价；2：已完成；3：已取消
+        let status: String = dataList[tag].status!
+        if status == "1" {
+            goConmentVC(index: tag)
+        }
     }
     /// 订单详情
-    func goDetailVC(){
+    func goDetailVC(index: Int){
         let vc = JSLCartOrderDetailVC()
         vc.orderType = "2"
+        vc.orderId = dataList[index].appoint_id!
         self.naviController?.pushViewController(vc, animated: true)
     }
     // 立即评价
-    func goConmentVC(){
+    func goConmentVC(index: Int){
         let vc = JSLTripOrderConmentVC()
+        vc.orderId = dataList[index].appoint_id!
+        vc.resultBlock = {[unowned self] () in
+            self.refresh()
+        }
         self.naviController?.pushViewController(vc, animated: true)
     }
 }
@@ -59,13 +173,14 @@ extension JSLTripOrderListVC: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 12
+        return dataList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: tripOrderListCell) as! JSLRunOrderListCell
         
+        cell.dataModel = dataList[indexPath.row]
         cell.operatorBtn.tag = indexPath.row
         cell.operatorBtn.addTarget(self, action: #selector(onClickedOperator(sender:)), for: .touchUpInside)
         
@@ -81,12 +196,9 @@ extension JSLTripOrderListVC: UITableViewDelegate,UITableViewDataSource{
         return UIView()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        goDetailVC()
+        goDetailVC(index: indexPath.row)
     }
     ///MARK : UITableViewDelegate
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 190
-    }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0.00001
     }

@@ -71,7 +71,11 @@
 		0A46E068237A5C06000A3CDD /* JSLFenSiMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A46E067237A5C06000A3CDD /* JSLFenSiMsgModel.swift */; };
 		0A46E06A237A85DA000A3CDD /* JSLFavouriteMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */; };
 		0A4866E5236C2CE500BEAB9F /* JSLConmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */; };
+		0A4C255A2387BC340059A7AF /* JSLMyAppointConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C25592387BC340059A7AF /* JSLMyAppointConmentVC.swift */; };
+		0A4C255C2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C255B2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift */; };
+		0A4C255E2387E1140059A7AF /* JSLAppointOrderConmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C255D2387E1140059A7AF /* JSLAppointOrderConmentModel.swift */; };
 		0A4C7D592357FDB80082C926 /* JSLAboutHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */; };
+		0A4D1C4323876C8B00B6A233 /* JSLTripOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4D1C4223876C8B00B6A233 /* JSLTripOrderModel.swift */; };
 		0A4EE859237E3D8600A30411 /* JSLNoteAllConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE858237E3D8500A30411 /* JSLNoteAllConmentVC.swift */; };
 		0A4EE85B237E415900A30411 /* JSLNoteAllConmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE85A237E415900A30411 /* JSLNoteAllConmentCell.swift */; };
 		0A4EE85D237E455000A30411 /* JSLNoteAllConmentReplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4EE85C237E455000A30411 /* JSLNoteAllConmentReplyCell.swift */; };
@@ -294,7 +298,11 @@
 		0A46E067237A5C06000A3CDD /* JSLFenSiMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFenSiMsgModel.swift; sourceTree = "<group>"; };
 		0A46E069237A85DA000A3CDD /* JSLFavouriteMsgModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgModel.swift; sourceTree = "<group>"; };
 		0A4866E4236C2CE500BEAB9F /* JSLConmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLConmentDetailVC.swift; sourceTree = "<group>"; };
+		0A4C25592387BC340059A7AF /* JSLMyAppointConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyAppointConmentVC.swift; sourceTree = "<group>"; };
+		0A4C255B2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsOrderConmentModel.swift; sourceTree = "<group>"; };
+		0A4C255D2387E1140059A7AF /* JSLAppointOrderConmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAppointOrderConmentModel.swift; sourceTree = "<group>"; };
 		0A4C7D582357FDB80082C926 /* JSLAboutHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAboutHeaderView.swift; sourceTree = "<group>"; };
+		0A4D1C4223876C8B00B6A233 /* JSLTripOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLTripOrderModel.swift; sourceTree = "<group>"; };
 		0A4EE858237E3D8500A30411 /* JSLNoteAllConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteAllConmentVC.swift; sourceTree = "<group>"; };
 		0A4EE85A237E415900A30411 /* JSLNoteAllConmentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteAllConmentCell.swift; sourceTree = "<group>"; };
 		0A4EE85C237E455000A30411 /* JSLNoteAllConmentReplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteAllConmentReplyCell.swift; sourceTree = "<group>"; };
@@ -829,6 +837,9 @@
 				0A424A7D23754B08001E1163 /* JSLMineInfoModel.swift */,
 				0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */,
 				0A3E0E0C23866939001A2F13 /* JSLGoodsOrderModel.swift */,
+				0A4D1C4223876C8B00B6A233 /* JSLTripOrderModel.swift */,
+				0A4C255B2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift */,
+				0A4C255D2387E1140059A7AF /* JSLAppointOrderConmentModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -855,6 +866,7 @@
 				0A424A7F23755881001E1163 /* JSLMyPublishNotesVC.swift */,
 				0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */,
 				0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */,
+				0A4C25592387BC340059A7AF /* JSLMyAppointConmentVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1295,6 +1307,7 @@
 				0A831799237D2E3D008E78AE /* JSLPublishInfoModel.swift in Sources */,
 				0A414F2D23795B2300D54593 /* JSLNotificationModel.swift in Sources */,
 				0A50937922FAC675002535FF /* GYZCommonSwitchCell.swift in Sources */,
+				0A4C255E2387E1140059A7AF /* JSLAppointOrderConmentModel.swift in Sources */,
 				0A434B75237006BF005B2BD4 /* JSLEditMyProfileVC.swift in Sources */,
 				0A0F8F6B23006B6C00827699 /* JSLFollowMsgCell.swift in Sources */,
 				0A5093BE22FAC675002535FF /* GYZAddressBookManager.swift in Sources */,
@@ -1389,10 +1402,12 @@
 				0A3E0E0D23866939001A2F13 /* JSLGoodsOrderModel.swift in Sources */,
 				0A50939822FAC675002535FF /* LHSCustomAlertView.swift in Sources */,
 				0A5093AB22FAC675002535FF /* MMShareSheet.swift in Sources */,
+				0A4C255A2387BC340059A7AF /* JSLMyAppointConmentVC.swift in Sources */,
 				0A50936D22FAC675002535FF /* GYZLabAndFieldView.swift in Sources */,
 				0A50936222FAC675002535FF /* FSSearchCityVC.swift in Sources */,
 				0A50939A22FAC675002535FF /* HXTagCollectionViewCell.m in Sources */,
 				0A3C981B22FE586B0002586E /* JSLMessageHeaderView.swift in Sources */,
+				0A4D1C4323876C8B00B6A233 /* JSLTripOrderModel.swift in Sources */,
 				0A50938C22FAC675002535FF /* YBAttributeTextTapForSwfit.swift in Sources */,
 				0A5093A622FAC675002535FF /* SelectionTextField.swift in Sources */,
 				0A50939322FAC675002535FF /* GYZUIViewControl+Empty.swift in Sources */,
@@ -1432,6 +1447,7 @@
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
 				0A4F23642372B5A5009DEB30 /* JSLGoodsModel.swift in Sources */,
+				0A4C255C2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift in Sources */,
 				0A428FAC238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift in Sources */,
 				0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */,
 				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,

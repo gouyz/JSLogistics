@@ -36,7 +36,7 @@ class JSLFollowMsgModel: LHSBaseModel {
             userInfoModel = JSLUserInfoModel(dict: datas)
         }else if key == "publishInfo"{
             guard let datas = value as? [String : Any] else { return }
-            userInfoModel = JSLUserInfoModel(dict: datas)
+            publishInfoModel = JSLPublishNotesModel(dict: datas)
         }else {
             super.setValue(value, forKey: key)
         }

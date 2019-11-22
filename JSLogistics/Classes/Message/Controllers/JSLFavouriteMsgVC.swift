@@ -133,6 +133,13 @@ class JSLFavouriteMsgVC: GYZBaseVC {
             GYZTool.endLoadMore(scorllView: tableView)
         }
     }
+    
+    /// 详情
+    func goDetailVC(index : Int){
+        let vc = JSLNoteDetailVC()
+        vc.noteId = dataList[index].publish_id!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 extension JSLFavouriteMsgVC: UITableViewDelegate,UITableViewDataSource{
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -161,7 +168,7 @@ extension JSLFavouriteMsgVC: UITableViewDelegate,UITableViewDataSource{
         return UIView()
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        goDetailVC(index: indexPath.row)
     }
     ///MARK : UITableViewDelegate
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

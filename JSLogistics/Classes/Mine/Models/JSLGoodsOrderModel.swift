@@ -38,7 +38,7 @@ class JSLGoodsOrderModel: LHSBaseModel {
     /// 商家id
     var store_id: String? = ""
     /// 状态名称
-    var status_name: String? = "0"
+    var status_name: String? = ""
     
     override func setValue(_ value: Any?, forKey key: String) {
         if key == "goodsInfo"{

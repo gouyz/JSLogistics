@@ -10,6 +10,43 @@ import UIKit
 
 class JSLRunOrderListCell: UITableViewCell {
     
+    /// 填充数据
+    var dataModel : JSLTripOrderModel?{
+        didSet{
+            if let model = dataModel {
+                statusNameLab.text = model.status_name
+                dateLab.text = model.time
+                addressLab.text = model.departure
+                toAddressLab.text = model.destination
+                ///order_status:0：待出行；1：待评价；2：已完成；3：已取消
+                let status: String = model.status!
+                
+                if status == "1" {
+                    cancleBtn.isHidden = true
+                    cancleBtn.snp.updateConstraints { (make) in
+                        make.height.equalTo(0)
+                    }
+                    operatorBtn.isHidden = false
+                    operatorBtn.setTitle("立即评价", for: .normal)
+                    operatorBtn.snp.updateConstraints { (make) in
+                        make.width.equalTo(80)
+                        make.height.equalTo(30)
+                    }
+                }else {
+                    cancleBtn.isHidden = true
+                    cancleBtn.snp.updateConstraints { (make) in
+                        make.height.equalTo(0)
+                    }
+                    operatorBtn.isHidden = true
+                    operatorBtn.snp.updateConstraints { (make) in
+                        make.width.equalTo(0)
+                        make.height.equalTo(0)
+                    }
+                }
+            }
+        }
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?){
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -88,13 +125,15 @@ class JSLRunOrderListCell: UITableViewCell {
         operatorBtn.snp.makeConstraints { (make) in
             make.right.equalTo(-kMargin)
             make.top.equalTo(toAddressLab.snp.bottom).offset(kMargin)
-            make.size.equalTo(CGSize.init(width: 80, height: 30))
+            make.width.equalTo(80)
+            make.height.equalTo(30)
             make.bottom.equalTo(-kMargin)
         }
         cancleBtn.snp.makeConstraints { (make) in
             make.right.equalTo(operatorBtn.snp.left).offset(-15)
-            make.top.bottom.equalTo(operatorBtn)
+            make.top.equalTo(operatorBtn)
             make.width.equalTo(80)
+            make.height.equalTo(30)
         }
     }
     
