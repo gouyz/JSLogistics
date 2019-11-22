@@ -17,6 +17,7 @@
 		0A1D86812369769D00DA4CB8 /* JSLMyConmentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D86802369769D00DA4CB8 /* JSLMyConmentVC.swift */; };
 		0A1D8683236977E700DA4CB8 /* JSLMyConmentListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D8682236977E700DA4CB8 /* JSLMyConmentListVC.swift */; };
 		0A1D868523697B4500DA4CB8 /* JSLRunOrderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1D868423697B4500DA4CB8 /* JSLRunOrderListCell.swift */; };
+		0A217A8C238819E600C37E2B /* JSLAppointConmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A217A8B238819E600C37E2B /* JSLAppointConmentDetailVC.swift */; };
 		0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */; };
 		0A234024231D609100D21C11 /* GYZLabAndLabBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */; };
 		0A25D40E2377196F00179293 /* JSLMyFenSiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */; };
@@ -238,6 +239,7 @@
 		0A1D86802369769D00DA4CB8 /* JSLMyConmentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyConmentVC.swift; sourceTree = "<group>"; };
 		0A1D8682236977E700DA4CB8 /* JSLMyConmentListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyConmentListVC.swift; sourceTree = "<group>"; };
 		0A1D868423697B4500DA4CB8 /* JSLRunOrderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLRunOrderListCell.swift; sourceTree = "<group>"; };
+		0A217A8B238819E600C37E2B /* JSLAppointConmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAppointConmentDetailVC.swift; sourceTree = "<group>"; };
 		0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineHeaderView.swift; sourceTree = "<group>"; };
 		0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYZLabAndLabBtnView.swift; sourceTree = "<group>"; };
 		0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiVC.swift; sourceTree = "<group>"; };
@@ -867,6 +869,7 @@
 				0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */,
 				0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */,
 				0A4C25592387BC340059A7AF /* JSLMyAppointConmentVC.swift */,
+				0A217A8B238819E600C37E2B /* JSLAppointConmentDetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1352,6 +1355,7 @@
 				0A5093A322FAC675002535FF /* ToolBarView.swift in Sources */,
 				0A83178B237CF2A5008E78AE /* JSLNoteDetailContentFooter.swift in Sources */,
 				0AA325F22382E83C00349ACE /* JSLConmentMsgVC.swift in Sources */,
+				0A217A8C238819E600C37E2B /* JSLAppointConmentDetailVC.swift in Sources */,
 				0A4339C823716479001A6B38 /* JSLHomeAdsModel.swift in Sources */,
 				0A5093BD22FAC675002535FF /* GYZUpdateVersionTool.swift in Sources */,
 				0A45C2B722FD22790034BCCD /* JSLHomeShopCell.swift in Sources */,

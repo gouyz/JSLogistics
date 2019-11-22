@@ -1,8 +1,8 @@
 //
-//  JSLConmentDetailVC.swift
+//  JSLAppointConmentDetailVC.swift
 //  JSLogistics
-//  查看评价 购物订单
-//  Created by gouyz on 2019/11/1.
+//  查看评价 出行订单
+//  Created by gouyz on 2019/11/22.
 //  Copyright © 2019 gouyz. All rights reserved.
 //
 
@@ -10,12 +10,12 @@ import UIKit
 import Cosmos
 import MBProgressHUD
 
-class JSLConmentDetailVC: GYZBaseVC {
+class JSLAppointConmentDetailVC: GYZBaseVC {
     
     var orderId: String = ""
     
-    var dataModel: JSLGoodsOrderConmentModel?
-
+    var dataModel: JSLAppointOrderConmentModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,8 +30,6 @@ class JSLConmentDetailVC: GYZBaseVC {
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
         contentView.addSubview(lineView)
-        contentView.addSubview(iconView)
-        contentView.addSubview(useNameLab)
         contentView.addSubview(dateLab)
         contentView.addSubview(desLab)
         contentView.addSubview(ratingView)
@@ -58,25 +56,14 @@ class JSLConmentDetailVC: GYZBaseVC {
             make.left.right.top.equalTo(contentView)
             make.height.equalTo(kMargin)
         }
-        iconView.snp.makeConstraints { (make) in
-            make.left.equalTo(kMargin)
-            make.centerY.equalTo(useNameLab)
-            make.size.equalTo(CGSize.init(width: kTitleHeight, height: kTitleHeight))
-        }
-        useNameLab.snp.makeConstraints { (make) in
-            make.left.equalTo(iconView.snp.right).offset(kMargin)
-            make.right.equalTo(-kMargin)
-            make.top.equalTo(lineView.snp.bottom).offset(kMargin)
-            make.height.equalTo(50)
-        }
         dateLab.snp.makeConstraints { (make) in
-            make.left.equalTo(iconView)
-            make.top.equalTo(useNameLab.snp.bottom)
+            make.left.equalTo(kMargin)
+            make.top.equalTo(lineView.snp.bottom).offset(kMargin)
             make.right.equalTo(-kMargin)
             make.height.equalTo(30)
         }
         desLab.snp.makeConstraints { (make) in
-            make.left.equalTo(iconView)
+            make.left.equalTo(dateLab)
             make.top.equalTo(dateLab.snp.bottom).offset(kMargin)
             make.width.equalTo(80)
             make.height.equalTo(kTitleHeight)
@@ -131,30 +118,13 @@ class JSLConmentDetailVC: GYZBaseVC {
         
         return view
     }()
-    /// 用户图标
-    lazy var iconView: UIImageView = {
-        let imgView = UIImageView()
-        imgView.backgroundColor = kBackgroundColor
-        imgView.cornerRadius = 22
-        
-        return imgView
-    }()
     
-    /// 用户名称
-    lazy var useNameLab : UILabel = {
-        let lab = UILabel()
-        lab.font = k15Font
-        lab.textColor = kBlackFontColor
-        lab.text = "陈光军"
-        
-        return lab
-    }()
     /// 日期
     lazy var dateLab : UILabel = {
         let lab = UILabel()
         lab.font = k13Font
         lab.textColor = kGaryFontColor
-        lab.text = "2018-12-11 店铺名称"
+        lab.text = "2018-12-11"
         
         return lab
     }()
@@ -163,7 +133,7 @@ class JSLConmentDetailVC: GYZBaseVC {
         let lab = UILabel()
         lab.font = k15Font
         lab.textColor = kBlackFontColor
-        lab.text = "商品评分"
+        lab.text = "司机评分"
         
         return lab
     }()
@@ -188,7 +158,7 @@ class JSLConmentDetailVC: GYZBaseVC {
         let lab = UILabel()
         lab.font = k15Font
         lab.textColor = kBlackFontColor
-        lab.text = "店铺评分"
+        lab.text = "环境评分"
         
         return lab
     }()
@@ -246,7 +216,7 @@ class JSLConmentDetailVC: GYZBaseVC {
     }()
     /// 九宫格图片显示
     lazy var imgViews: GYZPhotoView = GYZPhotoView()
-
+    
     
     //评论信息
     func requestConmentInfo(){
@@ -261,12 +231,12 @@ class JSLConmentDetailVC: GYZBaseVC {
             
             weakSelf?.hud?.hide(animated: true)
             GYZLog(response)
-        
+            
             if response["status"].intValue == kQuestSuccessTag{//请求成功
                 guard let data = response["result"].dictionaryObject else { return }
-                weakSelf?.dataModel = JSLGoodsOrderConmentModel.init(dict: data)
+                weakSelf?.dataModel = JSLAppointOrderConmentModel.init(dict: data)
                 weakSelf?.dealData()
-            
+                
             }else{
                 MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
             }
@@ -278,11 +248,9 @@ class JSLConmentDetailVC: GYZBaseVC {
     }
     func dealData(){
         if dataModel != nil {
-            iconView.kf.setImage(with: URL.init(string: (dataModel?.userInfoModel?.head_pic)!))
-            useNameLab.text = dataModel?.userInfoModel?.nickname
-            dateLab.text = "\((dataModel?.add_time)!) \((dataModel?.store_name)!)"
-            ratingView.rating = Double.init((dataModel?.goods_rank)!)!
-            storeRatingView.rating = Double.init((dataModel?.store_rank)!)!
+            dateLab.text = dataModel?.add_time
+            ratingView.rating = Double.init((dataModel?.driver_rank)!)!
+            storeRatingView.rating = Double.init((dataModel?.environment_rank)!)!
             serviceRatingView.rating = Double.init((dataModel?.service_rank)!)!
             contentLab.text = dataModel?.content
             
