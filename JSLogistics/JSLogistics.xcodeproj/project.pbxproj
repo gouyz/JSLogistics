@@ -33,6 +33,11 @@
 		0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */; };
 		0A3C981F22FE6A140002586E /* JSLFavouriteMsgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */; };
 		0A3E0E0D23866939001A2F13 /* JSLGoodsOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3E0E0C23866939001A2F13 /* JSLGoodsOrderModel.swift */; };
+		0A3FA1912388C6040053877B /* JSLXuniMoneyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FA1902388C6040053877B /* JSLXuniMoneyVC.swift */; };
+		0A3FA1932388CAA00053877B /* JSLXuniMoneyHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FA1922388CAA00053877B /* JSLXuniMoneyHeaderView.swift */; };
+		0A3FA1952388D16D0053877B /* JSLXuniMoneyFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FA1942388D16D0053877B /* JSLXuniMoneyFooterView.swift */; };
+		0A3FA1972388D9620053877B /* JSLXuniMoneyDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FA1962388D9620053877B /* JSLXuniMoneyDetailVC.swift */; };
+		0A3FA1992388DA9C0053877B /* JSLXuniMoneyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3FA1982388DA9C0053877B /* JSLXuniMoneyModel.swift */; };
 		0A414F29237905FB00D54593 /* JSLMyFenSiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */; };
 		0A414F2B23795AC800D54593 /* JSLMessageHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */; };
 		0A414F2D23795B2300D54593 /* JSLNotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */; };
@@ -255,6 +260,11 @@
 		0A3C981C22FE691E0002586E /* JSLFavouriteMsgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgVC.swift; sourceTree = "<group>"; };
 		0A3C981E22FE6A140002586E /* JSLFavouriteMsgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLFavouriteMsgCell.swift; sourceTree = "<group>"; };
 		0A3E0E0C23866939001A2F13 /* JSLGoodsOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLGoodsOrderModel.swift; sourceTree = "<group>"; };
+		0A3FA1902388C6040053877B /* JSLXuniMoneyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLXuniMoneyVC.swift; sourceTree = "<group>"; };
+		0A3FA1922388CAA00053877B /* JSLXuniMoneyHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLXuniMoneyHeaderView.swift; sourceTree = "<group>"; };
+		0A3FA1942388D16D0053877B /* JSLXuniMoneyFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLXuniMoneyFooterView.swift; sourceTree = "<group>"; };
+		0A3FA1962388D9620053877B /* JSLXuniMoneyDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLXuniMoneyDetailVC.swift; sourceTree = "<group>"; };
+		0A3FA1982388DA9C0053877B /* JSLXuniMoneyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLXuniMoneyModel.swift; sourceTree = "<group>"; };
 		0A414F28237905FB00D54593 /* JSLMyFenSiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiModel.swift; sourceTree = "<group>"; };
 		0A414F2A23795AC800D54593 /* JSLMessageHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMessageHomeModel.swift; sourceTree = "<group>"; };
 		0A414F2C23795B2300D54593 /* JSLNotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNotificationModel.swift; sourceTree = "<group>"; };
@@ -842,6 +852,7 @@
 				0A4D1C4223876C8B00B6A233 /* JSLTripOrderModel.swift */,
 				0A4C255B2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift */,
 				0A4C255D2387E1140059A7AF /* JSLAppointOrderConmentModel.swift */,
+				0A3FA1982388DA9C0053877B /* JSLXuniMoneyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -870,6 +881,8 @@
 				0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */,
 				0A4C25592387BC340059A7AF /* JSLMyAppointConmentVC.swift */,
 				0A217A8B238819E600C37E2B /* JSLAppointConmentDetailVC.swift */,
+				0A3FA1902388C6040053877B /* JSLXuniMoneyVC.swift */,
+				0A3FA1962388D9620053877B /* JSLXuniMoneyDetailVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -889,6 +902,8 @@
 				0A434B72236FFB99005B2BD4 /* JSLMyProfilePhotoCell.swift */,
 				0A434B7623700CE9005B2BD4 /* JSLUploadPhotoCell.swift */,
 				0A25D41123771AF200179293 /* JSLMyFensiCell.swift */,
+				0A3FA1922388CAA00053877B /* JSLXuniMoneyHeaderView.swift */,
+				0A3FA1942388D16D0053877B /* JSLXuniMoneyFooterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1325,6 +1340,7 @@
 				0A50937822FAC675002535FF /* GYZBottomSendView.swift in Sources */,
 				0A5093BA22FAC675002535FF /* SYRingProgressView.m in Sources */,
 				0A428FAE2383860A0063DB37 /* JSLGoodsRuleCell.swift in Sources */,
+				0A3FA1972388D9620053877B /* JSLXuniMoneyDetailVC.swift in Sources */,
 				0A5093B222FAC675002535FF /* SegmentStyle.swift in Sources */,
 				0A83178D237CF459008E78AE /* JSLNoteDetailMoreHeader.swift in Sources */,
 				0A2D813323575DB300A3E024 /* JSLSettingVC.swift in Sources */,
@@ -1430,6 +1446,7 @@
 				0A5093AC22FAC675002535FF /* MMCardItem.swift in Sources */,
 				0A428FB22383C71F0063DB37 /* JSLCreateOrderVC.swift in Sources */,
 				0A50937522FAC675002535FF /* GYZLabAndLabView.swift in Sources */,
+				0A3FA1992388DA9C0053877B /* JSLXuniMoneyModel.swift in Sources */,
 				0A50937D22FAC675002535FF /* GYZMainTabBarVC.swift in Sources */,
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
 				0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */,
@@ -1456,6 +1473,7 @@
 				0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */,
 				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,
 				0A3645CA236896210080B872 /* JSLCartOrderDetailVC.swift in Sources */,
+				0A3FA1952388D16D0053877B /* JSLXuniMoneyFooterView.swift in Sources */,
 				0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */,
 				0A50937A22FAC675002535FF /* GYZSearchBtnView.swift in Sources */,
 				0A5093BF22FAC675002535FF /* GYZLunarFormatter.swift in Sources */,
@@ -1469,10 +1487,12 @@
 				0A5093DB22FAC98C002535FF /* JSLHomeVC.swift in Sources */,
 				0A50935F22FAC675002535FF /* FSCityModel.swift in Sources */,
 				0A4579B9237BE9B000BAB8D3 /* JSLNoteDetailShopCell.swift in Sources */,
+				0A3FA1932388CAA00053877B /* JSLXuniMoneyHeaderView.swift in Sources */,
 				0A5093DF22FACA36002535FF /* JSLMessageVC.swift in Sources */,
 				0A5093C322FAC675002535FF /* GYZTool.swift in Sources */,
 				0A50939922FAC675002535FF /* GYZLoadingView.swift in Sources */,
 				0A4339C623710CB3001A6B38 /* JSLSearchHotCell.swift in Sources */,
+				0A3FA1912388C6040053877B /* JSLXuniMoneyVC.swift in Sources */,
 				0A5093C022FAC675002535FF /* GYZOpenCameraPhotosTool.swift in Sources */,
 				0A50936B22FAC675002535FF /* GYZCommonIconArrowCell.swift in Sources */,
 				0A1D8683236977E700DA4CB8 /* JSLMyConmentListVC.swift in Sources */,

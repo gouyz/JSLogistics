@@ -138,8 +138,8 @@ class JSLMineVC: GYZBaseVC {
             break
         case 104:
             break
-        case 105:
-            break
+        case 105: /// 我的虚拟币
+            goMyMoney()
         case 107:/// 我的订单
             showOrderView(isConment: false)
         case 106:/// 我的评论
@@ -164,6 +164,11 @@ class JSLMineVC: GYZBaseVC {
     /// 我的关注
     func goMyFollow(){
         let vc = JSLMyFollowVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    /// 我的虚拟币
+    func goMyMoney(){
+        let vc = JSLXuniMoneyVC()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 评论
