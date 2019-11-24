@@ -40,6 +40,10 @@ class JSLMineVC: GYZBaseVC {
             self.clickedOperator(index: index)
         }
         
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         requestMineInfo()
     }
     lazy var pagingView: JXPagingView = {

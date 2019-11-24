@@ -89,8 +89,14 @@ class JSLMyProfileVC: GYZBaseVC {
     }
     /// 编辑
     @objc func onClickRightBtn(){
-        let vc = JSLEditMyProfileVC()
-        self.navigationController?.pushViewController(vc, animated: true)
+        if userInfoModel != nil {
+            let vc = JSLEditMyProfileVC()
+            vc.userInfoModel = userInfoModel
+            vc.resultBlock = { [unowned self] () in
+                self.requestMineInfo()
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
 }
 extension JSLMyProfileVC: UICollectionViewDataSource,UICollectionViewDelegate{

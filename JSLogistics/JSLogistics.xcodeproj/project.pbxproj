@@ -20,6 +20,7 @@
 		0A217A8C238819E600C37E2B /* JSLAppointConmentDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A217A8B238819E600C37E2B /* JSLAppointConmentDetailVC.swift */; };
 		0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */; };
 		0A234024231D609100D21C11 /* GYZLabAndLabBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */; };
+		0A23AC43238A6D7300102EAA /* JSLMyProfilePhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23AC42238A6D7300102EAA /* JSLMyProfilePhotoModel.swift */; };
 		0A25D40E2377196F00179293 /* JSLMyFenSiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */; };
 		0A25D41023771AB800179293 /* JSLMyFollowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */; };
 		0A25D41223771AF200179293 /* JSLMyFensiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D41123771AF200179293 /* JSLMyFensiCell.swift */; };
@@ -247,6 +248,7 @@
 		0A217A8B238819E600C37E2B /* JSLAppointConmentDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAppointConmentDetailVC.swift; sourceTree = "<group>"; };
 		0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineHeaderView.swift; sourceTree = "<group>"; };
 		0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYZLabAndLabBtnView.swift; sourceTree = "<group>"; };
+		0A23AC42238A6D7300102EAA /* JSLMyProfilePhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyProfilePhotoModel.swift; sourceTree = "<group>"; };
 		0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiVC.swift; sourceTree = "<group>"; };
 		0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFollowVC.swift; sourceTree = "<group>"; };
 		0A25D41123771AF200179293 /* JSLMyFensiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFensiCell.swift; sourceTree = "<group>"; };
@@ -853,6 +855,7 @@
 				0A4C255B2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift */,
 				0A4C255D2387E1140059A7AF /* JSLAppointOrderConmentModel.swift */,
 				0A3FA1982388DA9C0053877B /* JSLXuniMoneyModel.swift */,
+				0A23AC42238A6D7300102EAA /* JSLMyProfilePhotoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1362,6 +1365,7 @@
 				0A5093B322FAC675002535FF /* ScrollPageView.swift in Sources */,
 				0A424A8023755881001E1163 /* JSLMyPublishNotesVC.swift in Sources */,
 				0A50938D22FAC675002535FF /* ETNavBarTransparent.swift in Sources */,
+				0A23AC43238A6D7300102EAA /* JSLMyProfilePhotoModel.swift in Sources */,
 				0A6915F72369D8D500999206 /* JSLTripOrderConmentVC.swift in Sources */,
 				0A5093B122FAC675002535FF /* GYZSheetCell.swift in Sources */,
 				0A5093E122FACA62002535FF /* JSLMineVC.swift in Sources */,

@@ -15,11 +15,12 @@ class JSLUploadPhotoCell: UITableViewCell {
     let itemWidth = floor((kScreenWidth - kMargin * 5)/4)
     
     var didSelectItemBlock:((_ index: Int) -> Void)?
+    var didDeleteItemBlock:((_ index: Int) -> Void)?
     
     /// 填充数据
-    var dataModel : [String]?{
+    var dataModel : [JSLMyProfilePhotoModel]?{
         didSet{
-            if let model = dataModel {
+            if dataModel != nil {
                 
                 self.collectionView.reloadData()
                 self.collectionView.layoutIfNeeded()
@@ -70,6 +71,12 @@ class JSLUploadPhotoCell: UITableViewCell {
         
         return collView
     }()
+    /// 删除
+    @objc func onClickedDelete(sender:UITapGestureRecognizer){
+        if didDeleteItemBlock != nil {
+            didDeleteItemBlock!((sender.view?.tag)!)
+        }
+    }
 }
 
 extension JSLUploadPhotoCell : UICollectionViewDataSource,UICollectionViewDelegate{
@@ -79,14 +86,30 @@ extension JSLUploadPhotoCell : UICollectionViewDataSource,UICollectionViewDelega
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if dataModel != nil {
+            return dataModel!.count + 1
+        }
         return 1
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: uploadPhotoCell, for: indexPath) as! JSLMyProfilePhotoCell
         
-        cell.deleteImgView.isHidden = true
-        cell.iconView.image = UIImage.init(named: "icon_upload_img")
+        cell.deleteImgView.tag = indexPath.row
+        cell.deleteImgView.addOnClickListener(target: self, action: #selector(onClickedDelete(sender:)))
+        cell.deleteImgView.isHidden = false
+        if dataModel == nil || dataModel?.count == indexPath.row {
+            cell.deleteImgView.isHidden = true
+            cell.iconView.image = UIImage.init(named: "icon_upload_img")
+        }else{
+            cell.deleteImgView.isHidden = false
+            let model = dataModel![indexPath.row]
+            if model.isUrl == "1" {
+                cell.iconView.kf.setImage(with: URL.init(string: model.imgURL!))
+            }else{
+                cell.iconView.image = model.img
+            }
+        }
         
         return cell
     }

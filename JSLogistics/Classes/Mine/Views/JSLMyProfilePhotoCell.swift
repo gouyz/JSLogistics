@@ -19,8 +19,8 @@ class JSLMyProfilePhotoCell: UICollectionViewCell {
             make.edges.equalTo(0)
         }
         deleteImgView.snp.makeConstraints({ (make) in
-            make.top.equalTo(-5)
-            make.right.equalTo(5)
+            make.top.equalTo(5)
+            make.right.equalTo(-5)
             make.size.equalTo(CGSize.init(width: 20, height: 20))
         })
     }
