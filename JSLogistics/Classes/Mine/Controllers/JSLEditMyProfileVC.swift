@@ -103,10 +103,16 @@ extension JSLEditMyProfileVC: UITableViewDelegate,UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: editMyProfileCell) as! GYZMyProfileCell
             
             cell.userImgView.isHidden = true
+            cell.textFiled.isEnabled = true
+            cell.rightIconView.isHidden = true
             cell.nameLab.text = titleArr[indexPath.row]
             
             if indexPath.row == 0 {
                 cell.userImgView.isHidden = false
+            }
+            if indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 7 {
+                cell.textFiled.isEnabled = false
+                cell.rightIconView.isHidden = false
             }
             
             cell.selectionStyle = .none
