@@ -37,6 +37,8 @@ class JSLCommonNavVC: GYZBaseVC {
     /// 出行&物流
     @objc func onClickedRightBtn(){
         
+        let vc = JSLAppointCarVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 城市
     @objc func onClickedLeftBtn(){

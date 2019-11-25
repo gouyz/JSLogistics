@@ -209,6 +209,9 @@
 		0A831797237D2C84008E78AE /* JSLStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A831796237D2C84008E78AE /* JSLStoreModel.swift */; };
 		0A831799237D2E3D008E78AE /* JSLPublishInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A831798237D2E3D008E78AE /* JSLPublishInfoModel.swift */; };
 		0A83179B237D2FEF008E78AE /* JSLConmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A83179A237D2FEF008E78AE /* JSLConmentModel.swift */; };
+		0A87E6F9238B6C17005DE2EB /* JSLAppointCarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87E6F8238B6C17005DE2EB /* JSLAppointCarVC.swift */; };
+		0A87E6FB238BC337005DE2EB /* JSLSelectAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87E6FA238BC337005DE2EB /* JSLSelectAddressVC.swift */; };
+		0A87E6FD238BD024005DE2EB /* JSLSelectAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A87E6FC238BD024005DE2EB /* JSLSelectAddressCell.swift */; };
 		0A8B89562373C53C00E74275 /* JSLSearchShopVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B89552373C53C00E74275 /* JSLSearchShopVC.swift */; };
 		0A8B8958237412CA00E74275 /* JSLNoteDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */; };
 		0A95136C238286C200E2AA2A /* JSLStoreDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A95136B238286C200E2AA2A /* JSLStoreDetailModel.swift */; };
@@ -456,6 +459,9 @@
 		0A831796237D2C84008E78AE /* JSLStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLStoreModel.swift; sourceTree = "<group>"; };
 		0A831798237D2E3D008E78AE /* JSLPublishInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLPublishInfoModel.swift; sourceTree = "<group>"; };
 		0A83179A237D2FEF008E78AE /* JSLConmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLConmentModel.swift; sourceTree = "<group>"; };
+		0A87E6F8238B6C17005DE2EB /* JSLAppointCarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAppointCarVC.swift; sourceTree = "<group>"; };
+		0A87E6FA238BC337005DE2EB /* JSLSelectAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSelectAddressVC.swift; sourceTree = "<group>"; };
+		0A87E6FC238BD024005DE2EB /* JSLSelectAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSelectAddressCell.swift; sourceTree = "<group>"; };
 		0A8B89552373C53C00E74275 /* JSLSearchShopVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSearchShopVC.swift; sourceTree = "<group>"; };
 		0A8B8957237412CA00E74275 /* JSLNoteDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLNoteDetailVC.swift; sourceTree = "<group>"; };
 		0A95136B238286C200E2AA2A /* JSLStoreDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLStoreDetailModel.swift; sourceTree = "<group>"; };
@@ -948,6 +954,8 @@
 				0A4EE860237E829900A30411 /* JSLStoreDetailVC.swift */,
 				0A428FA923837EB00063DB37 /* JSLGoodsDetailVC.swift */,
 				0A428FB12383C71F0063DB37 /* JSLCreateOrderVC.swift */,
+				0A87E6F8238B6C17005DE2EB /* JSLAppointCarVC.swift */,
+				0A87E6FA238BC337005DE2EB /* JSLSelectAddressVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -972,6 +980,7 @@
 				0A4EE864237E928D00A30411 /* JSLStoreDetailGoodsCell.swift */,
 				0A428FAB238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift */,
 				0A428FAD2383860A0063DB37 /* JSLGoodsRuleCell.swift */,
+				0A87E6FC238BD024005DE2EB /* JSLSelectAddressCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1321,6 +1330,7 @@
 				0A434B7723700CE9005B2BD4 /* JSLUploadPhotoCell.swift in Sources */,
 				0A45C2B522FD1BD40034BCCD /* JSLHomeListVC.swift in Sources */,
 				0A1D867D236933A500DA4CB8 /* JSLCartOrderInfoCell.swift in Sources */,
+				0A87E6FD238BD024005DE2EB /* JSLSelectAddressCell.swift in Sources */,
 				0A5093B522FAC675002535FF /* ContentView.swift in Sources */,
 				0A234024231D609100D21C11 /* GYZLabAndLabBtnView.swift in Sources */,
 				0A4339C423710534001A6B38 /* JSLSelectedFoodTagVC.swift in Sources */,
@@ -1480,9 +1490,11 @@
 				0A3FA1952388D16D0053877B /* JSLXuniMoneyFooterView.swift in Sources */,
 				0A45C2BD22FD5FD20034BCCD /* JSLShopListCell.swift in Sources */,
 				0A50937A22FAC675002535FF /* GYZSearchBtnView.swift in Sources */,
+				0A87E6FB238BC337005DE2EB /* JSLSelectAddressVC.swift in Sources */,
 				0A5093BF22FAC675002535FF /* GYZLunarFormatter.swift in Sources */,
 				0A417B0822F9114F00BF9614 /* AppDelegate.swift in Sources */,
 				0A8B8958237412CA00E74275 /* JSLNoteDetailVC.swift in Sources */,
+				0A87E6F9238B6C17005DE2EB /* JSLAppointCarVC.swift in Sources */,
 				0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */,
 				0A1D86812369769D00DA4CB8 /* JSLMyConmentVC.swift in Sources */,
 				0A50936C22FAC675002535FF /* LHSCheckView.swift in Sources */,
