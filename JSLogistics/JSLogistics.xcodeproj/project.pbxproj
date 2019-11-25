@@ -21,6 +21,13 @@
 		0A234022231D5AE600D21C11 /* JSLMineHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */; };
 		0A234024231D609100D21C11 /* GYZLabAndLabBtnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */; };
 		0A23AC43238A6D7300102EAA /* JSLMyProfilePhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23AC42238A6D7300102EAA /* JSLMyProfilePhotoModel.swift */; };
+		0A23EE49238C109800DDED82 /* JSLAppointCarOrderAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE48238C109800DDED82 /* JSLAppointCarOrderAlertView.swift */; };
+		0A23EE4B238C226800DDED82 /* JSLSelectCityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE4A238C226800DDED82 /* JSLSelectCityVC.swift */; };
+		0A23EE4D238C2A5A00DDED82 /* JSLHotCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE4C238C2A5A00DDED82 /* JSLHotCityCell.swift */; };
+		0A23EE4F238C2AF700DDED82 /* JSLAllCityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE4E238C2AF700DDED82 /* JSLAllCityCell.swift */; };
+		0A23EE51238C2BFB00DDED82 /* JSLSelectCityHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE50238C2BFB00DDED82 /* JSLSelectCityHeaderView.swift */; };
+		0A23EE53238C2F9100DDED82 /* JSLCityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE52238C2F9100DDED82 /* JSLCityModel.swift */; };
+		0A23EE55238C343000DDED82 /* JSLSearchHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A23EE54238C343000DDED82 /* JSLSearchHomeVC.swift */; };
 		0A25D40E2377196F00179293 /* JSLMyFenSiVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */; };
 		0A25D41023771AB800179293 /* JSLMyFollowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */; };
 		0A25D41223771AF200179293 /* JSLMyFensiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25D41123771AF200179293 /* JSLMyFensiCell.swift */; };
@@ -252,6 +259,13 @@
 		0A234021231D5AE600D21C11 /* JSLMineHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMineHeaderView.swift; sourceTree = "<group>"; };
 		0A234023231D609100D21C11 /* GYZLabAndLabBtnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYZLabAndLabBtnView.swift; sourceTree = "<group>"; };
 		0A23AC42238A6D7300102EAA /* JSLMyProfilePhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyProfilePhotoModel.swift; sourceTree = "<group>"; };
+		0A23EE48238C109800DDED82 /* JSLAppointCarOrderAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAppointCarOrderAlertView.swift; sourceTree = "<group>"; };
+		0A23EE4A238C226800DDED82 /* JSLSelectCityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSelectCityVC.swift; sourceTree = "<group>"; };
+		0A23EE4C238C2A5A00DDED82 /* JSLHotCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLHotCityCell.swift; sourceTree = "<group>"; };
+		0A23EE4E238C2AF700DDED82 /* JSLAllCityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLAllCityCell.swift; sourceTree = "<group>"; };
+		0A23EE50238C2BFB00DDED82 /* JSLSelectCityHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSelectCityHeaderView.swift; sourceTree = "<group>"; };
+		0A23EE52238C2F9100DDED82 /* JSLCityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLCityModel.swift; sourceTree = "<group>"; };
+		0A23EE54238C343000DDED82 /* JSLSearchHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLSearchHomeVC.swift; sourceTree = "<group>"; };
 		0A25D40D2377196F00179293 /* JSLMyFenSiVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFenSiVC.swift; sourceTree = "<group>"; };
 		0A25D40F23771AB800179293 /* JSLMyFollowVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFollowVC.swift; sourceTree = "<group>"; };
 		0A25D41123771AF200179293 /* JSLMyFensiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSLMyFensiCell.swift; sourceTree = "<group>"; };
@@ -940,6 +954,7 @@
 				0A95136B238286C200E2AA2A /* JSLStoreDetailModel.swift */,
 				0A428FAF238395790063DB37 /* JSLGoodsDetailModel.swift */,
 				0A428FB32383D46B0063DB37 /* JSLCreateOrderModel.swift */,
+				0A23EE52238C2F9100DDED82 /* JSLCityModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -956,6 +971,8 @@
 				0A428FB12383C71F0063DB37 /* JSLCreateOrderVC.swift */,
 				0A87E6F8238B6C17005DE2EB /* JSLAppointCarVC.swift */,
 				0A87E6FA238BC337005DE2EB /* JSLSelectAddressVC.swift */,
+				0A23EE4A238C226800DDED82 /* JSLSelectCityVC.swift */,
+				0A23EE54238C343000DDED82 /* JSLSearchHomeVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -981,6 +998,10 @@
 				0A428FAB238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift */,
 				0A428FAD2383860A0063DB37 /* JSLGoodsRuleCell.swift */,
 				0A87E6FC238BD024005DE2EB /* JSLSelectAddressCell.swift */,
+				0A23EE48238C109800DDED82 /* JSLAppointCarOrderAlertView.swift */,
+				0A23EE4C238C2A5A00DDED82 /* JSLHotCityCell.swift */,
+				0A23EE4E238C2AF700DDED82 /* JSLAllCityCell.swift */,
+				0A23EE50238C2BFB00DDED82 /* JSLSelectCityHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1399,11 +1420,13 @@
 				0A6677B6236880400044A978 /* JSLCartOrderListCell.swift in Sources */,
 				0A5093B022FAC675002535FF /* GYZActionSheet.swift in Sources */,
 				0A50937722FAC675002535FF /* GYZImgAndTxtBtnView.swift in Sources */,
+				0A23EE4F238C2AF700DDED82 /* JSLAllCityCell.swift in Sources */,
 				0A46E068237A5C06000A3CDD /* JSLFenSiMsgModel.swift in Sources */,
 				0A414F29237905FB00D54593 /* JSLMyFenSiModel.swift in Sources */,
 				0A0F8F672300631900827699 /* JSLNotificateMsgVC.swift in Sources */,
 				0A95136C238286C200E2AA2A /* JSLStoreDetailModel.swift in Sources */,
 				0A50939E22FAC675002535FF /* HXTagCollectionViewFlowLayout.m in Sources */,
+				0A23EE4B238C226800DDED82 /* JSLSelectCityVC.swift in Sources */,
 				0A50937E22FAC675002535FF /* GYZBaseNavigationVC.swift in Sources */,
 				0A0F8F63230054F800827699 /* JSLFenSiMsgListVC.swift in Sources */,
 				0A50936722FAC675002535FF /* GYZCommonInfoCell.swift in Sources */,
@@ -1413,6 +1436,7 @@
 				0A5093A922FAC675002535FF /* ZCycleLayout.swift in Sources */,
 				0A831791237CF9EE008E78AE /* JSLConmentBottomView.swift in Sources */,
 				0A50937F22FAC675002535FF /* GYZBaseVC.swift in Sources */,
+				0A23EE4D238C2A5A00DDED82 /* JSLHotCityCell.swift in Sources */,
 				0A4EE85D237E455000A30411 /* JSLNoteAllConmentReplyCell.swift in Sources */,
 				0A83179B237D2FEF008E78AE /* JSLConmentModel.swift in Sources */,
 				0A4F235D23725BF6009DEB30 /* JSLUserInfoModel.swift in Sources */,
@@ -1462,6 +1486,7 @@
 				0A50937522FAC675002535FF /* GYZLabAndLabView.swift in Sources */,
 				0A3FA1992388DA9C0053877B /* JSLXuniMoneyModel.swift in Sources */,
 				0A50937D22FAC675002535FF /* GYZMainTabBarVC.swift in Sources */,
+				0A23EE55238C343000DDED82 /* JSLSearchHomeVC.swift in Sources */,
 				0A50936A22FAC675002535FF /* GYZPhotoView.swift in Sources */,
 				0A3C981D22FE691E0002586E /* JSLFavouriteMsgVC.swift in Sources */,
 				0A414F2B23795AC800D54593 /* JSLMessageHomeModel.swift in Sources */,
@@ -1479,10 +1504,12 @@
 				0A1D868523697B4500DA4CB8 /* JSLRunOrderListCell.swift in Sources */,
 				0A417B0A22F9114F00BF9614 /* ViewController.swift in Sources */,
 				0A50936922FAC675002535FF /* FSHotCityCell.swift in Sources */,
+				0A23EE51238C2BFB00DDED82 /* JSLSelectCityHeaderView.swift in Sources */,
 				0A50937422FAC675002535FF /* LHSSelectPayMethodView.swift in Sources */,
 				0A5093A222FAC675002535FF /* PickerView.swift in Sources */,
 				0A4F23642372B5A5009DEB30 /* JSLGoodsModel.swift in Sources */,
 				0A4C255C2387CDC60059A7AF /* JSLGoodsOrderConmentModel.swift in Sources */,
+				0A23EE53238C2F9100DDED82 /* JSLCityModel.swift in Sources */,
 				0A428FAC238382AC0063DB37 /* JSLGoodsDetailHeaderView.swift in Sources */,
 				0A6915F52369D69400999206 /* JSLTripOrderListVC.swift in Sources */,
 				0A2D813723576C9F00A3E024 /* JSLAboutVC.swift in Sources */,
@@ -1495,6 +1522,7 @@
 				0A417B0822F9114F00BF9614 /* AppDelegate.swift in Sources */,
 				0A8B8958237412CA00E74275 /* JSLNoteDetailVC.swift in Sources */,
 				0A87E6F9238B6C17005DE2EB /* JSLAppointCarVC.swift in Sources */,
+				0A23EE49238C109800DDED82 /* JSLAppointCarOrderAlertView.swift in Sources */,
 				0A50936022FAC675002535FF /* FSSelectCityVC.swift in Sources */,
 				0A1D86812369769D00DA4CB8 /* JSLMyConmentVC.swift in Sources */,
 				0A50936C22FAC675002535FF /* LHSCheckView.swift in Sources */,

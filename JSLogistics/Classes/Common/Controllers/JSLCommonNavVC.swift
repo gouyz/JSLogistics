@@ -7,8 +7,12 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 class JSLCommonNavVC: GYZBaseVC {
+    
+    /// 0：没有权限；1：有
+    var isAppoint: String = "0"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +40,42 @@ class JSLCommonNavVC: GYZBaseVC {
     
     /// 出行&物流
     @objc func onClickedRightBtn(){
+        if isAppoint == "1" {
+            let vc = JSLAppointCarVC()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            MBProgressHUD.showAutoDismissHUD(message: "暂无出行权限")
+        }
         
-        let vc = JSLAppointCarVC()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
     /// 城市
     @objc func onClickedLeftBtn(){
-        
+        let vc = JSLSelectCityVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
+    //出行权限
+    func requestIsAppoint(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("user/is_appoint", parameters: ["user_id":userDefaults.string(forKey: "userId") ?? ""],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+        
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.isAppoint = response["result"].stringValue
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
 }

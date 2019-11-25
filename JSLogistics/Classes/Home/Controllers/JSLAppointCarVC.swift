@@ -24,6 +24,8 @@ class JSLAppointCarVC: GYZBaseVC {
     var toAddressLatitude : CGFloat = 0
     /// 选择预约日期
     var selectDate:String = ""
+    /// 车费
+    var money:String = "0"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +54,13 @@ class JSLAppointCarVC: GYZBaseVC {
         toAddressView.addSubview(toAddressLab)
         toAddressView.addSubview(toAddressDetailLab)
         
+        bottomView.addSubview(payBtn)
+        
         bottomView.snp.makeConstraints { (make) in
             make.left.equalTo(kMargin)
             make.right.equalTo(-kMargin)
             make.bottom.equalTo(-20)
-            make.height.equalTo(180)
+            make.height.equalTo(240)
         }
         appointDateView.snp.makeConstraints { (make) in
             make.top.equalTo(bottomView)
@@ -82,7 +86,7 @@ class JSLAppointCarVC: GYZBaseVC {
         }
         addressTagView.snp.makeConstraints { (make) in
             make.left.equalTo(kMargin)
-            make.centerY.equalTo(addressView)
+            make.centerY.equalTo(addressLab)
             make.size.equalTo(CGSize.init(width: 8, height: 8))
         }
         addressLab.snp.makeConstraints { (make) in
@@ -110,7 +114,7 @@ class JSLAppointCarVC: GYZBaseVC {
         }
         toAddressTagView.snp.makeConstraints { (make) in
             make.left.size.equalTo(addressTagView)
-            make.centerY.equalTo(toAddressView)
+            make.centerY.equalTo(toAddressLab)
         }
         toAddressLab.snp.makeConstraints { (make) in
             make.left.right.equalTo(toAddressView)
@@ -120,6 +124,12 @@ class JSLAppointCarVC: GYZBaseVC {
         toAddressDetailLab.snp.makeConstraints { (make) in
             make.left.right.equalTo(toAddressView)
             make.top.equalTo(toAddressLab.snp.bottom)
+            make.bottom.equalTo(-kMargin)
+        }
+        
+        payBtn.snp.makeConstraints { (make) in
+            make.centerX.equalTo(bottomView)
+            make.size.equalTo(CGSize.init(width: 100, height: 34))
             make.bottom.equalTo(-kMargin)
         }
     }
@@ -183,7 +193,7 @@ class JSLAppointCarVC: GYZBaseVC {
         let lab = UILabel()
         lab.textColor = kBlackFontColor
         lab.font = k15Font
-        lab.text = "南大街店"
+        lab.text = "从这里出发"
         
         return lab
     }()
@@ -192,7 +202,6 @@ class JSLAppointCarVC: GYZBaseVC {
         let lab = UILabel()
         lab.textColor = kOrangeFontColor
         lab.font = k13Font
-        lab.text = "南大街店"
         
         return lab
     }()
@@ -242,7 +251,7 @@ class JSLAppointCarVC: GYZBaseVC {
         btn.setTitleColor(kWhiteColor, for: .normal)
         btn.setTitle("计算车费", for: .normal)
         btn.backgroundColor = kGreenFontColor
-        btn.cornerRadius = kCornerRadius
+        btn.cornerRadius = 17
         
         btn.addTarget(self, action: #selector(onClickedPay), for: .touchUpInside)
         
@@ -289,7 +298,72 @@ class JSLAppointCarVC: GYZBaseVC {
             MBProgressHUD.showAutoDismissHUD(message: "请选择目的地")
             return
         }
+        
+        requestMoney()
     }
+    //计算车费
+    func requestMoney(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("appointment/money", parameters: ["longitude1":addressLongitude,"latitude1":addressLatitude,"longitude2":toAddressLongitude,"latitude2":toAddressLatitude],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+        
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                weakSelf?.money = response["result"].stringValue
+                weakSelf?.showAlertView()
+            }else{
+                MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
+    
+    func showAlertView(){
+        let alertView = JSLAppointCarOrderAlertView()
+        alertView.moneyLab.text = "共计\(money)元"
+        alertView.show()
+        alertView.action = {[unowned self] (alert,index) in
+            if index == 2 {// 确定
+                self.requestSubmitOrder()
+            }
+        }
+    }
+    
+    //下单
+    func requestSubmitOrder(){
+        if !GYZTool.checkNetWork() {
+            return
+        }
+        
+        weak var weakSelf = self
+        createHUD(message: "加载中...")
+        
+        GYZNetWork.requestNetwork("appointment/appoint", parameters: ["longitude1":addressLongitude,"latitude1":addressLatitude,"longitude2":toAddressLongitude,"latitude2":toAddressLatitude,"time":selectDate,"departure":addressDetailLab.text!,"destination":toAddressDetailLab.text!,"user_id":userDefaults.string(forKey: "userId") ?? ""],  success: { (response) in
+            
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(response)
+        
+            MBProgressHUD.showAutoDismissHUD(message: response["msg"].stringValue)
+            if response["status"].intValue == kQuestSuccessTag{//请求成功
+                
+            }
+            
+        }, failture: { (error) in
+            weakSelf?.hud?.hide(animated: true)
+            GYZLog(error)
+        })
+    }
+    
 }
 extension JSLAppointCarVC: MAMapViewDelegate{
     func mapView(_ mapView: MAMapView!, viewFor annotation: MAAnnotation!) -> MAAnnotationView! {
@@ -349,11 +423,13 @@ extension JSLAppointCarVC : AMapSearchDelegate{
         NSLog("Error:\(error)")
     }
     func onReGeocodeSearchDone(_ request: AMapReGeocodeSearchRequest!, response: AMapReGeocodeSearchResponse!) {
-        GYZLog("address:\((response.regeocode.pois[0]))")
-        let poiModel = response.regeocode.pois[0]
-        addressLatitude = poiModel.location.latitude
-        addressLongitude = poiModel.location.longitude
-        addressLab.text = poiModel.name
-        addressDetailLab.text = poiModel.address //poiModel.city + poiModel.district + poiModel.address
+        if response.regeocode.pois.count > 0 {
+            GYZLog("address:\((response.regeocode.pois[0]))")
+            let poiModel = response.regeocode.pois[0]
+            addressLatitude = poiModel.location.latitude
+            addressLongitude = poiModel.location.longitude
+            addressLab.text = poiModel.name
+            addressDetailLab.text = poiModel.address
+        }
     }
 }
